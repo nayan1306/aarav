@@ -2,6 +2,7 @@ import 'package:aarav/Pages/breathing/breathinglandingpage.dart';
 import 'package:aarav/Pages/breathing/breathingpage3.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
+import 'package:aarav/widgets/quotetile.dart';
 import 'package:flutter/material.dart';
 
 class QuotePage extends StatefulWidget {
@@ -73,195 +74,52 @@ class _BreathingPageState extends State<QuotePage> {
             ),
           ),
           SizedBox(height: 20),
-          Row(
-            children: [
-              BreathingTileAnimated(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => const BreathingLandingPage(
-                            assetImagePath: "assets/images/sphere.png",
-                            title: "Decompress",
-                            durations: [4, 1, 4, 1],
-                          ), // Navigate to BreathingLandingPage
-                    ),
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTileAnimated(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Sleep",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => const BreathingLandingPage(
-                            assetImagePath: "assets/images/sphere.png",
-                            title: "Sleep",
-                            durations: [4, 1, 4, 1],
-                          ), // Navigate to BreathingLandingPage
-                    ),
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTileAnimated(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Let go of worries",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => const BreathingLandingPage(
-                            assetImagePath: "assets/images/sphere.png",
-                            title: "Let go of worries",
-                            durations: [4, 1, 4, 1],
-                          ), // Navigate to BreathingLandingPage
-                    ),
-                  );
-                },
-              ),
-            ],
+          Text(
+            "Work and Productivity",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          // TODO:Change all to animated tiles
-          // repeated 2
-          SizedBox(height: 20),
-          Row(
-            children: [
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-            ],
-          ),
-          // repeated 3
-          SizedBox(height: 20),
-          Row(
-            children: [
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-            ],
-          ),
-          // repeated 4
-          SizedBox(height: 20),
-          Row(
-            children: [
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-              SizedBox(width: 10),
-              BreathingTile(
-                assetImagePath: "assets/images/sphere.png",
-                title: "Decompress",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BreathingPage3(totalDuration: 300),
-                    ), // 5 minutes
-                  );
-                },
-              ),
-            ],
+          SizedBox(
+            height: 150,
+            width: double.infinity,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Perseverance",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Determination",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+              ],
+            ),
           ),
         ],
       ),
