@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class BreathingPage2 extends StatefulWidget {
   final int totalDuration; // Total session duration in seconds
   final List<int> durations; // Durations for [Inhale, Hold1, Exhale, Hold2]
-
   const BreathingPage2({
     super.key,
     required this.totalDuration,
