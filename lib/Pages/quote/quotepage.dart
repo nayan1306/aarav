@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +90,26 @@ class _BreathingPageState extends State<QuotePage> {
                 QuoteTile(
                   assetImagePath: "assets/images/sphere.png",
                   title: "Perseverance",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => QuoteViewer(
+                              quotes: [
+                                "The only limit to our realization of tomorrow is our doubts of today.",
+                                "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                                "Believe in yourself and all that you are.",
+                              ],
+                              imagePaths: [
+                                "assets/images/wp.jpg",
+                                "assets/images/test_bg.png",
+                                "assets/images/test_bg.png",
+                              ],
+                            ),
+                      ),
+                    );
+                  },
                 ),
                 QuoteTile(
                   assetImagePath: "assets/images/sphere.png",
