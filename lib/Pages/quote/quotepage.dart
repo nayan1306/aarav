@@ -1,6 +1,3 @@
-import 'package:aarav/Pages/breathing/breathinglandingpage.dart';
-import 'package:aarav/Pages/breathing/breathingpage3.dart';
-import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
 import 'package:flutter/material.dart';
