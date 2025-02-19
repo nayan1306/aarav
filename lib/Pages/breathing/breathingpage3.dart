@@ -62,7 +62,6 @@ class _BreathingPage3State extends State<BreathingPage3>
       parent: _breathingController,
       curve: Curves.easeInOutSine,
     );
-
     if (phase == "Inhale") {
       _sizeAnimation = Tween<double>(
         begin: 100,
