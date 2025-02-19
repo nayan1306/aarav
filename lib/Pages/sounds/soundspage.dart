@@ -110,7 +110,6 @@ class _SoundspageState extends State<Soundspage> {
       'albumArtPath': 'assets/images/sound.gif',
     },
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
