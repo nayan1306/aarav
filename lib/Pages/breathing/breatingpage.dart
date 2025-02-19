@@ -28,7 +28,7 @@ class _BreathingPageState extends State<BreathingPage> {
         padding: const EdgeInsets.all(16),
         children: [
           const Text(
-            "Recommended for you",
+            "Recommended you",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
