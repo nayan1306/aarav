@@ -1,6 +1,7 @@
 import 'package:aarav/Pages/breathing/breathinglandingpage.dart';
 import 'package:aarav/Pages/breathing/breathingpage3.dart';
 import 'package:aarav/widgets/breathingcard.dart';
+import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:flutter/material.dart';
 
 class QuotePage extends StatefulWidget {
@@ -44,28 +45,28 @@ class _BreathingPageState extends State<QuotePage> {
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               children: [
-                BreathingRecommendedCard(
+                QuotesRecommendedCard(
                   assetImagePath: "assets/images/test_bg.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
+                  title: "Top Quotes",
+                  subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
-                BreathingRecommendedCard(
+                QuotesRecommendedCard(
                   assetImagePath: "assets/images/test_bg.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
+                  title: "Top Quotes",
+                  subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
-                BreathingRecommendedCard(
+                QuotesRecommendedCard(
                   assetImagePath: "assets/images/test_bg.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
+                  title: "Top Quotes",
+                  subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
-                BreathingRecommendedCard(
+                QuotesRecommendedCard(
                   assetImagePath: "assets/images/test_bg.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
+                  title: "Top Quotes",
+                  subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
               ],
