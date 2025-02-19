@@ -1,4 +1,5 @@
 import 'package:aarav/Pages/breathing/breatingpage.dart';
+import 'package:aarav/Pages/quote/quotepage.dart';
 import 'package:aarav/Pages/sounds/soundspage.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   imagePath: "assets/images/test_bg.png", // Custom image
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
+                  page: QuotePage(), // Pass your page here
                   title: "Quotes", // Custom title
                   imagePath: "assets/images/test_bg.png", // Custom image
                 ),
