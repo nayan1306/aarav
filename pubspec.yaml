@@ -36,6 +36,8 @@ flutter:
     - assets/sounds/rhythm-of-life-301382.mp3
     - assets/images/sound.gif
     - assets/images/wp.jpg
+    - assets/images/breathing/box_breathing-removebg-preview-min.png
+    
   # example:
   # fonts:
   #   - family: Schyler

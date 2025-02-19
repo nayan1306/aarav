@@ -45,7 +45,8 @@ class _BreathingPageState extends State<BreathingPage> {
               scrollDirection: Axis.horizontal,
               children: [
                 BreathingRecommendedCard(
-                  assetImagePath: "assets/images/test_bg.png",
+                  assetImagePath:
+                      "assets/images/breathing/box_breathing-removebg-preview-min.png",
                   title: "Deep Breathing",
                   subtitle: "Relax and inhale deeply",
                 ),
