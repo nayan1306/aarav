@@ -104,7 +104,7 @@ class _BreathingPageState extends State<QuotePage> {
                               imagePaths: [
                                 "assets/images/wp.jpg",
                                 "assets/images/test_bg.png",
-                                "assets/images/test_bg.png",
+                                "assets/images/wp.jpg",
                               ],
                             ),
                       ),
