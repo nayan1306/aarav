@@ -49,7 +49,7 @@ class QuoteTile extends StatelessWidget {
               style: const TextStyle(
                 color: Color.fromARGB(255, 216, 216, 216),
                 fontSize: 14,
-                fontWeight: FontWeight.bold,
+                // fontWeight: FontWeight.bold,
               ),
             ),
           ],
