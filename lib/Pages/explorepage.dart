@@ -130,7 +130,7 @@ class ExploreCard extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 15), // Space between image and text
+                const SizedBox(width: 18), // Space between image and text
                 Text(
                   title, // Use the provided title
                   style: const TextStyle(
