@@ -83,7 +83,152 @@ class _BreathingPageState extends State<QuotePage> {
             ),
           ),
           SizedBox(
-            height: 150,
+            height: 130,
+            width: double.infinity,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              children: [
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Perseverance",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Determination",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+          // TDOD: Add bouncing scroll physics and change the sections accordingly
+          Text(
+            "Physical Health",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 130,
+            width: double.infinity,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Perseverance",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Determination",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+          // TDOD: Add bouncing scroll physics and change the sections accordingly
+          Text(
+            "Physical Health",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 130,
+            width: double.infinity,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Perseverance",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Determination",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Resilience",
+                  onTap: () {},
+                ),
+                QuoteTile(
+                  assetImagePath: "assets/images/sphere.png",
+                  title: "Courage",
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+          // TDOD: Add bouncing scroll physics and change the sections accordingly
+          Text(
+            "Physical Health",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 130,
             width: double.infinity,
             child: ListView(
               scrollDirection: Axis.horizontal,
