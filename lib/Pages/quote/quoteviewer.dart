@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import './quotes.dart';
 
 class QuoteViewer extends StatefulWidget {
   final List<String> quotes;
@@ -11,6 +12,11 @@ class QuoteViewer extends StatefulWidget {
     required this.quotes,
     required this.imagePaths,
   });
+
+  /// Named constructor that accepts a list of QuoteItem key‑value pairs.
+  QuoteViewer.fromItems({super.key, required List<QuoteItem> items})
+    : quotes = items.map((item) => item.quote).toList(),
+      imagePaths = items.map((item) => item.imagePath).toList();
 
   @override
   State<QuoteViewer> createState() => _QuoteViewerState();
@@ -174,7 +180,7 @@ class _QuotePageState extends State<QuotePage>
                       widget.quote,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 32,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                         shadows: [
