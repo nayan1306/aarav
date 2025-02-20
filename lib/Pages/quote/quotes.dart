@@ -7,7 +7,7 @@ class QuoteItem {
 }
 
 // TODO: Add more quotes and images
-final List<QuoteItem> quoteItems = [
+final List<QuoteItem> perseverenceQuotes = [
   QuoteItem(
     quote:
         "The only limit to our realization of tomorrow is our doubts of today.",

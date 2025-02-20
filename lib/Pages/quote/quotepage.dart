@@ -96,8 +96,9 @@ class _BreathingPageState extends State<QuotePage> {
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: quoteItems),
+                            (context) => QuoteViewer.fromItems(
+                              items: perseverenceQuotes,
+                            ),
                       ),
                     );
                   },
