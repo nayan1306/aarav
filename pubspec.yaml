@@ -15,6 +15,7 @@ dependencies:
   audioplayers: ^5.2.1
   page_transition: ^2.2.1
   fab_circular_menu_plus: ^0.0.3
+  circular_menu: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +41,16 @@ flutter:
     - assets/images/wp.jpg
     - assets/images/breathing/box_breathing-removebg-preview-min.png
     - assets/images/breathing/clam.png
+    #  mood_tracker Images
+    - assets/images/mood_tracker/tired.png
+    - assets/images/mood_tracker/sad.png
+    - assets/images/mood_tracker/loving.png
+    - assets/images/mood_tracker/happy.png
+    - assets/images/mood_tracker/good.png
+    - assets/images/mood_tracker/average.png
+    - assets/images/mood_tracker/annoyed.png
+    - assets/images/mood_tracker/angry.png
+
 
   # example:
   # fonts:

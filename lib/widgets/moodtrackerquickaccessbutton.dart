@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
+import 'package:circular_menu/circular_menu.dart';
 
 class MoodTrackerQuickAccessButton extends StatefulWidget {
-  final GlobalKey<FabCircularMenuPlusState> fabKey;
-
-  const MoodTrackerQuickAccessButton({super.key, required this.fabKey});
+  const MoodTrackerQuickAccessButton({super.key});
 
   @override
   _MoodTrackerQuickAccessButtonState createState() =>
@@ -16,6 +14,9 @@ class _MoodTrackerQuickAccessButtonState
     with SingleTickerProviderStateMixin {
   late AnimationController _glowController;
   late Animation<double> _glowAnimation;
+  final GlobalKey<CircularMenuState> _menuKey =
+      GlobalKey<CircularMenuState>(); // 🔹 Control the menu
+  bool isMenuOpen = false;
 
   @override
   void initState() {
@@ -38,80 +39,110 @@ class _MoodTrackerQuickAccessButtonState
     super.dispose();
   }
 
+  void _showMoodSelected(String mood) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("$mood Mood Selected"),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
+  void _toggleMenu() {
+    final menuState = _menuKey.currentState;
+    if (menuState != null) {
+      if (isMenuOpen) {
+        menuState.reverseAnimation(); // Close the menu
+      } else {
+        menuState.forwardAnimation(); // Open the menu
+      }
+      setState(() {
+        isMenuOpen = !isMenuOpen; // Toggle state
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _glowAnimation,
-      builder: (context, child) {
-        return FabCircularMenuPlus(
-          key: widget.fabKey,
-          alignment: const Alignment(1.20, 0.35),
-          ringColor: Colors.white.withAlpha(25),
-          ringDiameter: 400.0,
-          ringWidth: 100.0,
-          fabSize: 56.0,
-          fabElevation: 8.0,
-          fabColor: Colors.transparent,
-          fabMargin: const EdgeInsets.all(16.0),
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        // CircularMenu (Icons Expanding to Left)
+        CircularMenu(
+          key: _menuKey, // 🔹 Allows us to open/close programmatically
+          alignment: Alignment(1, 0.3),
+          radius: 140,
           animationDuration: const Duration(milliseconds: 500),
-          animationCurve: Curves.easeInOutCubicEmphasized,
+          curve: Curves.easeInOutCubicEmphasized,
+          reverseCurve: Curves.easeOut,
 
-          // Custom FAB with Breathing Glow Effect
-          fabChild: Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(18.0),
-              color: const Color.fromARGB(170, 0, 0, 0), // FAB background color
-              boxShadow: [
-                BoxShadow(
-                  color: const Color.fromARGB(
-                    255,
-                    255,
-                    255,
-                    255,
-                  ).withOpacity(0.8), // Glow color
-                  blurRadius: _glowAnimation.value, // Animated glow effect
-                  spreadRadius: _glowAnimation.value / 2, // Smooth effect
-                ),
-              ],
-            ),
-            child: const Center(child: Icon(Icons.add, color: Colors.white)),
-          ),
+          // Define the angles for leftward opening
+          startingAngleInRadian: 3.14 / 2.15, // Start at 90° (Top)
+          endingAngleInRadian: 3.1 * 3.14 / 2, // End at 270° (Top-left)
+          // Hide default circular button
+          toggleButtonColor: Colors.transparent,
+          toggleButtonSize: 0,
 
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.home, color: Colors.white, size: 30),
-              onPressed:
-                  () => ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(const SnackBar(content: Text("Home Pressed"))),
+          items: [
+            CircularMenuItem(
+              icon: Icons.sentiment_very_dissatisfied,
+              color: Colors.red,
+              onTap: () => _showMoodSelected("Angry"),
             ),
-            IconButton(
-              icon: const Icon(Icons.settings, color: Colors.white, size: 30),
-              onPressed:
-                  () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Settings Pressed")),
-                  ),
+            CircularMenuItem(
+              icon: Icons.sentiment_dissatisfied,
+              color: Colors.orange,
+              onTap: () => _showMoodSelected("Sad"),
             ),
-            IconButton(
-              icon: const Icon(Icons.star, color: Colors.white, size: 30),
-              onPressed:
-                  () => ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(const SnackBar(content: Text("Star Pressed"))),
+            CircularMenuItem(
+              icon: Icons.sentiment_satisfied,
+              color: Colors.blue,
+              onTap: () => _showMoodSelected("Calm"),
             ),
-            IconButton(
-              icon: const Icon(Icons.info, color: Colors.white, size: 30),
-              onPressed:
-                  () => ScaffoldMessenger.of(
-                    context,
-                  ).showSnackBar(const SnackBar(content: Text("Info Pressed"))),
+            CircularMenuItem(
+              icon: Icons.sentiment_very_satisfied,
+              color: Colors.green,
+              onTap: () => _showMoodSelected("Happy"),
+            ),
+            CircularMenuItem(
+              icon: Icons.sentiment_neutral,
+              color: Colors.purple,
+              onTap: () => _showMoodSelected("Anxious"),
             ),
           ],
-        );
-      },
+        ),
+
+        // ✅ Custom Square Toggle Button
+        Positioned(
+          right: 0,
+          top: 490,
+          child: GestureDetector(
+            onTap: _toggleMenu, // 🔹 Manually toggle menu
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.black87, // Button color
+                borderRadius: BorderRadius.circular(
+                  8,
+                ), // Square with rounded corners
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white.withOpacity(0.8), // Glow effect
+                    blurRadius: _glowAnimation.value,
+                    spreadRadius: _glowAnimation.value / 2,
+                  ),
+                ],
+              ),
+              child: Icon(
+                isMenuOpen ? Icons.close : Icons.menu, // Toggle icon
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -33,9 +33,7 @@ class _MainScreenState extends State<MainScreen> {
       body: _pages[_currentIndex],
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:
-          _currentIndex == 1
-              ? MoodTrackerQuickAccessButton(fabKey: _fabKey)
-              : null,
+          _currentIndex == 1 ? MoodTrackerQuickAccessButton() : null,
 
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(), // Creates the notch
