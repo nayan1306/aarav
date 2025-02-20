@@ -27,68 +27,64 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: _pages[_currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.black, Colors.grey[900]!],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.1),
-              blurRadius: 8,
-              spreadRadius: 2,
-            ),
-          ],
-          border: Border(
-            top: BorderSide(
-              color: Colors.white.withOpacity(0.3), // Border color
-              width: 2, // Border thickness
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(), // Standard notch
+        notchMargin: 6, // Controls notch gap
+        color: const Color.fromARGB(121, 0, 0, 0),
+        elevation: 3,
+        child: Container(
+          height: 55,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(color: Color.fromARGB(137, 0, 0, 0), width: 1),
             ),
           ),
-        ),
-        child: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          onTap: (index) => setState(() => _currentIndex = index),
-          backgroundColor: Colors.transparent,
-          unselectedItemColor: Colors.grey[400],
-          selectedColorOpacity: 0.8,
-          items: [
-            SalomonBottomBarItem(
-              icon: const Icon(Icons.chair_alt_sharp, color: Colors.white),
-              title: const Text(
-                "Program",
-                style: TextStyle(color: Colors.white),
+          child: SalomonBottomBar(
+            currentIndex: _currentIndex,
+            onTap: (index) => setState(() => _currentIndex = index),
+            backgroundColor: const Color.fromARGB(185, 0, 0, 0),
+            unselectedItemColor: Colors.grey[400],
+            selectedColorOpacity: 0.8,
+            items: [
+              SalomonBottomBarItem(
+                icon: const Icon(
+                  Icons.chair_alt_sharp,
+                  color: Colors.white,
+                  size: 22,
+                ),
+                title: const Text(
+                  "Program",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+                selectedColor: Colors.deepPurpleAccent,
               ),
-              selectedColor: Colors.deepPurpleAccent,
-            ),
-            SalomonBottomBarItem(
-              icon: const Icon(Icons.explore, color: Colors.white),
-              title: const Text(
-                "Explore",
-                style: TextStyle(color: Colors.white),
+              SalomonBottomBarItem(
+                icon: const Icon(Icons.explore, color: Colors.white, size: 22),
+                title: const Text(
+                  "Explore",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+                selectedColor: Colors.pinkAccent,
               ),
-              selectedColor: Colors.pinkAccent,
-            ),
-            SalomonBottomBarItem(
-              icon: const Icon(Icons.timeline, color: Colors.white),
-              title: const Text(
-                "Timeline",
-                style: TextStyle(color: Colors.white),
+              SalomonBottomBarItem(
+                icon: const Icon(Icons.timeline, color: Colors.white, size: 22),
+                title: const Text(
+                  "Timeline",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+                selectedColor: Colors.amberAccent,
               ),
-              selectedColor: Colors.amberAccent,
-            ),
-            SalomonBottomBarItem(
-              icon: const Icon(Icons.person, color: Colors.white),
-              title: const Text(
-                "Profile",
-                style: TextStyle(color: Colors.white),
+              SalomonBottomBarItem(
+                icon: const Icon(Icons.person, color: Colors.white, size: 22),
+                title: const Text(
+                  "Profile",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+                selectedColor: Colors.tealAccent,
               ),
-              selectedColor: Colors.tealAccent,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

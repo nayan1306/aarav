@@ -16,71 +16,77 @@ class _ExplorePageState extends State<ExplorePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(104, 0, 0, 0),
-        leading: Text(""),
-        actions: [
-          // IconButton(
-          //   icon: const Icon(Icons.info_outline, color: Colors.white),
-          //   onPressed: () {},
-          // ),
-        ],
+        leading: const SizedBox(), // Empty to maintain spacing
+        actions: const [],
       ),
       extendBodyBehindAppBar: true,
       body: ListView(
+        padding: const EdgeInsets.only(top: 80), // Pushes content below AppBar
         children: [
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ExploreCard(
-                  page: BreathingPage(), // Pass your page here
-                  title: "Breathing", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: BreathingPage(),
+                  title: "Breathing",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "Sound Therapy", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: Soundspage(),
+                  title: "Sound Therapy",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: QuotePage(), // Pass your page here
-                  title: "Quotes", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: QuotePage(),
+                  title: "Quotes",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: QuotePage(), // Pass your page here
-                  title: "Affirmations", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: QuotePage(),
+                  title: "Affirmations",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "Mood Tracker", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: Soundspage(),
+                  title: "Mood Tracker",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "Journal", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
-                ),
-
-                ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "Meditation", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: Soundspage(),
+                  title: "Journal",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "AI ChatBot", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: Soundspage(),
+                  title: "Meditation",
+                  imagePath: "assets/images/test_bg.png",
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
-                  title: "First Aid", // Custom title
-                  imagePath: "assets/images/test_bg.png", // Custom image
+                  page: Soundspage(),
+                  title: "AI ChatBot",
+                  imagePath: "assets/images/test_bg.png",
+                ),
+                ExploreCard(
+                  page: Soundspage(),
+                  title: "First Aid",
+                  imagePath: "assets/images/test_bg.png",
                 ),
               ],
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your functionality here.
+        },
+        backgroundColor: Colors.deepPurpleAccent,
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
+      floatingActionButtonLocation: const CustomFabLocation(
+        offsetX: 140,
+        offsetY: 10,
       ),
     );
   }
@@ -111,7 +117,7 @@ class ExploreCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(
             15,
-          ), // Ensures ripple effect follows the shape
+          ), // Ripple effect follows shape
           onTap: () {
             Navigator.push(
               context,
@@ -119,13 +125,13 @@ class ExploreCard extends StatelessWidget {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.all(12), // Adds spacing inside the card
+            padding: const EdgeInsets.all(12), // Inner spacing
             child: Row(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10), // Rounded image
                   child: Image.asset(
-                    imagePath, // Use the provided image path
+                    imagePath,
                     width: 50,
                     height: 50,
                     fit: BoxFit.cover,
@@ -133,7 +139,7 @@ class ExploreCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 18), // Space between image and text
                 Text(
-                  title, // Use the provided title
+                  title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -146,5 +152,28 @@ class ExploreCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// Custom FAB location to move FAB slightly to the right
+class CustomFabLocation extends FloatingActionButtonLocation {
+  final double offsetX;
+  final double offsetY;
+
+  const CustomFabLocation({this.offsetX = 0, this.offsetY = 0});
+
+  @override
+  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
+    double fabX =
+        (scaffoldGeometry.scaffoldSize.width -
+                scaffoldGeometry.floatingActionButtonSize.width) /
+            2 +
+        offsetX;
+    double fabY =
+        scaffoldGeometry.scaffoldSize.height -
+        scaffoldGeometry.floatingActionButtonSize.height -
+        scaffoldGeometry.minInsets.bottom +
+        offsetY;
+    return Offset(fabX, fabY);
   }
 }
