@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 
 class MoodTrackerPage extends StatefulWidget {
   final String moodImage;
-  const MoodTrackerPage({super.key, required this.moodImage});
+  final String message; // 🟢 Custom message
+  final int moodScore; // 🟢 Integer value
+
+  const MoodTrackerPage({
+    super.key,
+    required this.moodImage,
+    required this.message,
+    required this.moodScore,
+  });
 
   @override
   State<MoodTrackerPage> createState() => _MoodTrackerPageState();
@@ -17,15 +25,12 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
   @override
   void initState() {
     super.initState();
-
-    // 🔹 Scale Animation
     _scaleController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
       lowerBound: 0.6,
       upperBound: 1.0,
     )..forward();
-
     _scaleAnimation = CurvedAnimation(
       parent: _scaleController,
       curve: Curves.easeOut,
@@ -49,18 +54,33 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 40),
-            const Text(
-              "Cool! You are super happy! ",
-              style: TextStyle(
+
+            // 🌟 Show Custom Message
+            Text(
+              widget.message, // 🟢 Display the passed message
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
+
+            const SizedBox(height: 10),
+
+            // 🟢 Show Mood Score
+            Text(
+              "Mood Score: ${widget.moodScore}", // Display the integer value
+              style: const TextStyle(
+                color: Colors.greenAccent,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
             const SizedBox(height: 20),
 
-            // 🌟 Animated Hero + Scale Image
+            // 🌟 Animated Mood Image
             Hero(
               tag: "moodImage",
               child: ScaleTransition(
@@ -88,6 +108,7 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
                 ),
               ),
             ),
+
             const SizedBox(height: 30),
 
             // 📝 Mood Note Input Field
@@ -115,9 +136,10 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
               ),
               maxLines: 5,
             ),
+
             const SizedBox(height: 240),
 
-            // 🔘 Buttons with Modern Styling
+            // 🔘 Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
