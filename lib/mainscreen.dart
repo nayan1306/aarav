@@ -4,7 +4,6 @@ import 'package:aarav/Pages/homepage.dart';
 import 'package:aarav/Pages/explorepage.dart';
 import 'package:aarav/Pages/timelinepage.dart';
 import 'package:aarav/Pages/profilepage.dart';
-import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,7 +15,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  final GlobalKey<FabCircularMenuPlusState> _fabKey = GlobalKey();
 
   final List<Widget> _pages = [
     HomePage(),
