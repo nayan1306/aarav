@@ -3,6 +3,7 @@ import 'package:aarav/Pages/homepage.dart';
 import 'package:aarav/Pages/explorepage.dart';
 import 'package:aarav/Pages/timelinepage.dart';
 import 'package:aarav/Pages/profilepage.dart';
+import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+  final GlobalKey<FabCircularMenuPlusState> _fabKey = GlobalKey();
 
   final List<Widget> _pages = [
     HomePage(),
@@ -22,45 +24,72 @@ class _MainScreenState extends State<MainScreen> {
     ProfilePage(),
   ];
 
+  void _toggleMenu() {
+    if (_fabKey.currentState?.isOpen ?? false) {
+      _fabKey.currentState?.close();
+    } else {
+      _fabKey.currentState?.open();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBody: true,
       body: _pages[_currentIndex],
-      // Show FAB only on the Explore page (index 1)
       floatingActionButton:
           _currentIndex == 1
-              ? FloatingActionButton(
-                onPressed: () {
-                  // Add your functionality here.
-                },
-                backgroundColor: const Color.fromARGB(151, 0, 0, 0),
-                child: const Icon(Icons.add, color: Colors.white),
+              ? FabCircularMenuPlus(
+                key: _fabKey,
+                alignment: Alignment(0.99, 0),
+                ringColor: Colors.white.withAlpha(25),
+                ringDiameter: 400.0,
+                ringWidth: 100.0,
+                fabSize: 56.0,
+                fabElevation: 8.0,
+                fabColor: Colors.black,
+                fabOpenIcon: const Icon(Icons.add, color: Colors.white),
+                fabCloseIcon: const Icon(Icons.close, color: Colors.white),
+                fabMargin: const EdgeInsets.all(16.0),
+                animationDuration: const Duration(milliseconds: 500),
+                animationCurve: Curves.easeInOutCirc,
+                children: <Widget>[
+                  IconButton(
+                    icon: const Icon(Icons.home, color: Colors.white, size: 30),
+                    onPressed: () => _showSnackBar(context, "Home Pressed"),
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () => _showSnackBar(context, "Settings Pressed"),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.star, color: Colors.white, size: 30),
+                    onPressed: () => _showSnackBar(context, "Star Pressed"),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.info, color: Colors.white, size: 30),
+                    onPressed: () => _showSnackBar(context, "Info Pressed"),
+                  ),
+                ],
               )
               : null,
-      // Use the custom FAB location to position the FAB above the BottomAppBar
-      floatingActionButtonLocation: const CustomFabLocation(
-        offsetX: 130,
-        offsetY: -60,
-      ),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 6,
         color: const Color.fromARGB(193, 0, 0, 0),
         elevation: 3,
         child: SizedBox(
           height: 55,
           width: double.infinity,
-          // decoration: const BoxDecoration(
-          //   border: Border(
-          //     top: BorderSide(color: Color.fromARGB(137, 0, 0, 0), width: 1),
-          //   ),
-          // ),
           child: SalomonBottomBar(
             currentIndex: _currentIndex,
             onTap: (index) => setState(() => _currentIndex = index),
-            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+            backgroundColor: Colors.transparent,
             unselectedItemColor: Colors.grey[400],
             selectedColorOpacity: 0.8,
             items: [
@@ -106,28 +135,13 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-}
 
-/// Custom FAB location to shift the FAB by specific offsets.
-/// This calculates the centerDocked position and then applies the given offsets.
-class CustomFabLocation extends FloatingActionButtonLocation {
-  final double offsetX;
-  final double offsetY;
-
-  const CustomFabLocation({this.offsetX = 0, this.offsetY = 0});
-
-  @override
-  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    final double fabX =
-        (scaffoldGeometry.scaffoldSize.width -
-                scaffoldGeometry.floatingActionButtonSize.width) /
-            2 +
-        offsetX;
-    final double fabY =
-        scaffoldGeometry.scaffoldSize.height -
-        scaffoldGeometry.floatingActionButtonSize.height -
-        scaffoldGeometry.minInsets.bottom +
-        offsetY;
-    return Offset(fabX, fabY);
+  void _showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(milliseconds: 1000),
+      ),
+    );
   }
 }
