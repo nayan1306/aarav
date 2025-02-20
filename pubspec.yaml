@@ -16,6 +16,7 @@ dependencies:
   page_transition: ^2.2.1
   fab_circular_menu_plus: ^0.0.3
   circular_menu: ^4.0.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
