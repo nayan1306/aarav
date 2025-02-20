@@ -10,6 +10,7 @@ class CalmPage extends StatefulWidget {
 }
 
 class _CalmPageState extends State<CalmPage> {
+  // TODO: Change the title and  image Link
   final List<Map<String, dynamic>> breathingExercises = [
     {"title": "Decompress", "image": "assets/images/sphere.png"},
     {"title": "Calm", "image": "assets/images/sphere.png"},

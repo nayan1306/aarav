@@ -78,8 +78,9 @@ class _BreathingPageState extends State<BreathingPage> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Divider(color: const Color.fromARGB(97, 255, 255, 255)),
+          SizedBox(height: 10),
           // TODO: Change the title and subtitle and image Link
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
