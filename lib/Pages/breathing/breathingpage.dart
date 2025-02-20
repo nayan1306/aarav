@@ -1,4 +1,5 @@
 import 'package:aarav/Pages/breathing/breathingpages/calmpage.dart';
+import 'package:aarav/Pages/breathing/breathingpages/nighttimepage.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/breathingcontainercard.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,7 @@ class _BreathingPageState extends State<BreathingPage> {
                 assetImagePath: "assets/images/breathing/clam.png",
                 title: "Night Time",
                 subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
+                nextPage: NightTimePage(),
               ),
             ],
           ),
