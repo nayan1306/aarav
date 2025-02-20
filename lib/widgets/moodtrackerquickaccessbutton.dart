@@ -91,10 +91,10 @@ class _MoodTrackerQuickAccessButtonState
               imagePath: "assets/images/mood_tracker/angry.png",
               color: Colors.transparent,
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MoodTrackerPage()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => MoodTrackerPage()),
+                // );
               },
             ),
 
@@ -147,16 +147,32 @@ class _MoodTrackerQuickAccessButtonState
               color: Colors.transparent, // Light yellow-orange
               onTap: () => _showMoodSelected("Happy"),
             ),
-
+            // TODO:implement the same for all the moods
             CircularMenuItem(
               padding: 0,
               iconSize: 70,
               imagePath: "assets/images/mood_tracker/loving.png",
-              color: Colors.transparent, // Light pink
+              color: Colors.transparent,
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MoodTrackerPage()),
+                  PageRouteBuilder(
+                    transitionDuration: const Duration(milliseconds: 500),
+                    pageBuilder:
+                        (context, animation, secondaryAnimation) =>
+                            MoodTrackerPage(
+                              moodImage:
+                                  "assets/images/mood_tracker/loving.png",
+                            ),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                  ),
                 );
               },
             ),

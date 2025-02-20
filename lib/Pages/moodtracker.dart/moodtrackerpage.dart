@@ -1,25 +1,52 @@
 import 'package:flutter/material.dart';
 
 class MoodTrackerPage extends StatefulWidget {
-  const MoodTrackerPage({super.key});
+  final String moodImage;
+  const MoodTrackerPage({super.key, required this.moodImage});
 
   @override
   State<MoodTrackerPage> createState() => _MoodTrackerPageState();
 }
 
-class _MoodTrackerPageState extends State<MoodTrackerPage> {
+class _MoodTrackerPageState extends State<MoodTrackerPage>
+    with SingleTickerProviderStateMixin {
   final TextEditingController _moodNoteController = TextEditingController();
+  late AnimationController _scaleController;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 🔹 Scale Animation
+    _scaleController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+      lowerBound: 0.6,
+      upperBound: 1.0,
+    )..forward();
+
+    _scaleAnimation = CurvedAnimation(
+      parent: _scaleController,
+      curve: Curves.easeOut,
+    );
+  }
+
+  @override
+  void dispose() {
+    _scaleController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // 🌙 Dark Theme Background
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
-
           children: [
             const SizedBox(height: 40),
             const Text(
@@ -33,22 +60,31 @@ class _MoodTrackerPageState extends State<MoodTrackerPage> {
             ),
             const SizedBox(height: 20),
 
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color.fromARGB(0, 0, 0, 0).withOpacity(0.2),
-                    blurRadius: 15,
-                    spreadRadius: 5,
+            // 🌟 Animated Hero + Scale Image
+            Hero(
+              tag: "moodImage",
+              child: ScaleTransition(
+                scale: _scaleAnimation,
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color.fromARGB(
+                          0,
+                          0,
+                          0,
+                          0,
+                        ).withOpacity(0.2),
+                        blurRadius: 15,
+                        spreadRadius: 5,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  "assets/images/mood_tracker/loving.png",
-                  height: 180,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(widget.moodImage, height: 180),
+                  ),
                 ),
               ),
             ),
@@ -62,7 +98,7 @@ class _MoodTrackerPageState extends State<MoodTrackerPage> {
                 hintText: "Write about your mood...",
                 hintStyle: TextStyle(color: Colors.grey[500]),
                 filled: true,
-                fillColor: Colors.grey[900], // Darker background for input
+                fillColor: Colors.grey[900],
                 contentPadding: const EdgeInsets.all(15),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -87,8 +123,8 @@ class _MoodTrackerPageState extends State<MoodTrackerPage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.greenAccent, // Vibrant button
-                    foregroundColor: Colors.black, // Dark text for contrast
+                    backgroundColor: Colors.greenAccent,
+                    foregroundColor: Colors.black,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24,
                       vertical: 12,
