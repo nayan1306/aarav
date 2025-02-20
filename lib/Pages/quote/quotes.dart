@@ -6,6 +6,7 @@ class QuoteItem {
   QuoteItem({required this.quote, required this.imagePath});
 }
 
+// TODO: Add more quotes and images
 final List<QuoteItem> quoteItems = [
   QuoteItem(
     quote:
