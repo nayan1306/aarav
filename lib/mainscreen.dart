@@ -1,3 +1,4 @@
+import 'package:aarav/widgets/moodtrackerquickaccessbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:aarav/Pages/homepage.dart';
 import 'package:aarav/Pages/explorepage.dart';
@@ -24,65 +25,24 @@ class _MainScreenState extends State<MainScreen> {
     ProfilePage(),
   ];
 
-  void _toggleMenu() {
-    if (_fabKey.currentState?.isOpen ?? false) {
-      _fabKey.currentState?.close();
-    } else {
-      _fabKey.currentState?.open();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBody: true,
       body: _pages[_currentIndex],
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:
           _currentIndex == 1
-              ? FabCircularMenuPlus(
-                key: _fabKey,
-                alignment: Alignment(0.99, 0),
-                ringColor: Colors.white.withAlpha(25),
-                ringDiameter: 400.0,
-                ringWidth: 100.0,
-                fabSize: 56.0,
-                fabElevation: 8.0,
-                fabColor: Colors.black,
-                fabOpenIcon: const Icon(Icons.add, color: Colors.white),
-                fabCloseIcon: const Icon(Icons.close, color: Colors.white),
-                fabMargin: const EdgeInsets.all(16.0),
-                animationDuration: const Duration(milliseconds: 500),
-                animationCurve: Curves.easeInOutCirc,
-                children: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.home, color: Colors.white, size: 30),
-                    onPressed: () => _showSnackBar(context, "Home Pressed"),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.settings,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    onPressed: () => _showSnackBar(context, "Settings Pressed"),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.star, color: Colors.white, size: 30),
-                    onPressed: () => _showSnackBar(context, "Star Pressed"),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.info, color: Colors.white, size: 30),
-                    onPressed: () => _showSnackBar(context, "Info Pressed"),
-                  ),
-                ],
-              )
+              ? MoodTrackerQuickAccessButton(fabKey: _fabKey)
               : null,
+
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 6,
-        color: const Color.fromARGB(193, 0, 0, 0),
-        elevation: 3,
+        shape: const CircularNotchedRectangle(), // Creates the notch
+        notchMargin: 8.0, // Space between notch & FAB
+        color: Colors.black,
+        elevation: 5,
+
         child: SizedBox(
           height: 55,
           width: double.infinity,
@@ -132,15 +92,6 @@ class _MainScreenState extends State<MainScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  void _showSnackBar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: const Duration(milliseconds: 1000),
       ),
     );
   }
