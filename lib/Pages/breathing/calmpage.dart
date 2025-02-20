@@ -1,5 +1,4 @@
-import 'package:aarav/Pages/breathing/breathingpage2.dart';
-import 'package:aarav/Pages/breathing/breathingpage3.dart';
+import 'package:aarav/Pages/breathing/breathinglandingpage.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +21,10 @@ class _DeepBreathingPageState extends State<CalmPage> {
               context,
               MaterialPageRoute(
                 builder:
-                    (context) => BreathingPage2(
-                      totalDuration: 300,
-                      durations: [3, 0, 2, 0],
+                    (context) => BreathingLandingPage(
+                      assetImagePath: "assets/images/sphere.png",
+                      title: "Decompress",
+                      durations: [2, 1, 2, 1],
                     ),
               ), // 5 minutes
             );
@@ -33,12 +33,17 @@ class _DeepBreathingPageState extends State<CalmPage> {
         SizedBox(width: 10),
         BreathingTile(
           assetImagePath: "assets/images/sphere.png",
-          title: "Decompress",
+          title: "Calm",
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => BreathingPage3(totalDuration: 300),
+                builder:
+                    (context) => BreathingLandingPage(
+                      assetImagePath: "assets/images/sphere.png",
+                      title: "Calm",
+                      durations: [2, 1, 2, 1],
+                    ),
               ), // 5 minutes
             );
           },
@@ -46,12 +51,17 @@ class _DeepBreathingPageState extends State<CalmPage> {
         SizedBox(width: 10),
         BreathingTile(
           assetImagePath: "assets/images/sphere.png",
-          title: "Decompress",
+          title: "free",
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => BreathingPage3(totalDuration: 300),
+                builder:
+                    (context) => BreathingLandingPage(
+                      assetImagePath: "assets/images/sphere.png",
+                      title: "free",
+                      durations: [2, 1, 2, 1],
+                    ),
               ), // 5 minutes
             );
           },
