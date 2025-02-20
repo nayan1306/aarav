@@ -13,81 +13,77 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(104, 0, 0, 0),
-        leading: const SizedBox(), // Empty to maintain spacing
-        actions: const [],
-      ),
-      extendBodyBehindAppBar: true,
-      body: ListView(
-        padding: const EdgeInsets.only(top: 80), // Pushes content below AppBar
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ExploreCard(
-                  page: BreathingPage(),
-                  title: "Breathing",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "Sound Therapy",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: QuotePage(),
-                  title: "Quotes",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: QuotePage(),
-                  title: "Affirmations",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "Mood Tracker",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "Journal",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "Meditation",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "AI ChatBot",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-                ExploreCard(
-                  page: Soundspage(),
-                  title: "First Aid",
-                  imagePath: "assets/images/test_bg.png",
-                ),
-              ],
-            ),
+    return Stack(
+      children: [
+        // The entire page content
+        Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(104, 0, 0, 0),
+            elevation: 0,
+            leading: const SizedBox(),
           ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your functionality here.
-        },
-        backgroundColor: Colors.deepPurpleAccent,
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
-      floatingActionButtonLocation: const CustomFabLocation(
-        offsetX: 140,
-        offsetY: 10,
-      ),
+          body: ListView(
+            padding: const EdgeInsets.only(
+              top: 80,
+            ), // Ensure content starts below the AppBar
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    ExploreCard(
+                      page: BreathingPage(),
+                      title: "Breathing",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "Sound Therapy",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: QuotePage(),
+                      title: "Quotes",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: QuotePage(),
+                      title: "Affirmations",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "Mood Tracker",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "Journal",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "Meditation",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "AI ChatBot",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                    ExploreCard(
+                      page: Soundspage(),
+                      title: "First Aid",
+                      imagePath: "assets/images/test_bg.png",
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -115,9 +111,7 @@ class ExploreCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(15), // Rounded corners
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(
-            15,
-          ), // Ripple effect follows shape
+          borderRadius: BorderRadius.circular(15),
           onTap: () {
             Navigator.push(
               context,
@@ -152,28 +146,5 @@ class ExploreCard extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-/// Custom FAB location to move FAB slightly to the right
-class CustomFabLocation extends FloatingActionButtonLocation {
-  final double offsetX;
-  final double offsetY;
-
-  const CustomFabLocation({this.offsetX = 0, this.offsetY = 0});
-
-  @override
-  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    double fabX =
-        (scaffoldGeometry.scaffoldSize.width -
-                scaffoldGeometry.floatingActionButtonSize.width) /
-            2 +
-        offsetX;
-    double fabY =
-        scaffoldGeometry.scaffoldSize.height -
-        scaffoldGeometry.floatingActionButtonSize.height -
-        scaffoldGeometry.minInsets.bottom +
-        offsetY;
-    return Offset(fabX, fabY);
   }
 }
