@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/moodtracker.dart/moodsummarypage.dart';
 import 'package:flutter/material.dart';
 
 class ExactFeelingPage10 extends StatefulWidget {
@@ -43,9 +44,17 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
       List<String> selectedFeelings =
           _selectedIndexes.map((index) => _feelings[index]["text"]!).toList();
 
-      print("Selected Feelings: $selectedFeelings");
-
-      // TODO: Navigate to the next page or save the selected feelings
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => MoodSummaryPage(
+                moodScore: widget.moodScore,
+                selectedReasons: widget.selectedReasons,
+                selectedFeelings: selectedFeelings,
+              ),
+        ),
+      );
     }
   }
 
