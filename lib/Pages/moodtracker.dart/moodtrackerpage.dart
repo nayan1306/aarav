@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/moodtracker.dart/moodpages/moodpage10.dart';
 import 'package:flutter/material.dart';
 
 // Dummy pages for different mood scores
@@ -87,7 +88,9 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
 
   void _navigateToDetails() {
     Widget page;
-    if (widget.moodScore >= 7) {
+    if (widget.moodScore == 10) {
+      page = MoodPage10(moodScore: widget.moodScore);
+    } else if (widget.moodScore >= 7) {
       page = HappyDetailsPage(moodScore: widget.moodScore);
     } else if (widget.moodScore <= 3) {
       page = SadDetailsPage(moodScore: widget.moodScore);
