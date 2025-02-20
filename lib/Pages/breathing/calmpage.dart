@@ -77,9 +77,9 @@ class _DeepBreathingPageState extends State<CalmPage> {
         padding: const EdgeInsets.all(16),
         children: [
           _buildBreathingTileRow(),
-          SizedBox(height: 20),
+          SizedBox(height: 50),
           _buildBreathingTileRow(),
-          SizedBox(height: 20),
+          SizedBox(height: 50),
           _buildBreathingTileRow(),
         ],
       ),
