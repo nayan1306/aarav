@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/moodtracker.dart/moodtrackerpage.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_menu/circular_menu.dart';
 
@@ -89,7 +90,12 @@ class _MoodTrackerQuickAccessButtonState
               iconSize: 40,
               imagePath: "assets/images/mood_tracker/angry.png",
               color: Colors.transparent,
-              onTap: () => _showMoodSelected("Angry"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MoodTrackerPage()),
+                );
+              },
             ),
 
             CircularMenuItem(
@@ -147,7 +153,12 @@ class _MoodTrackerQuickAccessButtonState
               iconSize: 70,
               imagePath: "assets/images/mood_tracker/loving.png",
               color: Colors.transparent, // Light pink
-              onTap: () => _showMoodSelected("Loving"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MoodTrackerPage()),
+                );
+              },
             ),
           ],
         ),
