@@ -87,8 +87,7 @@ class _BreathingPageState extends State<BreathingPage> {
                 nextPage: CalmPage(),
               ),
               BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                assetImagePath: "assets/images/breathing/clam.png",
                 title: "Night Time",
                 subtitle: "Relax and inhale deeply",
                 nextPage: CalmPage(),

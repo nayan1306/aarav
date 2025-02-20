@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/breathing/breathingpage2.dart';
 import 'package:aarav/Pages/breathing/breathingpage3.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,11 @@ class _DeepBreathingPageState extends State<CalmPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => BreathingPage3(totalDuration: 300),
+                builder:
+                    (context) => BreathingPage2(
+                      totalDuration: 300,
+                      durations: [3, 0, 2, 0],
+                    ),
               ), // 5 minutes
             );
           },
