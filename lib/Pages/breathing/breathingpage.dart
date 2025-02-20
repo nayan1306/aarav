@@ -1,5 +1,6 @@
 import 'package:aarav/Pages/breathing/breathingpages/calmpage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/energypage.dart';
+import 'package:aarav/Pages/breathing/breathingpages/healthpage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/nighttimepage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/performancepage.dart';
 import 'package:aarav/widgets/breathingcard.dart';
@@ -126,7 +127,7 @@ class _BreathingPageState extends State<BreathingPage> {
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
                 title: "Health",
                 subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
+                nextPage: HealthPage(),
               ),
               BreathingContainerCard(
                 assetImagePath:
