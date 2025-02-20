@@ -1,4 +1,4 @@
-import 'package:aarav/Pages/breathing/breatingpage.dart';
+import 'package:aarav/Pages/breathing/breathingpage.dart';
 import 'package:aarav/Pages/quote/quotepage.dart';
 import 'package:aarav/Pages/sounds/soundspage.dart';
 import 'package:flutter/material.dart';
