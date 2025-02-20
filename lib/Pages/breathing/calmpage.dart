@@ -6,67 +6,48 @@ class CalmPage extends StatefulWidget {
   const CalmPage({super.key});
 
   @override
-  State<CalmPage> createState() => _DeepBreathingPageState();
+  State<CalmPage> createState() => _CalmPageState();
 }
 
-class _DeepBreathingPageState extends State<CalmPage> {
-  Widget _buildBreathingTileRow() {
+class _CalmPageState extends State<CalmPage> {
+  final List<Map<String, dynamic>> breathingExercises = [
+    {"title": "Decompress", "image": "assets/images/sphere.png"},
+    {"title": "Calm", "image": "assets/images/sphere.png"},
+    {"title": "Free", "image": "assets/images/sphere.png"},
+    {"title": "Decompress1", "image": "assets/images/sphere.png"},
+    {"title": "Calm2", "image": "assets/images/sphere.png"},
+    {"title": "Free3", "image": "assets/images/sphere.png"},
+    {"title": "Decompress4", "image": "assets/images/sphere.png"},
+    {"title": "Calm5", "image": "assets/images/sphere.png"},
+    {"title": "Free6", "image": "assets/images/sphere.png"},
+  ];
+
+  Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
     return Row(
-      children: [
-        BreathingTile(
-          assetImagePath: "assets/images/sphere.png",
-          title: "Decompress",
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => BreathingLandingPage(
-                      assetImagePath: "assets/images/sphere.png",
-                      title: "Decompress",
-                      durations: [2, 1, 2, 1],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:
+          items.map((exercise) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: BreathingTileAnimated(
+                assetImagePath: exercise["image"],
+                title: exercise["title"],
+                onTap: () {
+                  print("Tapped: ${exercise["title"]}"); // Debug log
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder:
+                          (context) => BreathingLandingPage(
+                            assetImagePath: exercise["image"],
+                            title: exercise["title"],
+                            durations: [2, 1, 2, 1],
+                          ),
                     ),
-              ), // 5 minutes
+                  );
+                },
+              ),
             );
-          },
-        ),
-        SizedBox(width: 10),
-        BreathingTile(
-          assetImagePath: "assets/images/sphere.png",
-          title: "Calm",
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => BreathingLandingPage(
-                      assetImagePath: "assets/images/sphere.png",
-                      title: "Calm",
-                      durations: [2, 1, 2, 1],
-                    ),
-              ), // 5 minutes
-            );
-          },
-        ),
-        SizedBox(width: 10),
-        BreathingTile(
-          assetImagePath: "assets/images/sphere.png",
-          title: "free",
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => BreathingLandingPage(
-                      assetImagePath: "assets/images/sphere.png",
-                      title: "free",
-                      durations: [2, 1, 2, 1],
-                    ),
-              ), // 5 minutes
-            );
-          },
-        ),
-      ],
+          }).toList(),
     );
   }
 
@@ -86,11 +67,11 @@ class _DeepBreathingPageState extends State<CalmPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildBreathingTileRow(),
-          SizedBox(height: 50),
-          _buildBreathingTileRow(),
-          SizedBox(height: 50),
-          _buildBreathingTileRow(),
+          _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
+          const SizedBox(height: 50),
+          _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
+          const SizedBox(height: 50),
+          _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),
     );

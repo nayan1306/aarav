@@ -45,8 +45,10 @@ class _BreathingLandingPageState extends State<BreathingLandingPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+
+          // Smooth Hero Animation Transition
           Hero(
-            tag: widget.title,
+            tag: widget.title, // Ensure same Hero tag as in CalmPage
             child: Container(
               height: 300,
               width: double.infinity,
@@ -59,6 +61,7 @@ class _BreathingLandingPageState extends State<BreathingLandingPage> {
               ),
             ),
           ),
+
           const SizedBox(height: 30),
           BreathingInfoCardWidget(durations: widget.durations),
           const SizedBox(height: 20),
