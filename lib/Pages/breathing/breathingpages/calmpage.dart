@@ -67,10 +67,11 @@ class _CalmPageState extends State<CalmPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          const SizedBox(height: 30),
           _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),

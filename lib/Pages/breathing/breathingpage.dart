@@ -1,4 +1,4 @@
-import 'package:aarav/Pages/breathing/calmpage.dart';
+import 'package:aarav/Pages/breathing/breathingpages/calmpage.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/breathingcontainercard.dart';
 import 'package:flutter/material.dart';
