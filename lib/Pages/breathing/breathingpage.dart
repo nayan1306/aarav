@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/breathing/deepbreathingpage.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/breathingcontainercard.dart';
 import 'package:flutter/material.dart';
@@ -81,13 +82,16 @@ class _BreathingPageState extends State<BreathingPage> {
               BreathingContainerCard(
                 assetImagePath:
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Deep Breathing",
+                title: "Calm",
                 subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
               BreathingContainerCard(
-                assetImagePath: "assets/images/breathing/clam.png",
-                title: "Relax",
-                subtitle: "Soft strokes ",
+                assetImagePath:
+                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                title: "Calm",
+                subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
             ],
           ),
@@ -98,13 +102,16 @@ class _BreathingPageState extends State<BreathingPage> {
               BreathingContainerCard(
                 assetImagePath:
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Deep Breathing",
+                title: "Calm",
                 subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
               BreathingContainerCard(
-                assetImagePath: "assets/images/breathing/clam.png",
-                title: "Relax",
-                subtitle: "Soft strokes ",
+                assetImagePath:
+                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                title: "Calm",
+                subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
             ],
           ),
@@ -115,13 +122,16 @@ class _BreathingPageState extends State<BreathingPage> {
               BreathingContainerCard(
                 assetImagePath:
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Deep Breathing",
+                title: "Calm",
                 subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
               BreathingContainerCard(
-                assetImagePath: "assets/images/breathing/clam.png",
-                title: "Relax",
-                subtitle: "Soft strokes ",
+                assetImagePath:
+                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                title: "Calm",
+                subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
             ],
           ),
@@ -132,13 +142,16 @@ class _BreathingPageState extends State<BreathingPage> {
               BreathingContainerCard(
                 assetImagePath:
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Deep Breathing",
+                title: "Calm",
                 subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
               BreathingContainerCard(
-                assetImagePath: "assets/images/breathing/clam.png",
-                title: "Relax",
-                subtitle: "Soft strokes ",
+                assetImagePath:
+                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                title: "Calm",
+                subtitle: "Relax and inhale deeply",
+                nextPage: CalmPage(),
               ),
             ],
           ),
