@@ -1,4 +1,4 @@
-import 'package:aarav/Pages/moodtracker.dart/moodpages/moodpage10.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/10/moodpage10.dart';
 import 'package:flutter/material.dart';
 
 // Dummy pages for different mood scores
