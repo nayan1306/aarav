@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/breathing/breathingpages/boxbreathingpage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/calmpage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/energypage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/healthpage.dart';
@@ -134,27 +135,7 @@ class _BreathingPageState extends State<BreathingPage> {
                     "assets/images/breathing/box_breathing-removebg-preview-min.png",
                 title: "BoxBreathing",
                 subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
-              ),
-            ],
-          ),
-          //
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Calm",
-                subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
-              ),
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Calm",
-                subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
+                nextPage: BoxBreathingPage(),
               ),
             ],
           ),
