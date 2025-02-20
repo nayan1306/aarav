@@ -47,7 +47,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   imagePath: "assets/images/test_bg.png", // Custom image
                 ),
                 ExploreCard(
-                  page: Soundspage(), // Pass your page here
+                  page: QuotePage(), // Pass your page here
                   title: "Affirmations", // Custom title
                   imagePath: "assets/images/test_bg.png", // Custom image
                 ),
