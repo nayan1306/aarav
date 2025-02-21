@@ -24,6 +24,7 @@ dependencies:
   video_player: ^2.9.2
   record: ^5.2.1
   flutter_sound_record: ^3.3.2
+  audio_waveforms: ^1.2.0
 
 
 dev_dependencies:

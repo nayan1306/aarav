@@ -24,6 +24,7 @@ class _JournalPageState extends State<JournalPage> {
 
   // Instantiate the recorder.
   final FlutterSoundRecord _audioRecorder = FlutterSoundRecord();
+  // This AudioPlayer is used for playback.
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   bool _isRecording = false;
@@ -98,8 +99,58 @@ class _JournalPageState extends State<JournalPage> {
     );
   }
 
-  /// Play an audio recording.
+  /// Returns the duration of the recording using a temporary AudioPlayer.
+  Future<Duration?> _getRecordingDuration(String filePath) async {
+    final AudioPlayer tempPlayer = AudioPlayer();
+    try {
+      await tempPlayer.setSource(DeviceFileSource(filePath));
+      Duration? duration = await tempPlayer.getDuration();
+      await tempPlayer.dispose();
+      return duration;
+    } catch (e) {
+      await tempPlayer.dispose();
+      return null;
+    }
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return '$minutes:$seconds';
+  }
+
+  /// Play an audio recording and show a floating snackbar with controls.
   Future<void> _playRecording(String filePath) async {
+    Duration? duration = await _getRecordingDuration(filePath);
+    String durationText =
+        duration != null ? _formatDuration(duration) : "--:--";
+
+    // Show snackbar with player controls on top.
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        content: Row(
+          children: [
+            Expanded(
+              child: Text(
+                'Playing ($durationText)',
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.pause, color: Colors.white),
+              onPressed: () async {
+                await _audioPlayer.pause();
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+
     try {
       await _audioPlayer.play(DeviceFileSource(filePath));
     } catch (e) {
@@ -142,36 +193,36 @@ class _JournalPageState extends State<JournalPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Top row: Steps chip and Audio chip.
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Chip(
-                          avatar: const Icon(
-                            Icons.directions_walk,
-                            color: Colors.white,
-                          ),
-                          label: const Text(
-                            '1900 Steps',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: Colors.grey[800],
-                        ),
-                        Chip(
-                          backgroundColor: Colors.grey[800],
-                          label: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Icon(Icons.graphic_eq, color: Colors.grey),
-                              SizedBox(width: 8),
-                              Text(
-                                '01:25',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Chip(
+                    //       avatar: const Icon(
+                    //         Icons.directions_walk,
+                    //         color: Colors.white,
+                    //       ),
+                    //       label: const Text(
+                    //         '1900 Steps',
+                    //         style: TextStyle(color: Colors.white),
+                    //       ),
+                    //       backgroundColor: Colors.grey[800],
+                    //     ),
+                    //     Chip(
+                    //       backgroundColor: Colors.grey[800],
+                    //       label: Row(
+                    //         mainAxisSize: MainAxisSize.min,
+                    //         children: const [
+                    //           Icon(Icons.graphic_eq, color: Colors.grey),
+                    //           SizedBox(width: 8),
+                    //           Text(
+                    //             '01:25',
+                    //             style: TextStyle(color: Colors.white),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     const SizedBox(height: 16),
                     // Display images with tap-to-expand and delete functionality.
                     if (_images.isNotEmpty)
@@ -207,6 +258,7 @@ class _JournalPageState extends State<JournalPage> {
                                             shape: BoxShape.circle,
                                             color: Colors.black54,
                                           ),
+                                          padding: const EdgeInsets.all(4),
                                           child: const Icon(
                                             Icons.close,
                                             color: Colors.white,
@@ -221,45 +273,72 @@ class _JournalPageState extends State<JournalPage> {
                             }).toList(),
                       ),
                     const SizedBox(height: 16),
-                    // Display audio recordings as a list.
+                    // Display audio recordings as a list with duration info.
                     if (_recordings.isNotEmpty)
                       Column(
                         children:
                             _recordings.map((path) {
                               int index = _recordings.indexOf(path) + 1;
-                              return ListTile(
-                                tileColor: Colors.grey[800],
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                  // top: 8,
+                                  bottom: 5,
                                 ),
-                                leading: const Icon(
-                                  Icons.graphic_eq,
-                                  color: Colors.white,
-                                ),
-                                title: Text(
-                                  'Recording $index',
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                                trailing: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      _recordings.remove(path);
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color.fromARGB(201, 255, 116, 116),
-                                    ),
-                                    padding: const EdgeInsets.all(4),
-                                    child: const Icon(
-                                      Icons.close,
-                                      color: Colors.white,
-                                      size: 20,
+                                child: ListTile(
+                                  minVerticalPadding: 10,
+                                  tileColor: Colors.grey[800],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  leading: const Icon(
+                                    Icons.audiotrack,
+                                    color: Colors.white,
+                                  ),
+                                  // Use FutureBuilder to load and display duration.
+                                  title: FutureBuilder<Duration?>(
+                                    future: _getRecordingDuration(path),
+                                    builder: (context, snapshot) {
+                                      String durationText = "--:--";
+                                      if (snapshot.hasData &&
+                                          snapshot.data != null) {
+                                        durationText = _formatDuration(
+                                          snapshot.data!,
+                                        );
+                                      }
+                                      return Text(
+                                        'Recording $index - $durationText',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  trailing: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _recordings.remove(path);
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color.fromARGB(
+                                          201,
+                                          255,
+                                          116,
+                                          116,
+                                        ),
+                                      ),
+                                      padding: const EdgeInsets.all(4),
+                                      child: const Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
                                     ),
                                   ),
+                                  onTap: () => _playRecording(path),
                                 ),
-                                onTap: () => _playRecording(path),
                               );
                             }).toList(),
                       ),
