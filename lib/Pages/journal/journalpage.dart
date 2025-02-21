@@ -1,4 +1,7 @@
 import 'package:aarav/Pages/journal/datetimepicker.dart';
+import 'package:aarav/Pages/journal/texteditor.dart';
+import 'package:flutter/material.dart';
+import 'package:aarav/Pages/journal/datetimepicker.dart';
 import 'package:flutter/material.dart';
 
 class JournalPage extends StatefulWidget {
@@ -9,27 +12,16 @@ class JournalPage extends StatefulWidget {
 }
 
 class _JournalPageState extends State<JournalPage> {
-  final TextEditingController _titleController = TextEditingController(
-    text: 'Morning Vibes, Ocean City, Maryland',
-  );
-  final TextEditingController _descriptionController = TextEditingController(
-    text:
-        'Today marked the beginning of a delightful journey to Ocean City, Maryland. The coastal vibes greeted us as soon as we set foot on the sandy shores. The salty breeze carried the promise of a memorable adventure. Morning was spent strolling along the iconic boardwalk, where the blend of vintage charm and modern amusements created a captivating atmosphere. From the aroma of freshly made funnel cakes to the cheerful sounds of laughter from amusement rides, every step offered a new sensory delight.',
-  );
-
-  @override
-  void dispose() {
-    _titleController.dispose();
-    _descriptionController.dispose();
-    super.dispose();
-  }
+  // GlobalKey to access the JournalTextEditorState for retrieving the text values
+  final GlobalKey<JournalTextEditorState> _journalEditorKey =
+      GlobalKey<JournalTextEditorState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Overall black theme
+      backgroundColor: Colors.black, // Black themed background
       appBar: AppBar(
-        title: const DateTimePickerWidget(), // DateTime picker widget
+        title: const DateTimePickerWidget(), // DateTime picker widget in AppBar
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
@@ -99,32 +91,8 @@ class _JournalPageState extends State<JournalPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // Title TextField
-                    TextField(
-                      controller: _titleController,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter Title',
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    // Description TextField
-                    TextField(
-                      controller: _descriptionController,
-                      style: const TextStyle(fontSize: 14, color: Colors.white),
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter Description',
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                    ),
+                    // Use the separate JournalTextEditor widget for text editing
+                    JournalTextEditor(key: _journalEditorKey),
                   ],
                 ),
               ),
@@ -135,13 +103,19 @@ class _JournalPageState extends State<JournalPage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue, // Button color
-                  foregroundColor: Colors.white, // Button text color
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  // Display a SnackBar to indicate the save action
+                  // Retrieve text values from the JournalTextEditor widget using the GlobalKey
+                  final journalData =
+                      _journalEditorKey.currentState?.getJournalData();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Journal Saved!')),
+                    SnackBar(
+                      content: Text(
+                        'Journal Saved!\nTitle: ${journalData?['title']}\nDescription: ${journalData?['description']}',
+                      ),
+                    ),
                   );
                 },
                 child: const Text('Save for Journal'),
