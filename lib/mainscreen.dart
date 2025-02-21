@@ -7,14 +7,19 @@ import 'package:aarav/Pages/profilepage.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final int initialIndex;
+
+  const MainScreen({
+    super.key,
+    this.initialIndex = 0,
+  }); // Default to 0 (HomePage)
 
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
+  late int _currentIndex;
 
   final List<Widget> _pages = [
     HomePage(),
@@ -24,21 +29,24 @@ class _MainScreenState extends State<MainScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex; // Use the passed index
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBody: true,
       body: _pages[_currentIndex],
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:
           _currentIndex == 1 ? MoodTrackerQuickAccessButton() : null,
-
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(), // Creates the notch
-        notchMargin: 8.0, // Space between notch & FAB
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 8.0,
         color: Colors.black,
         elevation: 5,
-
         child: SizedBox(
           height: 55,
           width: double.infinity,
@@ -59,7 +67,7 @@ class _MainScreenState extends State<MainScreen> {
                   "Program",
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
-                selectedColor: const Color.fromARGB(114, 0, 0, 0),
+                selectedColor: const Color.fromARGB(150, 147, 255, 117),
               ),
               SalomonBottomBarItem(
                 icon: const Icon(Icons.explore, color: Colors.white, size: 22),

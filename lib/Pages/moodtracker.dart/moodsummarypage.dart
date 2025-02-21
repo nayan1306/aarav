@@ -1,3 +1,5 @@
+import 'package:aarav/Pages/timelinepage.dart';
+import 'package:aarav/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -171,7 +173,13 @@ class MoodSummaryPage extends StatelessWidget {
             // Fixed Done Button at Bottom
             ElevatedButton(
               onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MainScreen(initialIndex: 2),
+                  ),
+                  (route) => false,
+                );
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
@@ -194,6 +202,7 @@ class MoodSummaryPage extends StatelessWidget {
                 ),
               ),
             ),
+
             SizedBox(height: 20),
           ],
         ),
