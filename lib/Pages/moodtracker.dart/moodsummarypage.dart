@@ -43,6 +43,7 @@ class MoodSummaryPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text("Mood Summary"),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(212, 0, 0, 0),
         elevation: 2,
         foregroundColor: Colors.white,
@@ -61,13 +62,13 @@ class MoodSummaryPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
-                  vertical: 20,
+                  vertical: 10,
                 ),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 80),
+                      const SizedBox(height: 100),
 
                       // Current Time Display
                       Text(
@@ -143,7 +144,7 @@ class MoodSummaryPage extends StatelessWidget {
                       _buildLabeledContainer(
                         "Reasons for Your Mood",
                         selectedReasons,
-                        Colors.greenAccent,
+                        const Color.fromARGB(255, 35, 128, 83),
                       ),
 
                       const SizedBox(height: 20),
@@ -175,13 +176,13 @@ class MoodSummaryPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                   vertical: 15,
-                  horizontal: 40,
+                  horizontal: 20,
                 ),
                 minimumSize: const Size(300, 0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                backgroundColor: const Color.fromARGB(167, 91, 249, 120),
+                backgroundColor: const Color.fromARGB(167, 42, 214, 126),
               ),
               child: const Text(
                 "Done",
@@ -252,8 +253,8 @@ class MoodSummaryPage extends StatelessWidget {
                           item,
                           style: const TextStyle(color: Colors.white),
                         ),
-                        backgroundColor: borderColor.withOpacity(0.3),
-                        side: BorderSide(color: borderColor),
+                        backgroundColor: borderColor.withOpacity(0.5),
+                        side: BorderSide(color: borderColor, width: 2),
                       ),
                     )
                     .toList(),
