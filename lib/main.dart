@@ -1,7 +1,18 @@
 import 'package:aarav/mainscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'models/mood_summary_model.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  // Register the adapter
+  Hive.registerAdapter(MoodSummaryAdapter());
+
+  // Open the box
+  await Hive.openBox<MoodSummary>('moodSummaries');
+
   runApp(const MyApp());
 }
 

@@ -1,4 +1,3 @@
-import 'package:aarav/Pages/timelinepage.dart';
 import 'package:aarav/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
