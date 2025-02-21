@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:aarav/Pages/journal/datetimepicker.dart';
 import 'package:aarav/Pages/journal/texteditor.dart';
 import 'package:flutter/material.dart';
-import 'package:aarav/Pages/journal/datetimepicker.dart';
-import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class JournalPage extends StatefulWidget {
   const JournalPage({super.key});
@@ -15,6 +16,21 @@ class _JournalPageState extends State<JournalPage> {
   // GlobalKey to access the JournalTextEditorState for retrieving the text values
   final GlobalKey<JournalTextEditorState> _journalEditorKey =
       GlobalKey<JournalTextEditorState>();
+
+  // List to hold the added images.
+  final List<File> _images = [];
+
+  /// Uses ImagePicker to pick an image from the gallery and adds it to [_images].
+  Future<void> _pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        _images.add(File(pickedFile.path));
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +96,7 @@ class _JournalPageState extends State<JournalPage> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    // Main image
+                    // Main image (example image)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.network(
@@ -90,6 +106,71 @@ class _JournalPageState extends State<JournalPage> {
                         fit: BoxFit.cover,
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    // Button to add images
+                    Row(
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: _pickImage,
+                          icon: const Icon(
+                            Icons.add_photo_alternate,
+                            color: Colors.white,
+                          ),
+                          label: const Text(
+                            'Add Image',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    // Display added images with a cross button for removal.
+                    if (_images.isNotEmpty)
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children:
+                            _images.map((img) {
+                              return Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.file(
+                                      img,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 0,
+                                    right: 0,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          _images.remove(img);
+                                        });
+                                      },
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.black54,
+                                        ),
+                                        child: const Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }).toList(),
+                      ),
                     const SizedBox(height: 16),
                     // Use the separate JournalTextEditor widget for text editing
                     JournalTextEditor(key: _journalEditorKey),
