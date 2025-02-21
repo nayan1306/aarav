@@ -63,7 +63,7 @@ class _JournalPageState extends State<JournalPage> {
                             '1900 Steps',
                             style: TextStyle(color: Colors.white),
                           ),
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Colors.grey[800],
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
@@ -151,27 +151,28 @@ class _JournalPageState extends State<JournalPage> {
         elevation: 10,
         shape: const CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                onPressed: _pickImage,
-                icon: const Icon(
-                  Icons.add_photo_alternate,
-                  color: Colors.white,
-                ),
+              // Add Image Button
+              _buildCircularButton(
+                icon: Icons.add_photo_alternate,
+                onTap: _pickImage,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                  // foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 12,
-                  ),
-                ),
-                onPressed: () {
+
+              // Audio Icon
+              _buildCircularButton(
+                icon: Icons.mic,
+                onTap: () {
+                  // Implement audio recording
+                },
+              ),
+
+              // Save Button
+              _buildCircularButton(
+                icon: Icons.save,
+                onTap: () {
                   final journalData =
                       _journalEditorKey.currentState?.getJournalData();
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -182,11 +183,52 @@ class _JournalPageState extends State<JournalPage> {
                     ),
                   );
                 },
-                child: Icon(Icons.save, color: Colors.white, size: 25),
+              ),
+
+              // More Options
+              _buildCircularButton(
+                icon: Icons.more_vert,
+                onTap: () {
+                  // Implement more options action
+                },
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Helper function to build circular icon buttons
+  Widget _buildCircularButton({
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12), // Rounded corners
+      child: Container(
+        width: 55,
+        height: 55,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12), // Smooth rounded edges
+          gradient: LinearGradient(
+            colors: [
+              const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
+              const Color.fromARGB(255, 117, 117, 117).withOpacity(0.2),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
+              blurRadius: 8,
+              offset: const Offset(2, 4),
+            ),
+          ],
+        ),
+        child: Center(child: Icon(icon, color: Colors.white, size: 28)),
       ),
     );
   }
