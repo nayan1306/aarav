@@ -22,7 +22,7 @@ class _JournalPageState extends State<JournalPage> {
   final List<File> _images = [];
   final List<String> _recordings = [];
 
-  // Instantiate the recorder. (Do not use .instance because that getter isn’t available.)
+  // Instantiate the recorder.
   final FlutterSoundRecord _audioRecorder = FlutterSoundRecord();
   final AudioPlayer _audioPlayer = AudioPlayer();
 
@@ -45,7 +45,6 @@ class _JournalPageState extends State<JournalPage> {
     if (_isRecording) {
       // Stop recording.
       String? filePath = await _audioRecorder.stop();
-      // Ensure filePath is non-null before adding.
       if (filePath != null) {
         setState(() {
           _recordings.add(filePath);
@@ -57,17 +56,15 @@ class _JournalPageState extends State<JournalPage> {
         });
       }
     } else {
-      // Prepare a file path in temporary directory.
       Directory tempDir = await getTemporaryDirectory();
       String filePath =
           '${tempDir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
 
-      // Check for permission.
       bool hasPermission = await _audioRecorder.hasPermission();
       if (hasPermission) {
         await _audioRecorder.start(
           path: filePath,
-          encoder: AudioEncoder.AAC, // Using AAC encoder
+          encoder: AudioEncoder.AAC,
           bitRate: 128000,
           samplingRate: 44100,
         );
@@ -144,7 +141,7 @@ class _JournalPageState extends State<JournalPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Steps and Timer row.
+                    // Top row: Steps chip and Audio chip.
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -159,16 +156,10 @@ class _JournalPageState extends State<JournalPage> {
                           ),
                           backgroundColor: Colors.grey[800],
                         ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.grey[800],
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Row(
+                        Chip(
+                          backgroundColor: Colors.grey[800],
+                          label: Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: const [
                               Icon(Icons.graphic_eq, color: Colors.grey),
                               SizedBox(width: 8),
@@ -182,7 +173,7 @@ class _JournalPageState extends State<JournalPage> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    // Display images with tap-to-expand and delete.
+                    // Display images with tap-to-expand and delete functionality.
                     if (_images.isNotEmpty)
                       Wrap(
                         spacing: 8,
@@ -242,23 +233,31 @@ class _JournalPageState extends State<JournalPage> {
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 leading: const Icon(
-                                  Icons.audiotrack,
+                                  Icons.graphic_eq,
                                   color: Colors.white,
                                 ),
                                 title: Text(
                                   'Recording $index',
                                   style: const TextStyle(color: Colors.white),
                                 ),
-                                trailing: IconButton(
-                                  icon: const Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () {
+                                trailing: GestureDetector(
+                                  onTap: () {
                                     setState(() {
                                       _recordings.remove(path);
                                     });
                                   },
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color.fromARGB(201, 255, 116, 116),
+                                    ),
+                                    padding: const EdgeInsets.all(4),
+                                    child: const Icon(
+                                      Icons.close,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ),
+                                  ),
                                 ),
                                 onTap: () => _playRecording(path),
                               );
