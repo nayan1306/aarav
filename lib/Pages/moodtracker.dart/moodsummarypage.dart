@@ -1,5 +1,7 @@
 import 'package:aarav/mainscreen.dart';
+import 'package:aarav/models/mood_summary_model.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 
 class MoodSummaryPage extends StatelessWidget {
@@ -171,7 +173,23 @@ class MoodSummaryPage extends StatelessWidget {
 
             // Fixed Done Button at Bottom
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                final moodSummaryBox = Hive.box<MoodSummary>('moodSummaries');
+
+                // Create a new mood summary object
+                final newMoodSummary = MoodSummary(
+                  moodScore: moodScore,
+                  selectedReasons: selectedReasons,
+                  selectedFeelings: selectedFeelings,
+                  timestamp: DateFormat(
+                    'yyyy-MM-dd HH:mm:ss',
+                  ).format(DateTime.now()),
+                );
+
+                // Save it to Hive
+                await moodSummaryBox.add(newMoodSummary);
+
+                // Navigate back to the MainScreen
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
