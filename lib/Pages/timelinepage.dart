@@ -15,7 +15,7 @@ class TimelinePage extends StatefulWidget {
 
 class _TimelinePageState extends State<TimelinePage> {
   late Map<DateTime, String> moodEmojis = {};
-  final DateTime _selectedDate = DateTime.now();
+  // final DateTime _selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -31,8 +31,8 @@ class _TimelinePageState extends State<TimelinePage> {
     for (int i = 0; i < moodSummaryBox.length; i++) {
       final moodSummary = moodSummaryBox.getAt(i);
       if (moodSummary != null) {
-        DateTime date = DateTime.parse(moodSummary.timestamp);
-        DateTime onlyDate = DateTime(date.year, date.month, date.day);
+        // DateTime date = DateTime.parse(moodSummary.timestamp);
+        // DateTime onlyDate = DateTime(date.year, date.month, date.day);
         // You can update moodEmojis mapping here if needed
         // tempMap[onlyDate] = getMoodEmoji(moodSummary.moodScore);
       }

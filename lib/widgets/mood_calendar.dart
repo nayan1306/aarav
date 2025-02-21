@@ -149,13 +149,15 @@ class _MoodCalendarState extends State<MoodCalendar> {
                     child: Text(
                       isSelected
                           ? emoji ?? date.day.toString()
-                          : (emoji ?? "📅"), // Show emoji or placeholder
+                          : (emoji ?? "⭕"), // Show emoji or placeholder
                       style: TextStyle(
-                        fontSize: isSelected ? 26 : 16,
+                        fontSize: isSelected ? 26 : 26,
                         fontWeight:
                             isSelected ? FontWeight.bold : FontWeight.normal,
                         color:
-                            isSelected ? Colors.orangeAccent : Colors.white70,
+                            isSelected
+                                ? Colors.orangeAccent
+                                : const Color.fromARGB(255, 67, 66, 66),
                       ),
                     ),
                   );
