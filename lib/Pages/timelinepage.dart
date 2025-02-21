@@ -115,12 +115,12 @@ class _TimelinePageState extends State<TimelinePage> {
                                     style: const TextStyle(fontSize: 24),
                                   ),
                                   Text(
-                                    DateFormat('h:mm a').format(
+                                    DateFormat('yyyy-MM-dd h:mm a').format(
                                       DateTime.parse(moodSummary.timestamp),
                                     ),
                                     style: const TextStyle(
                                       color: Colors.white70,
-                                      fontSize: 12,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ],

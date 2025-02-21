@@ -128,12 +128,11 @@ Entry $i:
             return Center(
               child: Text(
                 isSelected
-                    ? (emoji ??
-                        "😊") // Always show an emoji for the selected date
+                    ? "${emoji ?? ""} ${date.day}" // Show emoji + date if selected
                     : (emoji ??
-                        "•_•"), // Show only emoji if available, otherwise nothing
+                        date.day.toString()), // Show emoji or date normally
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(207, 69, 69, 69),
                 ),

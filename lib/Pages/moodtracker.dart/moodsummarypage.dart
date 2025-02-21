@@ -16,9 +16,7 @@ class MoodSummaryPage extends StatelessWidget {
     required this.selectedFeelings,
   });
 
-  final String currentTime = DateFormat(
-    'EEEE, MMM d, y - h:mm a',
-  ).format(DateTime.now());
+  String currentTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
 
   String getMoodMessage() {
     if (moodScore >= 8) {
@@ -74,12 +72,32 @@ class MoodSummaryPage extends StatelessWidget {
                       const SizedBox(height: 100),
 
                       // Current Time Display
-                      Text(
-                        currentTime,
-                        style: const TextStyle(
-                          color: Colors.white70,
-                          fontSize: 20,
-                          fontStyle: FontStyle.italic,
+                      GestureDetector(
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2101),
+                          );
+
+                          if (pickedDate != null) {
+                            // Format the picked date
+                            currentTime = DateFormat(
+                              'yyyy-MM-dd HH:mm:ss',
+                            ).format(pickedDate);
+
+                            // Update the state with the new date
+                            (context as Element).markNeedsBuild();
+                          }
+                        },
+                        child: Text(
+                          currentTime,
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 20,
+                            fontStyle: FontStyle.italic,
+                          ),
                         ),
                       ),
 
@@ -181,9 +199,7 @@ class MoodSummaryPage extends StatelessWidget {
                   moodScore: moodScore,
                   selectedReasons: selectedReasons,
                   selectedFeelings: selectedFeelings,
-                  timestamp: DateFormat(
-                    'yyyy-MM-dd HH:mm:ss',
-                  ).format(DateTime.now()),
+                  timestamp: currentTime,
                 );
 
                 // Save it to Hive
