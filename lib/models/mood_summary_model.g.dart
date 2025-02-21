@@ -18,8 +18,12 @@ class MoodSummaryAdapter extends TypeAdapter<MoodSummary> {
     };
     return MoodSummary(
       moodScore: fields[0] as int,
-      selectedReasons: (fields[1] as List).cast<String>(),
-      selectedFeelings: (fields[2] as List).cast<String>(),
+      selectedReasons: (fields[1] as List)
+          .map((dynamic e) => (e as Map).cast<String, String>())
+          .toList(),
+      selectedFeelings: (fields[2] as List)
+          .map((dynamic e) => (e as Map).cast<String, String>())
+          .toList(),
       timestamp: fields[3] as String,
     );
   }

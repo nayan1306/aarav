@@ -36,8 +36,13 @@ class _MoodPage10State extends State<MoodPage10> {
 
   void _continue() {
     if (_selectedIndexes.isNotEmpty) {
-      List<String> selectedReasons =
-          _selectedIndexes.map((index) => _reasons[index]["text"]!).toList();
+      List<Map<String, String>> selectedReasons =
+          _selectedIndexes.map((index) {
+            return {
+              "emoji": _reasons[index]["emoji"]!,
+              "text": _reasons[index]["text"]!,
+            };
+          }).toList();
 
       Navigator.push(
         context,

@@ -6,8 +6,8 @@ import 'package:intl/intl.dart';
 
 class MoodSummaryPage extends StatelessWidget {
   final int moodScore;
-  final List<String> selectedReasons;
-  final List<String> selectedFeelings;
+  final List<Map<String, String>> selectedReasons;
+  final List<Map<String, String>> selectedFeelings;
 
   MoodSummaryPage({
     super.key,
@@ -252,7 +252,7 @@ class MoodSummaryPage extends StatelessWidget {
   // Utility method to create labeled chip containers
   Widget _buildLabeledContainer(
     String title,
-    List<String> items,
+    List<Map<String, String>> items,
     Color borderColor,
   ) {
     return Column(
@@ -276,7 +276,7 @@ class MoodSummaryPage extends StatelessWidget {
                     .map(
                       (item) => Chip(
                         label: Text(
-                          item,
+                          "${item['emoji']} ${item['text']}", // Emoji + Text
                           style: const TextStyle(color: Colors.white),
                         ),
                         backgroundColor: borderColor.withOpacity(0.5),

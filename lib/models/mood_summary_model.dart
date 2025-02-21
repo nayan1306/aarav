@@ -8,10 +8,10 @@ class MoodSummary extends HiveObject {
   int moodScore;
 
   @HiveField(1)
-  List<String> selectedReasons;
+  List<Map<String, String>> selectedReasons;
 
   @HiveField(2)
-  List<String> selectedFeelings;
+  List<Map<String, String>> selectedFeelings;
 
   @HiveField(3)
   String timestamp;

@@ -89,18 +89,22 @@ class TimelinePage extends StatelessWidget {
 
                         // Selected Reasons
                         if (moodSummary.selectedReasons.isNotEmpty)
-                          _buildDetailRow(
+                          _buildLabeledContainer(
                             "Reasons",
-                            moodSummary.selectedReasons,
-                            Icons.label,
+                            moodSummary.selectedReasons
+                                .map((reason) => reason.values.join(', '))
+                                .toList(),
+                            Colors.orangeAccent,
                           ),
 
                         // Selected Feelings
                         if (moodSummary.selectedFeelings.isNotEmpty)
-                          _buildDetailRow(
+                          _buildLabeledContainer(
                             "Feelings",
-                            moodSummary.selectedFeelings,
-                            Icons.mood,
+                            moodSummary.selectedFeelings
+                                .map((feeling) => feeling.values.join(', '))
+                                .toList(),
+                            Colors.blueAccent,
                           ),
                       ],
                     ),
@@ -114,19 +118,46 @@ class TimelinePage extends StatelessWidget {
     );
   }
 
-  // Widget to create labeled detail rows
-  Widget _buildDetailRow(String title, List<String> items, IconData icon) {
+  // Widget to create labeled container with chips for reasons & feelings
+  Widget _buildLabeledContainer(
+    String title,
+    List<String> items,
+    Color borderColor,
+  ) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Row(
+      padding: const EdgeInsets.only(top: 8),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 18),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              "$title: ${items.join(", ")}",
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 14),
+          ),
+          const SizedBox(height: 6),
+          Container(
+            padding: const EdgeInsets.all(8),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.05),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: borderColor, width: 1.5),
+            ),
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children:
+                  items
+                      .map(
+                        (item) => Chip(
+                          label: Text(
+                            item,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          backgroundColor: borderColor.withOpacity(0.5),
+                          side: BorderSide(color: borderColor, width: 2),
+                        ),
+                      )
+                      .toList(),
             ),
           ),
         ],

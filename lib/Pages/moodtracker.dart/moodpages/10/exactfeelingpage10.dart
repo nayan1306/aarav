@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ExactFeelingPage10 extends StatefulWidget {
   final int moodScore;
-  final List<String> selectedReasons;
+  final List<Map<String, String>> selectedReasons;
 
   const ExactFeelingPage10({
     super.key,
@@ -41,8 +41,13 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
 
   void _continue() {
     if (_selectedIndexes.isNotEmpty) {
-      List<String> selectedFeelings =
-          _selectedIndexes.map((index) => _feelings[index]["text"]!).toList();
+      List<Map<String, String>> selectedFeelings =
+          _selectedIndexes.map((index) {
+            return {
+              "emoji": _feelings[index]["emoji"]!,
+              "text": _feelings[index]["text"]!,
+            };
+          }).toList();
 
       Navigator.push(
         context,
