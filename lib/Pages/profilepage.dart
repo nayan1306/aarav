@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:aarav/models/mood_summary_model.dart'; // Adjust the import according to your project structure
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -11,13 +12,14 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<void> _clearHiveBox() async {
     try {
-      if (!Hive.isBoxOpen('MoodSummary')) {
-        await Hive.openBox('MoodSummary');
+      // Use the same box name as in the timeline page
+      if (!Hive.isBoxOpen('moodSummaries')) {
+        await Hive.openBox<MoodSummary>('moodSummaries');
       }
-      final moodSummaryBox = Hive.box('MoodSummary');
+      final moodSummaryBox = Hive.box<MoodSummary>('moodSummaries');
 
       if (moodSummaryBox.isNotEmpty) {
-        print("\n========== Hive Box Data (MoodSummary) ==========");
+        print("\n========== Hive Box Data (moodSummaries) ==========");
 
         // Print raw data from Hive box
         for (int i = 0; i < moodSummaryBox.length; i++) {
