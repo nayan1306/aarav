@@ -78,6 +78,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       title: "First Aid",
                       imagePath: "assets/images/test_bg.png",
                     ),
+                    SizedBox(height: 100),
                   ],
                 ),
               ),
