@@ -89,6 +89,10 @@ class JournalTextEditorState extends State<JournalTextEditor> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          titleController.text.isEmpty ? 'Title' : '',
+          style: TextStyle(color: Colors.grey),
+        ),
         // Title TextField with conditional helper text and clear button.
         TextField(
           controller: titleController,
@@ -100,8 +104,8 @@ class JournalTextEditorState extends State<JournalTextEditor> {
           ),
           decoration: InputDecoration(
             border: InputBorder.none,
-            helperText: titleController.text.isEmpty ? 'Enter Title' : null,
-            helperStyle: const TextStyle(color: Colors.grey),
+            // helperText: titleController.text.isEmpty ? 'Enter Title' : null,
+            // helperStyle: const TextStyle(color: Colors.grey),
             suffixIcon:
                 titleController.text.isNotEmpty
                     ? IconButton(
@@ -116,6 +120,11 @@ class JournalTextEditorState extends State<JournalTextEditor> {
           ),
         ),
         const SizedBox(height: 8),
+        Divider(color: const Color.fromARGB(96, 175, 172, 172)),
+        Text(
+          titleController.text.isEmpty ? 'Description' : '',
+          style: TextStyle(color: Colors.grey),
+        ),
         // Description TextField with helper text and clear button.
         TextField(
           controller: descriptionController,
@@ -124,8 +133,8 @@ class JournalTextEditorState extends State<JournalTextEditor> {
           maxLines: null,
           decoration: InputDecoration(
             border: InputBorder.none,
-            helperText: 'Enter Description',
-            helperStyle: const TextStyle(color: Colors.grey),
+            // helperText: 'Enter Description',
+            // helperStyle: const TextStyle(color: Colors.grey),
             suffixIcon:
                 descriptionController.text.isNotEmpty
                     ? IconButton(

@@ -13,14 +13,10 @@ class JournalPage extends StatefulWidget {
 }
 
 class _JournalPageState extends State<JournalPage> {
-  // GlobalKey to access the JournalTextEditorState for retrieving the text values
   final GlobalKey<JournalTextEditorState> _journalEditorKey =
       GlobalKey<JournalTextEditorState>();
-
-  // List to hold the added images.
   final List<File> _images = [];
 
-  /// Uses ImagePicker to pick an image from the gallery and adds it to [_images].
   Future<void> _pickImage() async {
     final pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
@@ -35,16 +31,15 @@ class _JournalPageState extends State<JournalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Black themed background
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const DateTimePickerWidget(), // DateTime picker widget in AppBar
+        title: const DateTimePickerWidget(),
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(6.0),
         child: Column(
           children: [
-            // Card holding the main content
             Card(
               color: Colors.grey[900],
               shape: RoundedRectangleBorder(
@@ -56,11 +51,9 @@ class _JournalPageState extends State<JournalPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Top row: Walk info + audio snippet
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // "Walk 1900 Steps" Chip
                         Chip(
                           avatar: const Icon(
                             Icons.directions_walk,
@@ -72,7 +65,6 @@ class _JournalPageState extends State<JournalPage> {
                           ),
                           backgroundColor: Colors.blue,
                         ),
-                        // Audio snippet "01:25"
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 12,
@@ -95,39 +87,8 @@ class _JournalPageState extends State<JournalPage> {
                         ),
                       ],
                     ),
+
                     const SizedBox(height: 16),
-                    // Main image (example image)
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.network(
-                        'https://images.pexels.com/photos/409696/pexels-photo-409696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                        height: 200,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    // Button to add images
-                    Row(
-                      children: [
-                        ElevatedButton.icon(
-                          onPressed: _pickImage,
-                          icon: const Icon(
-                            Icons.add_photo_alternate,
-                            color: Colors.white,
-                          ),
-                          label: const Text(
-                            'Add Image',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    // Display added images with a cross button for removal.
                     if (_images.isNotEmpty)
                       Wrap(
                         spacing: 8,
@@ -172,23 +133,45 @@ class _JournalPageState extends State<JournalPage> {
                             }).toList(),
                       ),
                     const SizedBox(height: 16),
-                    // Use the separate JournalTextEditor widget for text editing
                     JournalTextEditor(key: _journalEditorKey),
+                    const SizedBox(
+                      height: 10,
+                    ), // Extra space to prevent overlap
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            // "Save for Journal" button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
+          ],
+        ),
+      ),
+
+      // BottomAppBar with two buttons
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.grey[900],
+        elevation: 10,
+        shape: const CircularNotchedRectangle(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: _pickImage,
+                icon: const Icon(
+                  Icons.add_photo_alternate,
+                  color: Colors.white,
+                ),
+              ),
+              ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                  // foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 12,
+                  ),
                 ),
                 onPressed: () {
-                  // Retrieve text values from the JournalTextEditor widget using the GlobalKey
                   final journalData =
                       _journalEditorKey.currentState?.getJournalData();
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -199,10 +182,10 @@ class _JournalPageState extends State<JournalPage> {
                     ),
                   );
                 },
-                child: const Text('Save for Journal'),
+                child: Icon(Icons.save, color: Colors.white, size: 25),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
