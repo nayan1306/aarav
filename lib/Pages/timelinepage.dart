@@ -52,7 +52,7 @@ class TimelinePage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  color: Colors.black.withOpacity(0.8),
+                  color: const Color.fromARGB(255, 48, 47, 47).withOpacity(0.8),
                   child: Padding(
                     padding: const EdgeInsets.all(12),
                     child: Column(
@@ -63,15 +63,8 @@ class TimelinePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Mood Score: ${moodSummary.moodScore} ${getMoodEmoji(moodSummary.moodScore)}",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color:
-                                    moodSummary.moodScore > 5
-                                        ? Colors.greenAccent
-                                        : Colors.redAccent,
-                              ),
+                              getMoodEmoji(moodSummary.moodScore),
+                              style: const TextStyle(fontSize: 24),
                             ),
                             Text(
                               DateFormat(
@@ -85,15 +78,27 @@ class TimelinePage extends StatelessWidget {
                           ],
                         ),
 
-                        const SizedBox(height: 8),
+                        // const SizedBox(height: 10),
+
+                        // Text(
+                        //   "Mood Score: ${moodSummary.moodScore}",
+                        //   style: TextStyle(
+                        //     fontSize: 18,
+                        //     fontWeight: FontWeight.bold,
+                        //     color:
+                        //         moodSummary.moodScore > 5
+                        //             ? Colors.greenAccent
+                        //             : Colors.redAccent,
+                        //   ),
+                        // ),
+
+                        // const SizedBox(height: 8),
 
                         // Selected Reasons
                         if (moodSummary.selectedReasons.isNotEmpty)
                           _buildLabeledContainer(
                             "Reasons",
-                            moodSummary.selectedReasons
-                                .map((reason) => reason.values.join(', '))
-                                .toList(),
+                            moodSummary.selectedReasons,
                             Colors.orangeAccent,
                           ),
 
@@ -101,9 +106,7 @@ class TimelinePage extends StatelessWidget {
                         if (moodSummary.selectedFeelings.isNotEmpty)
                           _buildLabeledContainer(
                             "Feelings",
-                            moodSummary.selectedFeelings
-                                .map((feeling) => feeling.values.join(', '))
-                                .toList(),
+                            moodSummary.selectedFeelings,
                             Colors.blueAccent,
                           ),
                       ],
@@ -118,10 +121,10 @@ class TimelinePage extends StatelessWidget {
     );
   }
 
-  // Widget to create labeled container with chips for reasons & feelings
+  // Widget to create labeled container with expandable chips
   Widget _buildLabeledContainer(
     String title,
-    List<String> items,
+    List<Map<String, String>> items, // [{"emoji": "😀", "text": "Joyful"}]
     Color borderColor,
   ) {
     return Padding(
@@ -134,31 +137,36 @@ class TimelinePage extends StatelessWidget {
             style: const TextStyle(color: Colors.white, fontSize: 14),
           ),
           const SizedBox(height: 6),
-          Container(
-            padding: const EdgeInsets.all(8),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: borderColor, width: 1.5),
-            ),
-            child: Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children:
-                  items
-                      .map(
-                        (item) => Chip(
-                          label: Text(
-                            item,
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                          backgroundColor: borderColor.withOpacity(0.5),
-                          side: BorderSide(color: borderColor, width: 2),
-                        ),
-                      )
-                      .toList(),
-            ),
+
+          // Chip List
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: List.generate(items.length, (index) {
+              final item = items[index];
+              final emoji = item["emoji"] ?? "";
+              final text = item["text"] ?? "";
+
+              // ValueNotifier for individual chip state
+              ValueNotifier<bool> isExpanded = ValueNotifier(false);
+
+              return ValueListenableBuilder<bool>(
+                valueListenable: isExpanded,
+                builder: (context, expanded, _) {
+                  return GestureDetector(
+                    onTap: () => isExpanded.value = !isExpanded.value,
+                    child: Chip(
+                      label: Text(
+                        expanded ? "$emoji $text" : emoji,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      backgroundColor: borderColor.withOpacity(0.5),
+                      side: BorderSide(color: borderColor, width: 2),
+                    ),
+                  );
+                },
+              );
+            }),
           ),
         ],
       ),
