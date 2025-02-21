@@ -2,8 +2,11 @@ import 'dart:io';
 
 import 'package:aarav/Pages/journal/datetimepicker.dart';
 import 'package:aarav/Pages/journal/texteditor.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sound_record/flutter_sound_record.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 
 class JournalPage extends StatefulWidget {
   const JournalPage({super.key});
@@ -15,8 +18,17 @@ class JournalPage extends StatefulWidget {
 class _JournalPageState extends State<JournalPage> {
   final GlobalKey<JournalTextEditorState> _journalEditorKey =
       GlobalKey<JournalTextEditorState>();
-  final List<File> _images = [];
 
+  final List<File> _images = [];
+  final List<String> _recordings = [];
+
+  // Instantiate the recorder. (Do not use .instance because that getter isn’t available.)
+  final FlutterSoundRecord _audioRecorder = FlutterSoundRecord();
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  bool _isRecording = false;
+
+  /// Pick an image from the gallery.
   Future<void> _pickImage() async {
     final pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
@@ -26,6 +38,87 @@ class _JournalPageState extends State<JournalPage> {
         _images.add(File(pickedFile.path));
       });
     }
+  }
+
+  /// Toggle audio recording.
+  Future<void> _toggleRecording() async {
+    if (_isRecording) {
+      // Stop recording.
+      String? filePath = await _audioRecorder.stop();
+      // Ensure filePath is non-null before adding.
+      if (filePath != null) {
+        setState(() {
+          _recordings.add(filePath);
+          _isRecording = false;
+        });
+      } else {
+        setState(() {
+          _isRecording = false;
+        });
+      }
+    } else {
+      // Prepare a file path in temporary directory.
+      Directory tempDir = await getTemporaryDirectory();
+      String filePath =
+          '${tempDir.path}/audio_${DateTime.now().millisecondsSinceEpoch}.m4a';
+
+      // Check for permission.
+      bool hasPermission = await _audioRecorder.hasPermission();
+      if (hasPermission) {
+        await _audioRecorder.start(
+          path: filePath,
+          encoder: AudioEncoder.AAC, // Using AAC encoder
+          bitRate: 128000,
+          samplingRate: 44100,
+        );
+        setState(() {
+          _isRecording = true;
+        });
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Audio recording permission denied")),
+          );
+        }
+      }
+    }
+  }
+
+  /// Expand an image into a full-screen preview.
+  void _expandImage(File imageFile) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.black,
+          child: InteractiveViewer(
+            panEnabled: false,
+            boundaryMargin: const EdgeInsets.all(20),
+            child: Image.file(imageFile, fit: BoxFit.contain),
+          ),
+        );
+      },
+    );
+  }
+
+  /// Play an audio recording.
+  Future<void> _playRecording(String filePath) async {
+    try {
+      await _audioPlayer.play(DeviceFileSource(filePath));
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error playing recording: $e')));
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _audioRecorder.dispose();
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -51,6 +144,7 @@ class _JournalPageState extends State<JournalPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Steps and Timer row.
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -87,56 +181,93 @@ class _JournalPageState extends State<JournalPage> {
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 16),
+                    // Display images with tap-to-expand and delete.
                     if (_images.isNotEmpty)
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
                         children:
                             _images.map((img) {
-                              return Stack(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.file(
-                                      img,
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.cover,
+                              return GestureDetector(
+                                onTap: () => _expandImage(img),
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.file(
+                                        img,
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 0,
-                                    right: 0,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          _images.remove(img);
-                                        });
-                                      },
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.black54,
-                                        ),
-                                        child: const Icon(
-                                          Icons.close,
-                                          color: Colors.white,
-                                          size: 20,
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            _images.remove(img);
+                                          });
+                                        },
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.black54,
+                                          ),
+                                          child: const Icon(
+                                            Icons.close,
+                                            color: Colors.white,
+                                            size: 20,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               );
                             }).toList(),
                       ),
                     const SizedBox(height: 16),
+                    // Display audio recordings as a list.
+                    if (_recordings.isNotEmpty)
+                      Column(
+                        children:
+                            _recordings.map((path) {
+                              int index = _recordings.indexOf(path) + 1;
+                              return ListTile(
+                                tileColor: Colors.grey[800],
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                leading: const Icon(
+                                  Icons.audiotrack,
+                                  color: Colors.white,
+                                ),
+                                title: Text(
+                                  'Recording $index',
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                trailing: IconButton(
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _recordings.remove(path);
+                                    });
+                                  },
+                                ),
+                                onTap: () => _playRecording(path),
+                              );
+                            }).toList(),
+                      ),
+                    const SizedBox(height: 16),
+                    // Journal text editor widget.
                     JournalTextEditor(key: _journalEditorKey),
-                    const SizedBox(
-                      height: 10,
-                    ), // Extra space to prevent overlap
+                    const SizedBox(height: 10), // Extra space for bottom bar.
                   ],
                 ),
               ),
@@ -144,8 +275,7 @@ class _JournalPageState extends State<JournalPage> {
           ],
         ),
       ),
-
-      // BottomAppBar with two buttons
+      // BottomAppBar with four rounded buttons.
       bottomNavigationBar: BottomAppBar(
         color: Colors.grey[900],
         elevation: 10,
@@ -155,22 +285,15 @@ class _JournalPageState extends State<JournalPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Add Image Button
-              _buildCircularButton(
+              _buildRoundedButton(
                 icon: Icons.add_photo_alternate,
                 onTap: _pickImage,
               ),
-
-              // Audio Icon
-              _buildCircularButton(
-                icon: Icons.mic,
-                onTap: () {
-                  // Implement audio recording
-                },
+              _buildRoundedButton(
+                icon: _isRecording ? Icons.stop : Icons.mic,
+                onTap: _toggleRecording,
               ),
-
-              // Save Button
-              _buildCircularButton(
+              _buildRoundedButton(
                 icon: Icons.save,
                 onTap: () {
                   final journalData =
@@ -184,12 +307,10 @@ class _JournalPageState extends State<JournalPage> {
                   );
                 },
               ),
-
-              // More Options
-              _buildCircularButton(
+              _buildRoundedButton(
                 icon: Icons.more_vert,
                 onTap: () {
-                  // Implement more options action
+                  // Implement additional options if needed.
                 },
               ),
             ],
@@ -199,30 +320,27 @@ class _JournalPageState extends State<JournalPage> {
     );
   }
 
-  /// Helper function to build circular icon buttons
-  Widget _buildCircularButton({
+  /// Helper to build a rounded rectangular button.
+  Widget _buildRoundedButton({
     required IconData icon,
     required VoidCallback onTap,
   }) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12), // Rounded corners
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         width: 55,
         height: 55,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12), // Smooth rounded edges
+          borderRadius: BorderRadius.circular(12),
           gradient: LinearGradient(
-            colors: [
-              const Color.fromARGB(255, 0, 0, 0).withOpacity(0.4),
-              const Color.fromARGB(255, 117, 117, 117).withOpacity(0.2),
-            ],
+            colors: [Colors.grey[700]!, Colors.grey[900]!],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
+              color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
               blurRadius: 8,
               offset: const Offset(2, 4),
             ),

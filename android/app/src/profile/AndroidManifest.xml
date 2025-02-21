@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Optional: Add this permission if you want to use bluetooth telephony device like headset/earbuds -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    
 
 
 </manifest>
