@@ -17,6 +17,15 @@ class _ProfilePageState extends State<ProfilePage> {
       final moodSummaryBox = Hive.box('MoodSummary');
 
       if (moodSummaryBox.isNotEmpty) {
+        print("\n========== Hive Box Data (MoodSummary) ==========");
+
+        // Print raw data from Hive box
+        for (int i = 0; i < moodSummaryBox.length; i++) {
+          print("Entry $i: ${moodSummaryBox.getAt(i)}");
+        }
+
+        print("====================================================\n");
+
         bool? confirmDelete = await _showConfirmationDialog();
         if (confirmDelete == true) {
           await moodSummaryBox.clear();

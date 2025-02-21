@@ -1,6 +1,7 @@
+import 'dart:developer';
 import 'package:aarav/widgets/mood_calendar.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 
 import '../models/mood_summary_model.dart';
@@ -24,15 +25,16 @@ class _TimelinePageState extends State<TimelinePage> {
 
   void _loadMoodData() {
     final moodSummaryBox = Hive.box<MoodSummary>('moodSummaries');
+    log(moodSummaryBox.length.toString());
 
-    // Extract mood summaries and map them to dates
     Map<DateTime, String> tempMap = {};
     for (int i = 0; i < moodSummaryBox.length; i++) {
       final moodSummary = moodSummaryBox.getAt(i);
       if (moodSummary != null) {
         DateTime date = DateTime.parse(moodSummary.timestamp);
         DateTime onlyDate = DateTime(date.year, date.month, date.day);
-        tempMap[onlyDate] = getMoodEmoji(moodSummary.moodScore);
+        // You can update moodEmojis mapping here if needed
+        // tempMap[onlyDate] = getMoodEmoji(moodSummary.moodScore);
       }
     }
 
@@ -41,13 +43,13 @@ class _TimelinePageState extends State<TimelinePage> {
     });
   }
 
-  String getMoodEmoji(int moodScore) {
+  Map<String, dynamic> getMoodDetails(int moodScore) {
     if (moodScore >= 8) {
-      return "😃"; // Very Happy
+      return {"emoji": "😃", "text": "Very Happy", "color": Colors.green};
     } else if (moodScore >= 5) {
-      return "😊"; // Neutral/Okay
+      return {"emoji": "😊", "text": "Neutral", "color": Colors.orange};
     } else {
-      return "😞"; // Sad
+      return {"emoji": "😞", "text": "Sad", "color": Colors.red};
     }
   }
 
@@ -62,10 +64,8 @@ class _TimelinePageState extends State<TimelinePage> {
       ),
       body: Column(
         children: [
-          // Calendar Widget
           MoodCalendar(),
 
-          // Show moods recorded on the selected date
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(12),
@@ -73,34 +73,40 @@ class _TimelinePageState extends State<TimelinePage> {
                 valueListenable:
                     Hive.box<MoodSummary>('moodSummaries').listenable(),
                 builder: (context, Box<MoodSummary> box, _) {
-                  final selectedDateString = DateFormat(
-                    'yyyy-MM-dd',
-                  ).format(_selectedDate);
-                  final moodsOnSelectedDate =
-                      box.values.where((mood) {
-                        return mood.timestamp.startsWith(selectedDateString);
-                      }).toList();
+                  // Retrieve all mood records and sort them from new to old.
+                  final allMoodRecords =
+                      box.values.toList()..sort(
+                        (a, b) => DateTime.parse(
+                          b.timestamp,
+                        ).compareTo(DateTime.parse(a.timestamp)),
+                      );
 
-                  if (moodsOnSelectedDate.isEmpty) {
+                  if (allMoodRecords.isEmpty) {
                     return const Center(
                       child: Text(
-                        "No mood records for this date.",
+                        "No mood records available.",
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     );
                   }
 
                   return ListView.builder(
-                    itemCount: moodsOnSelectedDate.length,
+                    itemCount: allMoodRecords.length,
                     itemBuilder: (context, index) {
-                      final moodSummary = moodsOnSelectedDate[index];
+                      final moodSummary = allMoodRecords[index];
+                      final moodDetails = getMoodDetails(moodSummary.moodScore);
 
                       return Card(
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        color: Colors.black.withOpacity(0.8),
+                        color: const Color.fromARGB(
+                          255,
+                          37,
+                          35,
+                          35,
+                        ).withOpacity(0.8),
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
@@ -110,39 +116,68 @@ class _TimelinePageState extends State<TimelinePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    getMoodEmoji(moodSummary.moodScore),
-                                    style: const TextStyle(fontSize: 24),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        moodDetails["emoji"],
+                                        style: const TextStyle(fontSize: 28),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Text(
+                                        moodDetails["text"],
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: moodDetails["color"],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   Text(
-                                    DateFormat('yyyy-MM-dd h:mm a').format(
+                                    DateFormat('MMM dd, yyyy h:mm a').format(
                                       DateTime.parse(moodSummary.timestamp),
                                     ),
                                     style: const TextStyle(
                                       color: Colors.white70,
-                                      fontSize: 16,
+                                      fontSize: 14,
                                     ),
                                   ),
                                 ],
                               ),
-
                               const SizedBox(height: 10),
-
-                              // Mood Score
-                              Text(
-                                "Mood Score: ${moodSummary.moodScore}",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color:
-                                      moodSummary.moodScore > 5
-                                          ? Colors.greenAccent
-                                          : Colors.redAccent,
-                                ),
+                              // Mood Score with Progress Bar
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Mood Score",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: LinearProgressIndicator(
+                                      value: moodSummary.moodScore / 10,
+                                      backgroundColor: Colors.grey.shade700,
+                                      valueColor: AlwaysStoppedAnimation(
+                                        moodDetails["color"],
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    "${moodSummary.moodScore}/10",
+                                    style: const TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
                               ),
-
-                              const SizedBox(height: 8),
-
+                              const SizedBox(height: 10),
                               // Selected Reasons
                               if (moodSummary.selectedReasons.isNotEmpty)
                                 _buildLabeledContainer(
@@ -150,7 +185,6 @@ class _TimelinePageState extends State<TimelinePage> {
                                   moodSummary.selectedReasons,
                                   Colors.orangeAccent,
                                 ),
-
                               // Selected Feelings
                               if (moodSummary.selectedFeelings.isNotEmpty)
                                 _buildLabeledContainer(
