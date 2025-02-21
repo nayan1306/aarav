@@ -4,24 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 
-class MoodSummaryPage extends StatelessWidget {
+class MoodSummaryPage extends StatefulWidget {
   final int moodScore;
   final List<Map<String, String>> selectedReasons;
   final List<Map<String, String>> selectedFeelings;
 
-  MoodSummaryPage({
+  const MoodSummaryPage({
     super.key,
     required this.moodScore,
     required this.selectedReasons,
     required this.selectedFeelings,
   });
 
+  @override
+  State<MoodSummaryPage> createState() => _MoodSummaryPageState();
+}
+
+class _MoodSummaryPageState extends State<MoodSummaryPage> {
   String currentTime = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
 
   String getMoodMessage() {
-    if (moodScore >= 8) {
+    if (widget.moodScore >= 8) {
       return "You're feeling amazing! Keep up the positive vibes!";
-    } else if (moodScore >= 5) {
+    } else if (widget.moodScore >= 5) {
       return "You're doing okay! Stay positive and keep pushing forward.";
     } else {
       return "It's okay to have tough days. Take a deep breath and be kind to yourself.";
@@ -29,9 +34,9 @@ class MoodSummaryPage extends StatelessWidget {
   }
 
   String getEncouragingQuote() {
-    if (moodScore >= 8) {
+    if (widget.moodScore >= 8) {
       return "✨ 'Happiness depends upon ourselves.' - Aristotle";
-    } else if (moodScore >= 5) {
+    } else if (widget.moodScore >= 5) {
       return "🌱 'Every day may not be good, but there's something good in every day.'";
     } else {
       return "🌿 'Your feelings are valid. Healing takes time. Be gentle with yourself.'";
@@ -111,7 +116,7 @@ class MoodSummaryPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(
                             color:
-                                moodScore > 5
+                                widget.moodScore > 5
                                     ? Colors.greenAccent
                                     : Colors.redAccent,
                             width: 2,
@@ -119,7 +124,7 @@ class MoodSummaryPage extends StatelessWidget {
                           boxShadow: [
                             BoxShadow(
                               color:
-                                  moodScore > 5
+                                  widget.moodScore > 5
                                       ? Colors.greenAccent.withOpacity(0.5)
                                       : Colors.redAccent.withOpacity(0.5),
                               blurRadius: 10,
@@ -140,12 +145,12 @@ class MoodSummaryPage extends StatelessWidget {
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              moodScore.toString(),
+                              widget.moodScore.toString(),
                               style: TextStyle(
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                                 color:
-                                    moodScore > 5
+                                    widget.moodScore > 5
                                         ? Colors.greenAccent
                                         : Colors.redAccent,
                               ),
@@ -164,7 +169,7 @@ class MoodSummaryPage extends StatelessWidget {
                       // Selected Reasons
                       _buildLabeledContainer(
                         "Reasons for Your Mood",
-                        selectedReasons,
+                        widget.selectedReasons,
                         const Color.fromARGB(255, 35, 128, 83),
                       ),
 
@@ -173,7 +178,7 @@ class MoodSummaryPage extends StatelessWidget {
                       // Selected Feelings
                       _buildLabeledContainer(
                         "Your Exact Feelings",
-                        selectedFeelings,
+                        widget.selectedFeelings,
                         Colors.blueAccent,
                       ),
 
@@ -196,9 +201,9 @@ class MoodSummaryPage extends StatelessWidget {
 
                 // Create a new mood summary object
                 final newMoodSummary = MoodSummary(
-                  moodScore: moodScore,
-                  selectedReasons: selectedReasons,
-                  selectedFeelings: selectedFeelings,
+                  moodScore: widget.moodScore,
+                  selectedReasons: widget.selectedReasons,
+                  selectedFeelings: widget.selectedFeelings,
                   timestamp: currentTime,
                 );
 

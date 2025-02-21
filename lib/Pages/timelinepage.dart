@@ -2,7 +2,7 @@ import 'package:aarav/widgets/mood_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
-import 'package:table_calendar/table_calendar.dart';
+
 import '../models/mood_summary_model.dart';
 
 class TimelinePage extends StatefulWidget {

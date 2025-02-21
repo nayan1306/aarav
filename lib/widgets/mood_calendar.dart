@@ -12,6 +12,7 @@ class MoodCalendar extends StatefulWidget {
 
 class _MoodCalendarState extends State<MoodCalendar> {
   late DateTime _selectedDate;
+  CalendarFormat _calendarFormat = CalendarFormat.week; // Start in week mode
   Map<DateTime, String> moodEmojis = {}; // Stores date-wise mood emojis
 
   @override
@@ -26,8 +27,6 @@ class _MoodCalendarState extends State<MoodCalendar> {
     final moodSummaryBox = Hive.box<MoodSummary>('moodSummaries');
 
     Map<DateTime, String> tempMoodEmojis = {}; // Temporary storage for emojis
-
-    print("\n========== Hive Box Data (moodSummaries) ==========");
 
     for (int i = 0; i < moodSummaryBox.length; i++) {
       final moodSummary = moodSummaryBox.getAt(i);
@@ -44,20 +43,8 @@ class _MoodCalendarState extends State<MoodCalendar> {
 
         // Store the latest mood for the day
         tempMoodEmojis[onlyDate] = emoji;
-
-        print("""
-Entry $i:
-  - Date: $onlyDate
-  - Timestamp: ${moodSummary.timestamp}
-  - Mood Score: ${moodSummary.moodScore}
-  - Emoji: $emoji
-  - Selected Reasons: ${moodSummary.selectedReasons}
-  - Selected Feelings: ${moodSummary.selectedFeelings}
-        """);
       }
     }
-
-    print("====================================================\n");
 
     // Ensure state updates AFTER Hive data is loaded
     setState(() {
@@ -76,69 +63,106 @@ Entry $i:
     }
   }
 
+  /// Function to minimize calendar back to week mode
+  void _minimizeCalendar() {
+    if (_calendarFormat == CalendarFormat.month) {
+      setState(() {
+        _calendarFormat = CalendarFormat.week;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      child: TableCalendar(
-        firstDay: DateTime.utc(2024, 1, 1),
-        lastDay: DateTime.utc(2030, 12, 31),
-        focusedDay: _selectedDate,
-        calendarFormat: CalendarFormat.month,
-        availableCalendarFormats: const {CalendarFormat.month: 'Month'},
-        startingDayOfWeek: StartingDayOfWeek.monday,
-        headerStyle: const HeaderStyle(
-          formatButtonVisible: false,
-          titleCentered: true,
-          leftChevronIcon: Icon(Icons.chevron_left, color: Colors.white),
-          rightChevronIcon: Icon(Icons.chevron_right, color: Colors.white),
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque, // Ensures tap is detected anywhere
+      onTap: _minimizeCalendar,
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: const Color(0xFF1E1E1E), // Dark background
+          borderRadius: BorderRadius.circular(12),
         ),
-        daysOfWeekStyle: const DaysOfWeekStyle(
-          weekdayStyle: TextStyle(color: Colors.white),
-          weekendStyle: TextStyle(color: Colors.redAccent),
-        ),
-        calendarStyle: const CalendarStyle(
-          outsideDaysVisible: false,
-          weekendTextStyle: TextStyle(color: Colors.redAccent),
-          defaultTextStyle: TextStyle(color: Colors.white),
-          todayDecoration: BoxDecoration(
-            color: Colors.blue,
-            shape: BoxShape.circle,
-          ),
-          selectedDecoration: BoxDecoration(
-            color: Color.fromARGB(61, 255, 153, 0),
-            shape: BoxShape.circle,
-          ),
-        ),
-        selectedDayPredicate: (day) {
-          return isSameDay(_selectedDate, day);
-        },
-        onDaySelected: (selectedDay, focusedDay) {
-          setState(() {
-            _selectedDate = selectedDay;
-          });
-        },
-        calendarBuilders: CalendarBuilders(
-          defaultBuilder: (context, date, _) {
-            DateTime onlyDate = DateTime(date.year, date.month, date.day);
-            String? emoji =
-                moodEmojis[onlyDate]; // Fetch mood emoji for the date
-            bool isSelected = isSameDay(date, _selectedDate);
-
-            return Center(
-              child: Text(
-                isSelected
-                    ? "${emoji ?? ""} ${date.day}" // Show emoji + date if selected
-                    : (emoji ??
-                        date.day.toString()), // Show emoji or date normally
-                style: const TextStyle(
-                  fontSize: 16,
+        child: Column(
+          children: [
+            TableCalendar(
+              firstDay: DateTime.utc(2024, 1, 1),
+              lastDay: DateTime.utc(2030, 12, 31),
+              focusedDay: _selectedDate,
+              calendarFormat: _calendarFormat,
+              availableCalendarFormats: const {
+                CalendarFormat.week: 'Week',
+                CalendarFormat.month: 'Month',
+              },
+              startingDayOfWeek: StartingDayOfWeek.monday,
+              headerStyle: HeaderStyle(
+                titleCentered: true,
+                formatButtonVisible: false,
+                leftChevronIcon: const Icon(
+                  Icons.chevron_left,
+                  color: Colors.white,
+                ),
+                rightChevronIcon: const Icon(
+                  Icons.chevron_right,
+                  color: Colors.white,
+                ),
+                titleTextStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(207, 69, 69, 69),
                 ),
               ),
-            );
-          },
+              daysOfWeekStyle: const DaysOfWeekStyle(
+                weekdayStyle: TextStyle(color: Colors.white70),
+                weekendStyle: TextStyle(color: Colors.redAccent),
+              ),
+              calendarStyle: CalendarStyle(
+                outsideDaysVisible: false,
+                weekendTextStyle: const TextStyle(color: Colors.redAccent),
+                defaultTextStyle: const TextStyle(color: Colors.white),
+                todayDecoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.3),
+                  shape: BoxShape.circle,
+                ),
+                selectedDecoration: BoxDecoration(
+                  color: Colors.orange.withOpacity(0.6),
+                  shape: BoxShape.circle,
+                ),
+              ),
+              selectedDayPredicate: (day) {
+                return isSameDay(_selectedDate, day);
+              },
+              onDaySelected: (selectedDay, focusedDay) {
+                setState(() {
+                  _selectedDate = selectedDay;
+                  _calendarFormat =
+                      CalendarFormat.month; // Expand to month on selection
+                });
+              },
+              calendarBuilders: CalendarBuilders(
+                defaultBuilder: (context, date, _) {
+                  DateTime onlyDate = DateTime(date.year, date.month, date.day);
+                  String? emoji = moodEmojis[onlyDate];
+                  bool isSelected = isSameDay(date, _selectedDate);
+
+                  return Center(
+                    child: Text(
+                      isSelected
+                          ? emoji ?? date.day.toString()
+                          : (emoji ?? "📅"), // Show emoji or placeholder
+                      style: TextStyle(
+                        fontSize: isSelected ? 26 : 16,
+                        fontWeight:
+                            isSelected ? FontWeight.bold : FontWeight.normal,
+                        color:
+                            isSelected ? Colors.orangeAccent : Colors.white70,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
