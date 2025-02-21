@@ -174,6 +174,7 @@ class _JournalPageState extends State<JournalPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const DateTimePickerWidget(),
         backgroundColor: Colors.black,
       ),
