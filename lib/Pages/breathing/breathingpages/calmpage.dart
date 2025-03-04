@@ -10,17 +10,52 @@ class CalmPage extends StatefulWidget {
 }
 
 class _CalmPageState extends State<CalmPage> {
-  // TODO: Change the title and  image Link
   final List<Map<String, dynamic>> breathingExercises = [
-    {"title": "Decompress", "image": "assets/images/sphere.png"},
-    {"title": "Calm", "image": "assets/images/sphere.png"},
-    {"title": "Free", "image": "assets/images/sphere.png"},
-    {"title": "Decompress1", "image": "assets/images/sphere.png"},
-    {"title": "Calm2", "image": "assets/images/sphere.png"},
-    {"title": "Free3", "image": "assets/images/sphere.png"},
-    {"title": "Decompress4", "image": "assets/images/sphere.png"},
-    {"title": "Calm5", "image": "assets/images/sphere.png"},
-    {"title": "Free6", "image": "assets/images/sphere.png"},
+    {
+      "title": "Decompress",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Calm",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 3, 3, 3],
+    },
+    {
+      "title": "Free",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 2, 5, 2],
+    },
+    {
+      "title": "Decompress1",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Calm2",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 3, 3, 3],
+    },
+    {
+      "title": "Free3",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 2, 5, 2],
+    },
+    {
+      "title": "Decompress4",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Calm5",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 3, 3, 3],
+    },
+    {
+      "title": "Free6",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 2, 5, 2],
+    },
   ];
 
   Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
@@ -34,14 +69,14 @@ class _CalmPageState extends State<CalmPage> {
                 assetImagePath: exercise["image"],
                 title: exercise["title"],
                 onTap: () {
-                  print("Tapped: ${exercise["title"]}"); // Debug log
+                  print("Tapped: ${exercise["title"]}");
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder:
                           (context) => BreathingLandingPage(
                             assetImagePath: exercise["image"],
                             title: exercise["title"],
-                            durations: [2, 1, 2, 1],
+                            durations: exercise["durations"],
                           ),
                     ),
                   );
