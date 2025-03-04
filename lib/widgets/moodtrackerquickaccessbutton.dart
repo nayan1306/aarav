@@ -127,14 +127,6 @@ class _MoodTrackerQuickAccessButtonState
               onTap: () => _showMoodSelected("Sad"),
             ),
 
-            CircularMenuItem(
-              padding: 0,
-              iconSize: 60,
-              imagePath: "assets/images/mood_tracker/annoyed.png",
-              color: Colors.transparent,
-              onTap: () => _showMoodSelected("Annoyed"),
-            ),
-
             // ✅ Neutral Emotion
             CircularMenuItem(
               padding: 0,
