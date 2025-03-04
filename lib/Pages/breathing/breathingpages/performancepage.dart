@@ -9,6 +9,7 @@ class PerformancePage extends StatefulWidget {
   State<PerformancePage> createState() => _PerformancePageState();
 }
 
+// TODO: change everything as per the context
 class _PerformancePageState extends State<PerformancePage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {

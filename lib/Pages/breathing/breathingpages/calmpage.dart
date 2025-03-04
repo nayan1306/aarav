@@ -9,6 +9,7 @@ class CalmPage extends StatefulWidget {
   State<CalmPage> createState() => _CalmPageState();
 }
 
+// TODO: change everything as per the context
 class _CalmPageState extends State<CalmPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {

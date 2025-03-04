@@ -9,6 +9,7 @@ class EnergyPage extends StatefulWidget {
   State<EnergyPage> createState() => _EnergyPageState();
 }
 
+// TODO: change everything as per the context
 class _EnergyPageState extends State<EnergyPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {

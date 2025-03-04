@@ -9,6 +9,7 @@ class BoxBreathingPage extends StatefulWidget {
   State<BoxBreathingPage> createState() => _BoxBreathingPageState();
 }
 
+// TODO: change everything as per the context
 class _BoxBreathingPageState extends State<BoxBreathingPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
