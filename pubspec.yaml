@@ -13,12 +13,28 @@ dependencies:
   flutter_launcher_icons: ^0.14.3
   salomon_bottom_bar: ^3.3.2
   audioplayers: ^5.2.1
+  page_transition: ^2.2.1
+  fab_circular_menu_plus: ^0.0.3
+  circular_menu: 
+    path: ./packages/circular_menu-4.0.0
+  intl: ^0.20.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  table_calendar: ^3.2.0
+  image_picker: ^1.1.2
+  video_player: ^2.9.2
+  record: ^5.2.1
+  flutter_sound_record: ^3.3.2
+  audio_waveforms: ^1.2.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^5.0.0
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.4
 
 
 flutter:
@@ -36,6 +52,20 @@ flutter:
     - assets/sounds/rhythm-of-life-301382.mp3
     - assets/images/sound.gif
     - assets/images/wp.jpg
+    - assets/images/breathing/box_breathing-removebg-preview-min.png
+    - assets/images/breathing/clam.png
+    - assets/images/mood_tracker/tired.png
+    - assets/images/mood_tracker/sad.png
+    - assets/images/mood_tracker/loving.png
+    - assets/images/mood_tracker/happy.png
+    - assets/images/mood_tracker/good.png
+    - assets/images/mood_tracker/average.png
+    - assets/images/mood_tracker/annoyed.png
+    - assets/images/mood_tracker/angry.png
+    # SAVE THIS FILE (press ctrl+s) everytime you add a new image to breathing to refelect changes
+    - assets/images/breathing/
+
+
   # example:
   # fonts:
   #   - family: Schyler
@@ -54,9 +84,15 @@ flutter:
 
 
 
+
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
   image_path: "assets/images/logo_a.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 21
+  adaptive_icon_foreground: "assets/images/logo_a.png"  # Foreground image
+  adaptive_icon_background: "#000000"  # Solid black background
+
   
+     
+    
