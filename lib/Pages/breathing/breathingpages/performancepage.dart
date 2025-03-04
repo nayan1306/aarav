@@ -6,21 +6,56 @@ class PerformancePage extends StatefulWidget {
   const PerformancePage({super.key});
 
   @override
-  State<PerformancePage> createState() => _CalmPageState();
+  State<PerformancePage> createState() => _PerformancePageState();
 }
 
-class _CalmPageState extends State<PerformancePage> {
-  // TODO: Change the title and  image Link
+class _PerformancePageState extends State<PerformancePage> {
   final List<Map<String, dynamic>> breathingExercises = [
-    {"title": "Decompress", "image": "assets/images/sphere.png"},
-    {"title": "Calm", "image": "assets/images/sphere.png"},
-    {"title": "Free", "image": "assets/images/sphere.png"},
-    {"title": "Decompress1", "image": "assets/images/sphere.png"},
-    {"title": "Calm2", "image": "assets/images/sphere.png"},
-    {"title": "Free3", "image": "assets/images/sphere.png"},
-    {"title": "Decompress4", "image": "assets/images/sphere.png"},
-    {"title": "Calm5", "image": "assets/images/sphere.png"},
-    {"title": "Free6", "image": "assets/images/sphere.png"},
+    {
+      "title": "Focus Boost",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 2, 3, 2],
+    },
+    {
+      "title": "Energy Surge",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Clarity Flow",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
+    {
+      "title": "Power Breath",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 2, 3, 2],
+    },
+    {
+      "title": "Peak State",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Mind Sharp",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
+    {
+      "title": "Endurance Mode",
+      "image": "assets/images/sphere.png",
+      "durations": [3, 2, 3, 2],
+    },
+    {
+      "title": "Performance Flow",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Ultimate Focus",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
   ];
 
   Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
@@ -34,14 +69,14 @@ class _CalmPageState extends State<PerformancePage> {
                 assetImagePath: exercise["image"],
                 title: exercise["title"],
                 onTap: () {
-                  print("Tapped: ${exercise["title"]}"); // Debug log
+                  print("Tapped: ${exercise["title"]}");
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder:
                           (context) => BreathingLandingPage(
                             assetImagePath: exercise["image"],
                             title: exercise["title"],
-                            durations: [2, 1, 2, 1],
+                            durations: exercise["durations"],
                           ),
                     ),
                   );
