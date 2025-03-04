@@ -6,21 +6,56 @@ class NightTimePage extends StatefulWidget {
   const NightTimePage({super.key});
 
   @override
-  State<NightTimePage> createState() => _CalmPageState();
+  State<NightTimePage> createState() => _NightTimePageState();
 }
 
-class _CalmPageState extends State<NightTimePage> {
-  // TODO: Change the title and  image Link
+class _NightTimePageState extends State<NightTimePage> {
   final List<Map<String, dynamic>> breathingExercises = [
-    {"title": "nt", "image": "assets/images/sphere.png"},
-    {"title": "Calm", "image": "assets/images/sphere.png"},
-    {"title": "Free", "image": "assets/images/sphere.png"},
-    {"title": "Decompress1", "image": "assets/images/sphere.png"},
-    {"title": "Calm2", "image": "assets/images/sphere.png"},
-    {"title": "Free3", "image": "assets/images/sphere.png"},
-    {"title": "Decompress4", "image": "assets/images/sphere.png"},
-    {"title": "Calm5", "image": "assets/images/sphere.png"},
-    {"title": "Free6", "image": "assets/images/sphere.png"},
+    {
+      "title": "Night Relax",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Calm Night",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
+    {
+      "title": "Free Mind",
+      "image": "assets/images/sphere.png",
+      "durations": [6, 4, 6, 4],
+    },
+    {
+      "title": "Deep Sleep",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Dream State",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
+    {
+      "title": "Tranquil Night",
+      "image": "assets/images/sphere.png",
+      "durations": [6, 4, 6, 4],
+    },
+    {
+      "title": "Peaceful Rest",
+      "image": "assets/images/sphere.png",
+      "durations": [4, 2, 4, 2],
+    },
+    {
+      "title": "Serene Sleep",
+      "image": "assets/images/sphere.png",
+      "durations": [5, 3, 5, 3],
+    },
+    {
+      "title": "Silent Night",
+      "image": "assets/images/sphere.png",
+      "durations": [6, 4, 6, 4],
+    },
   ];
 
   Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
@@ -34,14 +69,14 @@ class _CalmPageState extends State<NightTimePage> {
                 assetImagePath: exercise["image"],
                 title: exercise["title"],
                 onTap: () {
-                  print("Tapped: ${exercise["title"]}"); // Debug log
+                  print("Tapped: ${exercise["title"]}");
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder:
                           (context) => BreathingLandingPage(
                             assetImagePath: exercise["image"],
                             title: exercise["title"],
-                            durations: [2, 1, 2, 1],
+                            durations: exercise["durations"],
                           ),
                     ),
                   );
