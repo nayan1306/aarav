@@ -4,11 +4,9 @@ import 'package:aarav/Pages/breathing/breathingpages/energypage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/healthpage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/nighttimepage.dart';
 import 'package:aarav/Pages/breathing/breathingpages/performancepage.dart';
-import 'package:aarav/provider/screen_size_provider.dart';
 import 'package:aarav/widgets/breathingcard.dart';
 import 'package:aarav/widgets/breathingcontainercard.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BreathingPage extends StatefulWidget {
   const BreathingPage({super.key});
@@ -20,9 +18,8 @@ class BreathingPage extends StatefulWidget {
 class _BreathingPageState extends State<BreathingPage> {
   @override
   Widget build(BuildContext context) {
-    final screenSize = Provider.of<ScreenSizeProvider>(context);
-    double screenWidth = screenSize.width;
-    double screenHeight = screenSize.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -65,20 +62,20 @@ class _BreathingPageState extends State<BreathingPage> {
                     title: "Deep Breathing",
                     subtitle: "Relax and inhale deeply",
                   ),
-                  SizedBox(width: screenWidth * 0.02),
+                  SizedBox(width: screenWidth * 0.03),
                   BreathingRecommendedCard(
                     assetImagePath: "assets/images/breathing/clam.png",
                     title: "Deep Breathing",
                     subtitle: "Relax and inhale deeply",
                   ),
-                  SizedBox(width: screenWidth * 0.02),
+                  SizedBox(width: screenWidth * 0.03),
                   BreathingRecommendedCard(
                     assetImagePath:
                         "assets/images/breathing/box_breathing-removebg-preview-min.png",
                     title: "Deep Breathing",
                     subtitle: "Relax and inhale deeply",
                   ),
-                  SizedBox(width: screenWidth * 0.02),
+                  SizedBox(width: screenWidth * 0.03),
                   BreathingRecommendedCard(
                     assetImagePath: "assets/images/breathing/clam.png",
                     title: "Deep Breathing",
