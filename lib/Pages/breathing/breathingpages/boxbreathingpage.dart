@@ -9,7 +9,6 @@ class BoxBreathingPage extends StatefulWidget {
   State<BoxBreathingPage> createState() => _BoxBreathingPageState();
 }
 
-// TODO: change everything as per the context
 class _BoxBreathingPageState extends State<BoxBreathingPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
@@ -60,36 +59,39 @@ class _BoxBreathingPageState extends State<BoxBreathingPage> {
   ];
 
   Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children:
-          items.map((exercise) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: BreathingTileAnimated(
-                assetImagePath: exercise["image"],
-                title: exercise["title"],
-                onTap: () {
-                  print("Tapped: ${exercise["title"]}");
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder:
-                          (context) => BreathingLandingPage(
-                            assetImagePath: exercise["image"],
-                            title: exercise["title"],
-                            durations: exercise["durations"],
-                          ),
-                    ),
-                  );
-                },
-              ),
-            );
-          }).toList(),
+          items
+              .map(
+                (exercise) => Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
+                  child: BreathingTileAnimated(
+                    assetImagePath: exercise["image"],
+                    title: exercise["title"],
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder:
+                              (context) => BreathingLandingPage(
+                                assetImagePath: exercise["image"],
+                                title: exercise["title"],
+                                durations: exercise["durations"],
+                              ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              )
+              .toList(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -102,13 +104,13 @@ class _BoxBreathingPageState extends State<BoxBreathingPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(screenHeight * 0.01),
         children: [
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),
