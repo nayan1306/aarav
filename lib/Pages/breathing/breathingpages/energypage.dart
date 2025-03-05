@@ -9,90 +9,92 @@ class EnergyPage extends StatefulWidget {
   State<EnergyPage> createState() => _EnergyPageState();
 }
 
-// TODO: change everything as per the context
 class _EnergyPageState extends State<EnergyPage> {
-  final List<Map<String, dynamic>> breathingExercises = [
+  final List<Map<String, dynamic>> energyExercises = [
     {
-      "title": "Decompress",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Energize",
+      "image": "assets/images/energy.png",
+      "durations": [2, 2, 2, 2],
     },
     {
-      "title": "Calm",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Invigorate",
+      "image": "assets/images/energy.png",
+      "durations": [3, 3, 3, 3],
     },
     {
-      "title": "Free",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Recharge",
+      "image": "assets/images/energy.png",
+      "durations": [4, 4, 4, 4],
     },
     {
-      "title": "Decompress1",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Boost",
+      "image": "assets/images/energy.png",
+      "durations": [2, 2, 2, 2],
     },
     {
-      "title": "Calm2",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Uplift",
+      "image": "assets/images/energy.png",
+      "durations": [3, 3, 3, 3],
     },
     {
-      "title": "Free3",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Revitalize",
+      "image": "assets/images/energy.png",
+      "durations": [4, 4, 4, 4],
     },
     {
-      "title": "Decompress4",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Stimulate",
+      "image": "assets/images/energy.png",
+      "durations": [2, 2, 2, 2],
     },
     {
-      "title": "Calm5",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Awaken",
+      "image": "assets/images/energy.png",
+      "durations": [3, 3, 3, 3],
     },
     {
-      "title": "Free6",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Power Up",
+      "image": "assets/images/energy.png",
+      "durations": [4, 4, 4, 4],
     },
   ];
 
-  Widget _buildBreathingTileRow(List<Map<String, dynamic>> items) {
+  Widget _buildEnergyTileRow(List<Map<String, dynamic>> items) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children:
-          items.map((exercise) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: BreathingTileAnimated(
-                assetImagePath: exercise["image"],
-                title: exercise["title"],
-                onTap: () {
-                  print("Tapped: ${exercise["title"]}");
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder:
-                          (context) => BreathingLandingPage(
-                            assetImagePath: exercise["image"],
-                            title: exercise["title"],
-                            durations: exercise["durations"],
-                          ),
-                    ),
-                  );
-                },
-              ),
-            );
-          }).toList(),
+          items
+              .map(
+                (exercise) => Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
+                  child: BreathingTileAnimated(
+                    assetImagePath: exercise["image"],
+                    title: exercise["title"],
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder:
+                              (context) => BreathingLandingPage(
+                                assetImagePath: exercise["image"],
+                                title: exercise["title"],
+                                durations: exercise["durations"],
+                              ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              )
+              .toList(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.orange.shade700,
         leading: const BackButton(color: Colors.white),
         actions: [
           IconButton(
@@ -102,14 +104,14 @@ class _EnergyPageState extends State<EnergyPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(screenHeight * 0.01),
         children: [
-          const SizedBox(height: 30),
-          _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 30),
-          _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 30),
-          _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
+          SizedBox(height: screenHeight * 0.04),
+          _buildEnergyTileRow(energyExercises.sublist(0, 3)),
+          SizedBox(height: screenHeight * 0.04),
+          _buildEnergyTileRow(energyExercises.sublist(3, 6)),
+          SizedBox(height: screenHeight * 0.04),
+          _buildEnergyTileRow(energyExercises.sublist(6, 9)),
         ],
       ),
     );
