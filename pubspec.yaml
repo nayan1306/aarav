@@ -26,6 +26,7 @@ dependencies:
   record: ^5.2.1
   flutter_sound_record: ^3.3.2
   audio_waveforms: ^1.2.0
+  provider: ^6.1.2
 
 
 dev_dependencies:
@@ -64,6 +65,12 @@ flutter:
     - assets/images/mood_tracker/angry.png
     # SAVE THIS FILE (press ctrl+s) everytime you add a new image to breathing to refelect changes
     - assets/images/breathing/
+    - assets/images/breathing/clam.png
+    - assets/images/breathing/night time.png
+    - assets/images/breathing/energy.png
+    - assets/images/breathing/peformance.png
+    - assets/images/breathing/health.png
+    - assets/images/breathing/box_breathing-removebg-preview-min.png
 
 
   # example:

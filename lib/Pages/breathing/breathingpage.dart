@@ -18,6 +18,9 @@ class BreathingPage extends StatefulWidget {
 class _BreathingPageState extends State<BreathingPage> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -29,118 +32,110 @@ class _BreathingPageState extends State<BreathingPage> {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          const Text(
-            "Recommended for you",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.04,
+        ), // Adaptive padding
+        child: ListView(
+          children: [
+            SizedBox(height: screenHeight * 0.02),
+            Text(
+              "Recommended for you",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: screenWidth * 0.045, // Adaptive font size
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          const SizedBox(height: 12), // Adds spacing
-          // Wrap the horizontal ListView inside a SizedBox
-          SizedBox(
-            height: 160, // Set a fixed height to ensure visibility
-            child: ListView(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
+            SizedBox(height: screenHeight * 0.015), // Responsive spacing
+            // Horizontal Scroll View for Recommended Cards
+            SizedBox(
+              height: screenHeight * 0.22, // Dynamic height
+              child: ListView(
+                shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  BreathingRecommendedCard(
+                    assetImagePath:
+                        "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                    title: "Deep Breathing",
+                    subtitle: "Relax and inhale deeply",
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  BreathingRecommendedCard(
+                    assetImagePath: "assets/images/breathing/clam.png",
+                    title: "Deep Breathing",
+                    subtitle: "Relax and inhale deeply",
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  BreathingRecommendedCard(
+                    assetImagePath:
+                        "assets/images/breathing/box_breathing-removebg-preview-min.png",
+                    title: "Deep Breathing",
+                    subtitle: "Relax and inhale deeply",
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  BreathingRecommendedCard(
+                    assetImagePath: "assets/images/breathing/clam.png",
+                    title: "Deep Breathing",
+                    subtitle: "Relax and inhale deeply",
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(height: screenHeight * 0.01),
+            Divider(color: Colors.white.withOpacity(0.4), thickness: 1),
+            SizedBox(height: screenHeight * 0.01),
+
+            // Breathing Container Cards (Grid Layout)
+            Wrap(
+              spacing: screenWidth * 0.04,
+              runSpacing: screenHeight * 0.02,
+              alignment: WrapAlignment.center,
               children: [
-                BreathingRecommendedCard(
+                BreathingContainerCard(
+                  assetImagePath: "assets/images/breathing/clam.png",
+                  title: "Calm",
+                  subtitle: "Relax and inhale deeply",
+                  nextPage: CalmPage(),
+                ),
+                BreathingContainerCard(
+                  assetImagePath: "assets/images/breathing/night time.png",
+                  title: "Night Time",
+                  subtitle: "Relax and inhale deeply",
+                  nextPage: NightTimePage(),
+                ),
+                BreathingContainerCard(
+                  assetImagePath: "assets/images/breathing/energy.png",
+                  title: "Energy",
+                  subtitle: "Relax and inhale deeply",
+                  nextPage: EnergyPage(),
+                ),
+                BreathingContainerCard(
+                  assetImagePath: "assets/images/breathing/peformance.png",
+                  title: "Performance",
+                  subtitle: "Relax and inhale deeply",
+                  nextPage: PerformancePage(),
+                ),
+                BreathingContainerCard(
+                  assetImagePath: "assets/images/breathing/health.png",
+                  title: "Health",
+                  subtitle: "Relax and inhale deeply",
+                  nextPage: HealthPage(),
+                ),
+                BreathingContainerCard(
                   assetImagePath:
                       "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                  title: "Deep Breathing",
+                  title: "Box Breathing",
                   subtitle: "Relax and inhale deeply",
+                  nextPage: BoxBreathingPage(),
                 ),
-                SizedBox(width: 10),
-                BreathingRecommendedCard(
-                  assetImagePath: "assets/images/breathing/clam.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
-                ),
-                SizedBox(width: 10),
-                BreathingRecommendedCard(
-                  assetImagePath:
-                      "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
-                ),
-                SizedBox(width: 10),
-                BreathingRecommendedCard(
-                  assetImagePath: "assets/images/breathing/clam.png",
-                  title: "Deep Breathing",
-                  subtitle: "Relax and inhale deeply",
-                ),
-                SizedBox(width: 10),
               ],
             ),
-          ),
-          SizedBox(height: 10),
-          Divider(color: const Color.fromARGB(97, 255, 255, 255)),
-          SizedBox(height: 10),
-          // TODO: Change the title and subtitle and image Link
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Calm",
-                subtitle: "Relax and inhale deeply",
-                nextPage: CalmPage(),
-              ),
-              BreathingContainerCard(
-                assetImagePath: "assets/images/breathing/clam.png",
-                title: "Night Time",
-                subtitle: "Relax and inhale deeply",
-                nextPage: NightTimePage(),
-              ),
-            ],
-          ),
-          // repeted
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Energy",
-                subtitle: "Relax and inhale deeply",
-                nextPage: EnergyPage(),
-              ),
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Performance",
-                subtitle: "Relax and inhale deeply",
-                nextPage: PerformancePage(),
-              ),
-            ],
-          ),
-          //
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "Health",
-                subtitle: "Relax and inhale deeply",
-                nextPage: HealthPage(),
-              ),
-              BreathingContainerCard(
-                assetImagePath:
-                    "assets/images/breathing/box_breathing-removebg-preview-min.png",
-                title: "BoxBreathing",
-                subtitle: "Relax and inhale deeply",
-                nextPage: BoxBreathingPage(),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

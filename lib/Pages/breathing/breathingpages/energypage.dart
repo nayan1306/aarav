@@ -90,6 +90,7 @@ class _EnergyPageState extends State<EnergyPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -102,13 +103,13 @@ class _EnergyPageState extends State<EnergyPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(screenHeight * 0.01),
         children: [
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 30),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),
