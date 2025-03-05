@@ -88,6 +88,7 @@ class _HealthPageState extends State<HealthPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -100,12 +101,13 @@ class _HealthPageState extends State<HealthPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        padding: EdgeInsets.all(screenHeight * 0.01),
         children: [
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 25),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 25),
+          SizedBox(height: screenHeight * 0.04),
           _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),
