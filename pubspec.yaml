@@ -65,14 +65,13 @@ flutter:
     - assets/images/mood_tracker/angry.png
     # SAVE THIS FILE (press ctrl+s) everytime you add a new image to breathing to refelect changes
     - assets/images/breathing/
-    - assets/images/breathing/clam.png
-    - assets/images/breathing/night time.png
-    - assets/images/breathing/energy.png
+    - assets/images/breathing/box_breathing.png
+    - assets/images/breathing/calm.png
+    - assets/images/breathing/energy-removebg-preview.png
+    - assets/images/breathing/health-processed_lightpdf.com_-removebg-preview.png
+    - assets/images/breathing/night.png
     - assets/images/breathing/peformance.png
-    - assets/images/breathing/health.png
-    - assets/images/breathing/box_breathing-removebg-preview-min.png
-
-
+    
   # example:
   # fonts:
   #   - family: Schyler
