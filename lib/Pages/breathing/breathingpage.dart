@@ -21,8 +21,8 @@ class _BreathingPageState extends State<BreathingPage> {
   @override
   Widget build(BuildContext context) {
     final screenSize = Provider.of<ScreenSizeProvider>(context);
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = screenSize.width;
+    double screenHeight = screenSize.height;
 
     return Scaffold(
       appBar: AppBar(
