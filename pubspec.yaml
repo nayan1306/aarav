@@ -26,6 +26,7 @@ dependencies:
   record: ^5.2.1
   flutter_sound_record: ^3.3.2
   audio_waveforms: ^1.2.0
+  provider: ^6.1.2
 
 
 dev_dependencies:
