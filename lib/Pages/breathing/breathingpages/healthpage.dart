@@ -9,7 +9,6 @@ class HealthPage extends StatefulWidget {
   State<HealthPage> createState() => _HealthPageState();
 }
 
-// TODO: change everything as per the context
 class _HealthPageState extends State<HealthPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
@@ -28,32 +27,32 @@ class _HealthPageState extends State<HealthPage> {
       "durations": [5, 4, 5, 4],
     },
     {
-      "title": "Decompress1",
+      "title": "Relax",
       "image": "assets/images/sphere.png",
       "durations": [3, 2, 3, 2],
     },
     {
-      "title": "Calm2",
+      "title": "Focus",
       "image": "assets/images/sphere.png",
       "durations": [4, 3, 4, 3],
     },
     {
-      "title": "Free3",
+      "title": "Refresh",
       "image": "assets/images/sphere.png",
       "durations": [5, 4, 5, 4],
     },
     {
-      "title": "Decompress4",
+      "title": "Energize",
       "image": "assets/images/sphere.png",
       "durations": [3, 2, 3, 2],
     },
     {
-      "title": "Calm5",
+      "title": "Balance",
       "image": "assets/images/sphere.png",
       "durations": [4, 3, 4, 3],
     },
     {
-      "title": "Free6",
+      "title": "Harmony",
       "image": "assets/images/sphere.png",
       "durations": [5, 4, 5, 4],
     },
@@ -65,12 +64,11 @@ class _HealthPageState extends State<HealthPage> {
       children:
           items.map((exercise) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 6),
               child: BreathingTileAnimated(
                 assetImagePath: exercise["image"],
                 title: exercise["title"],
                 onTap: () {
-                  print("Tapped: ${exercise["title"]}");
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder:
@@ -102,13 +100,12 @@ class _HealthPageState extends State<HealthPage> {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         children: [
-          const SizedBox(height: 30),
           _buildBreathingTileRow(breathingExercises.sublist(0, 3)),
-          const SizedBox(height: 30),
+          const SizedBox(height: 25),
           _buildBreathingTileRow(breathingExercises.sublist(3, 6)),
-          const SizedBox(height: 30),
+          const SizedBox(height: 25),
           _buildBreathingTileRow(breathingExercises.sublist(6, 9)),
         ],
       ),
