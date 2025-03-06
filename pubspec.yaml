@@ -53,8 +53,6 @@ flutter:
     - assets/sounds/rhythm-of-life-301382.mp3
     - assets/images/sound.gif
     - assets/images/wp.jpg
-    - assets/images/breathing/box_breathing-removebg-preview-min.png
-    - assets/images/breathing/clam.png
     - assets/images/mood_tracker/tired.png
     - assets/images/mood_tracker/sad.png
     - assets/images/mood_tracker/loving.png
@@ -65,13 +63,13 @@ flutter:
     - assets/images/mood_tracker/angry.png
     # SAVE THIS FILE (press ctrl+s) everytime you add a new image to breathing to refelect changes
     - assets/images/breathing/
-    - assets/images/breathing/box_breathing.png
+    - assets/images/breathing/box_breathing-removebg-preview.png
     - assets/images/breathing/calm.png
-    - assets/images/breathing/energy-removebg-preview.png
-    - assets/images/breathing/health-processed_lightpdf.com_-removebg-preview.png
-    - assets/images/breathing/night.png
+    - assets/images/breathing/energy.png
+    - assets/images/breathing/health.png
+    - assets/images/breathing/night_time-removebg-preview.png
     - assets/images/breathing/peformance.png
-    
+
   # example:
   # fonts:
   #   - family: Schyler

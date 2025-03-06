@@ -57,29 +57,29 @@ class _BreathingPageState extends State<BreathingPage> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   BreathingRecommendedCard(
+                    assetImagePath: "assets/images/breathing/calm.png",
+                    title: "Calm",
+                    subtitle: "Breathe slowly, ease your mind",
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  BreathingRecommendedCard(
+                    assetImagePath: "assets/images/breathing/energy.png",
+                    title: "Energy",
+                    subtitle: "Recharge with deep breaths.",
+                  ),
+                  SizedBox(width: screenWidth * 0.03),
+                  BreathingRecommendedCard(
                     assetImagePath:
-                        "assets/images/breathing/health-processed_lightpdf.com_-removebg-preview.png",
-                    title: "Deep Breathing",
-                    subtitle: "Relax and inhale deeply",
-                  ),
-                  SizedBox(width: screenWidth * 0.03),
-                  BreathingRecommendedCard(
-                    assetImagePath: "assets/images/breathing/night.png",
-                    title: "Deep Breathing",
-                    subtitle: "Relax and inhale deeply",
+                        "assets/images/breathing/night_time-removebg-preview.png",
+                    title: "Night Time",
+                    subtitle: "Prepare for restful sleep.",
                   ),
                   SizedBox(width: screenWidth * 0.03),
                   BreathingRecommendedCard(
                     assetImagePath:
-                        "assets/images/breathing/health-processed_lightpdf.com_-removebg-preview.png",
-                    title: "Deep Breathing",
-                    subtitle: "Relax and inhale deeply",
-                  ),
-                  SizedBox(width: screenWidth * 0.03),
-                  BreathingRecommendedCard(
-                    assetImagePath: "assets/images/breathing/box_breathing.png",
-                    title: "Deep Breathing",
-                    subtitle: "Relax and inhale deeply",
+                        "assets/images/breathing/box_breathing-removebg-preview.png",
+                    title: "Box Breathing",
+                    subtitle: "Find balance in every breath",
                   ),
                 ],
               ),
@@ -98,39 +98,39 @@ class _BreathingPageState extends State<BreathingPage> {
                 BreathingContainerCard(
                   assetImagePath: "assets/images/breathing/calm.png",
                   title: "Calm",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Breathe slowly, ease your mind",
                   nextPage: CalmPage(),
                 ),
                 BreathingContainerCard(
-                  assetImagePath: "assets/images/breathing/night.png",
+                  assetImagePath:
+                      "assets/images/breathing/night_time-removebg-preview.png",
                   title: "Night Time",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Prepare for restful sleep.",
                   nextPage: NightTimePage(),
                 ),
                 BreathingContainerCard(
-                  assetImagePath:
-                      "assets/images/breathing/energy-removebg-preview.png",
+                  assetImagePath: "assets/images/breathing/energy.png",
                   title: "Energy",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Recharge with deep breaths.",
                   nextPage: EnergyPage(),
                 ),
                 BreathingContainerCard(
                   assetImagePath: "assets/images/breathing/peformance.png",
                   title: "Performance",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Sharpen your focus.",
                   nextPage: PerformancePage(),
                 ),
                 BreathingContainerCard(
-                  assetImagePath:
-                      "assets/images/breathing/health-processed_lightpdf.com_-removebg-preview.png",
+                  assetImagePath: "assets/images/breathing/health.png",
                   title: "Health",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Breathe for better well-being",
                   nextPage: HealthPage(),
                 ),
                 BreathingContainerCard(
-                  assetImagePath: "assets/images/breathing/box_breathing.png",
+                  assetImagePath:
+                      "assets/images/breathing/box_breathing-removebg-preview.png",
                   title: "Box Breathing",
-                  subtitle: "Relax and inhale deeply",
+                  subtitle: "Find balance in every breath",
                   nextPage: BoxBreathingPage(),
                 ),
               ],
