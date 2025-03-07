@@ -12,49 +12,51 @@ class HealthPage extends StatefulWidget {
 class _HealthPageState extends State<HealthPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
-      "title": "Decompress",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Refreshing Breath",
+      "image": "assets/images/breathing/health 300/Refreshing Breath.png",
+      "durations": [5, 3, 6, 2],
     },
     {
-      "title": "Calm",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Immune Boost Breath",
+      "image": "assets/images/breathing/health 300/Immune Boost.png",
+      "durations": [6, 4, 6, 3],
     },
     {
-      "title": "Free",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Deep Healing Breath",
+      "image": "assets/images/breathing/health 300/Deep Healing Breath.png",
+      "durations": [4, 5, 7, 3],
     },
     {
-      "title": "Relax",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Vital Flow Breath",
+      "image": "assets/images/breathing/health 300/Vital Flow Breath.png",
+      "durations": [7, 4, 6, 3],
     },
     {
-      "title": "Focus",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Balanced Wellness Breath",
+      "image":
+          "assets/images/breathing/health 300/Balanced Wellness Breath.png",
+      "durations": [5, 5, 5, 3],
     },
     {
-      "title": "Refresh",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Detox Breath",
+      "image": "assets/images/breathing/health 300/Detox Breath.png",
+      "durations": [4, 3, 6, 2],
     },
     {
-      "title": "Energize",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Lung Strengthening Breath",
+      "image":
+          "assets/images/breathing/health 300/Lung Strengthening Breath.png",
+      "durations": [6, 4, 8, 3],
     },
     {
-      "title": "Balance",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 3, 4, 3],
+      "title": "Circulation Booster",
+      "image": "assets/images/breathing/health 300/Circulation Booster.png",
+      "durations": [5, 3, 7, 2],
     },
     {
-      "title": "Harmony",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 4, 5, 4],
+      "title": "Rejuvenation Breath",
+      "image": "assets/images/breathing/health 300/Rejuvenation Breath.png",
+      "durations": [7, 5, 7, 3],
     },
   ];
 
