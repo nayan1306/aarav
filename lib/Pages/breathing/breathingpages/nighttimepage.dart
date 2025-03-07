@@ -13,49 +13,49 @@ class NightTimePage extends StatefulWidget {
 class _NightTimePageState extends State<NightTimePage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
-      "title": "Night Relax",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
-    },
-    {
       "title": "Calm Night",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
-    },
-    {
-      "title": "Free Mind",
-      "image": "assets/images/sphere.png",
-      "durations": [6, 4, 6, 4],
+      "image": "assets/images/breathing/night 300/calm night.png",
+      "durations": [4, 7, 8, 3],
     },
     {
       "title": "Deep Sleep",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
+      "image": "assets/images/breathing/night 300/deep sleep.png",
+      "durations": [5, 5, 10, 4],
     },
     {
       "title": "Dream State",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
+      "image": "assets/images/breathing/night 300/dream state.png",
+      "durations": [4, 6, 8, 4],
     },
     {
-      "title": "Tranquil Night",
-      "image": "assets/images/sphere.png",
-      "durations": [6, 4, 6, 4],
+      "title": "Free Mind",
+      "image": "assets/images/breathing/night 300/free mind.png",
+      "durations": [6, 6, 8, 4],
+    },
+    {
+      "title": "Night Relax",
+      "image": "assets/images/breathing/night 300/night relax.png",
+      "durations": [4, 8, 10, 5],
     },
     {
       "title": "Peaceful Rest",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
+      "image": "assets/images/breathing/night 300/peaceful rest.png",
+      "durations": [3, 3, 6, 3],
     },
     {
       "title": "Serene Sleep",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
+      "image": "assets/images/breathing/night 300/serene sleep.png",
+      "durations": [5, 7, 9, 4],
     },
     {
       "title": "Silent Night",
-      "image": "assets/images/sphere.png",
-      "durations": [6, 4, 6, 4],
+      "image": "assets/images/breathing/night 300/silent night.png",
+      "durations": [6, 4, 10, 5],
+    },
+    {
+      "title": "Tranquil Night",
+      "image": "assets/images/breathing/night 300/tranquil night.png",
+      "durations": [5, 8, 6, 3],
     },
   ];
 

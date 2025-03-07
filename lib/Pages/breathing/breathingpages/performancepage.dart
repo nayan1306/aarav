@@ -13,49 +13,51 @@ class PerformancePage extends StatefulWidget {
 class _PerformancePageState extends State<PerformancePage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
-      "title": "Focus Boost",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Endurance Flow",
+      "image": "assets/images/breathing/peformance 300/Endurance Flow.png",
+      "durations": [4, 4, 6, 3],
     },
     {
-      "title": "Energy Surge",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
+      "title": "Flow State Breath",
+      "image": "assets/images/breathing/peformance 300/Flow State Breath.png",
+      "durations": [5, 2, 4, 2],
     },
     {
-      "title": "Clarity Flow",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
+      "title": "Focus Booster",
+      "image": "assets/images/breathing/peformance 300/Focus Booster.png",
+      "durations": [5, 3, 5, 2],
     },
     {
-      "title": "Power Breath",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Mental Clarity Breath",
+      "image":
+          "assets/images/breathing/peformance 300/mental clarity breath.png",
+      "durations": [6, 4, 6, 3],
     },
     {
-      "title": "Peak State",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
+      "title": "Peak Performance",
+      "image": "assets/images/breathing/peformance 300/Peak Performance.png",
+      "durations": [6, 4, 6, 2],
     },
     {
-      "title": "Mind Sharp",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
+      "title": "Power Rhythm",
+      "image": "assets/images/breathing/peformance 300/Power Rhythm.png",
+      "durations": [4, 3, 4, 2],
     },
     {
-      "title": "Endurance Mode",
-      "image": "assets/images/sphere.png",
-      "durations": [3, 2, 3, 2],
+      "title": "Sharpen Focus Breath",
+      "image":
+          "assets/images/breathing/peformance 300/Sharpen Focus Breath.png",
+      "durations": [5, 5, 5, 2],
     },
     {
-      "title": "Performance Flow",
-      "image": "assets/images/sphere.png",
-      "durations": [4, 2, 4, 2],
+      "title": "Steady Mind Breath",
+      "image": "assets/images/breathing/peformance 300/Steady Mind Breath.png",
+      "durations": [7, 4, 5, 3],
     },
     {
-      "title": "Ultimate Focus",
-      "image": "assets/images/sphere.png",
-      "durations": [5, 3, 5, 3],
+      "title": "Precision Breath",
+      "image": "assets/images/breathing/peformance 300/precision breath.png",
+      "durations": [7, 5, 6, 3],
     },
   ];
 

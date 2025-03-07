@@ -67,10 +67,74 @@ flutter:
     - assets/images/breathing/calm.png
     - assets/images/breathing/energy.png
     - assets/images/breathing/health.png
-    - assets/images/breathing/night_time-removebg-preview.png
-    - assets/images/breathing/peformance.png
 
-  # example:
+
+    - assets/images/breathing/night_time-removebg-preview.png
+    - assets/images/breathing/box 300/balanced Control Breath.png
+    - assets/images/breathing/box 300/Calm and Steady Breath.png
+    - assets/images/breathing/box 300/Classic Box Breath.png
+    - assets/images/breathing/box 300/Deep Focus Breath.png
+    - assets/images/breathing/box 300/Endurance Box Breath.png
+    - assets/images/breathing/box 300/Grounding Breath.png
+    - assets/images/breathing/box 300/Mental Reset Breath.png
+    - assets/images/breathing/box 300/Powerful Presence Breath.png
+    - assets/images/breathing/box 300/Stress Relief Box.png
+
+    - assets/images/breathing/calm 300/balance flow.png
+    - assets/images/breathing/calm 300/deep stilness.png
+    - assets/images/breathing/calm 300/gentle calm.png
+    - assets/images/breathing/calm 300/harmony.png
+    - assets/images/breathing/calm 300/peaceful mind.png
+    - assets/images/breathing/calm 300/quite focus.png
+    - assets/images/breathing/calm 300/serene rhythm.png
+    - assets/images/breathing/calm 300/stillness.png
+    - assets/images/breathing/calm 300/Tranquil mind.png
+
+    - assets/images/breathing/energy 300/Awakening Breath.png
+    - assets/images/breathing/energy 300/Dynamic Flow.png
+    - assets/images/breathing/energy 300/Energizing Wave.png
+    - assets/images/breathing/energy 300/Fire Up Breath.png
+    - assets/images/breathing/energy 300/Invigorating Rhythm.png
+    - assets/images/breathing/energy 300/Morning Charge.png
+    - assets/images/breathing/energy 300/Power Breath.png
+    - assets/images/breathing/energy 300/Quick Refresh.png
+    - assets/images/breathing/energy 300/Vitality Boost.png
+
+    - assets/images/breathing/health 300/Balanced Wellness Breath.png
+    - assets/images/breathing/health 300/Circulation Booster.png
+    - assets/images/breathing/health 300/Deep Healing Breath.png
+    - assets/images/breathing/health 300/Detox Breath.png
+    - assets/images/breathing/health 300/Immune Boost.png
+    - assets/images/breathing/health 300/Lung Strengthening Breath.png
+    - assets/images/breathing/health 300/Refreshing Breath.png
+    - assets/images/breathing/health 300/Rejuvenation Breath.png
+    - assets/images/breathing/health 300/Vital Flow Breath.png
+
+    - assets/images/breathing/night 300/calm night.png
+    - assets/images/breathing/night 300/deep sleep.png
+    - assets/images/breathing/night 300/dream state.png
+    - assets/images/breathing/night 300/free mind.png
+    - assets/images/breathing/night 300/night relax.png
+    - assets/images/breathing/night 300/peaceful rest.png
+    - assets/images/breathing/night 300/serene sleep.png
+    - assets/images/breathing/night 300/silent night.png
+    - assets/images/breathing/night 300/tranquil night.png
+
+    - assets/images/breathing/peformance 300/Endurance Flow.png
+    - assets/images/breathing/peformance 300/Flow State Breath.png
+    - assets/images/breathing/peformance 300/Focus Booster.png
+    - assets/images/breathing/peformance 300/mental clarity breath.png
+    - assets/images/breathing/peformance 300/Peak Performance.png
+    - assets/images/breathing/peformance 300/Power Rhythm.png
+    - assets/images/breathing/peformance 300/Sharpen Focus Breath.png
+    - assets/images/breathing/peformance 300/Steady Mind Breath.png
+    - assets/images/breathing/peformance 300/precision breath.png
+
+
+
+
+
+
   # fonts:
   #   - family: Schyler
   #     fonts:
