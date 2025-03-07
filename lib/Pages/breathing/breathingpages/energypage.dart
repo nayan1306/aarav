@@ -13,7 +13,7 @@ class EnergyPage extends StatefulWidget {
 class _EnergyPageState extends State<EnergyPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
-      "title": "Power Breath",
+      "title": "Power",
       "image": "assets/images/breathing/energy 300/Power Breath.png",
       "durations": [5, 2, 4, 1],
     },
@@ -33,7 +33,7 @@ class _EnergyPageState extends State<EnergyPage> {
       "durations": [7, 4, 5, 2],
     },
     {
-      "title": "Awakening Breath",
+      "title": "Awakening",
       "image": "assets/images/breathing/energy 300/Awakening Breath.png",
       "durations": [5, 3, 3, 1],
     },
@@ -53,7 +53,7 @@ class _EnergyPageState extends State<EnergyPage> {
       "durations": [4, 2, 3, 1],
     },
     {
-      "title": "Fire Up Breath",
+      "title": "Fire Up",
       "image": "assets/images/breathing/energy 300/Fire Up Breath.png",
       "durations": [7, 5, 5, 2],
     },

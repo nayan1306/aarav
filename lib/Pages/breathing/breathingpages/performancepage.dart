@@ -18,7 +18,7 @@ class _PerformancePageState extends State<PerformancePage> {
       "durations": [4, 4, 6, 3],
     },
     {
-      "title": "Flow State Breath",
+      "title": "Flow State",
       "image": "assets/images/breathing/peformance 300/Flow State Breath.png",
       "durations": [5, 2, 4, 2],
     },
@@ -28,7 +28,7 @@ class _PerformancePageState extends State<PerformancePage> {
       "durations": [5, 3, 5, 2],
     },
     {
-      "title": "Mental Clarity Breath",
+      "title": "Mental Clarity",
       "image":
           "assets/images/breathing/peformance 300/mental clarity breath.png",
       "durations": [6, 4, 6, 3],
@@ -44,18 +44,18 @@ class _PerformancePageState extends State<PerformancePage> {
       "durations": [4, 3, 4, 2],
     },
     {
-      "title": "Sharpen Focus Breath",
+      "title": "Sharpen Focus",
       "image":
           "assets/images/breathing/peformance 300/Sharpen Focus Breath.png",
       "durations": [5, 5, 5, 2],
     },
     {
-      "title": "Steady Mind Breath",
+      "title": "Steady Mind",
       "image": "assets/images/breathing/peformance 300/Steady Mind Breath.png",
       "durations": [7, 4, 5, 3],
     },
     {
-      "title": "Precision Breath",
+      "title": "Precision",
       "image": "assets/images/breathing/peformance 300/precision breath.png",
       "durations": [7, 5, 6, 3],
     },
