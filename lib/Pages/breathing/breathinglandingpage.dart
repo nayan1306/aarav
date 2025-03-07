@@ -68,7 +68,7 @@ class _BreathingLandingPageState extends State<BreathingLandingPage> {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(widget.assetImagePath),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                     borderRadius: BorderRadius.circular(16),
                   ),
