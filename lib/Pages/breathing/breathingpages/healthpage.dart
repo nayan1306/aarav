@@ -12,38 +12,38 @@ class HealthPage extends StatefulWidget {
 class _HealthPageState extends State<HealthPage> {
   final List<Map<String, dynamic>> breathingExercises = [
     {
-      "title": "Refreshing Breath",
+      "title": "Refreshing",
       "image": "assets/images/breathing/health 300/Refreshing Breath.png",
       "durations": [5, 3, 6, 2],
     },
     {
-      "title": "Immune Boost Breath",
+      "title": "Immune Boost",
       "image": "assets/images/breathing/health 300/Immune Boost.png",
       "durations": [6, 4, 6, 3],
     },
     {
-      "title": "Deep Healing Breath",
+      "title": "Deep Healing",
       "image": "assets/images/breathing/health 300/Deep Healing Breath.png",
       "durations": [4, 5, 7, 3],
     },
     {
-      "title": "Vital Flow Breath",
+      "title": "Vital Flow",
       "image": "assets/images/breathing/health 300/Vital Flow Breath.png",
       "durations": [7, 4, 6, 3],
     },
     {
-      "title": "Balanced Wellness Breath",
+      "title": "Balanced Wellness",
       "image":
           "assets/images/breathing/health 300/Balanced Wellness Breath.png",
       "durations": [5, 5, 5, 3],
     },
     {
-      "title": "Detox Breath",
+      "title": "Detox ",
       "image": "assets/images/breathing/health 300/Detox Breath.png",
       "durations": [4, 3, 6, 2],
     },
     {
-      "title": "Lung Strengthening Breath",
+      "title": "Lung Strengthening",
       "image":
           "assets/images/breathing/health 300/Lung Strengthening Breath.png",
       "durations": [6, 4, 8, 3],
@@ -54,7 +54,7 @@ class _HealthPageState extends State<HealthPage> {
       "durations": [5, 3, 7, 2],
     },
     {
-      "title": "Rejuvenation Breath",
+      "title": "Rejuvenation",
       "image": "assets/images/breathing/health 300/Rejuvenation Breath.png",
       "durations": [7, 5, 7, 3],
     },
