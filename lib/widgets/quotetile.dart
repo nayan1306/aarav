@@ -3,53 +3,58 @@ import 'package:flutter/material.dart';
 class QuoteTile extends StatelessWidget {
   final String assetImagePath;
   final String title;
-  final VoidCallback onTap; // Added onTap callback for redirection
+  final VoidCallback onTap; // Callback for navigation
 
   const QuoteTile({
     super.key,
     required this.assetImagePath,
     required this.title,
-    required this.onTap, // Required for onTap redirection
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final baseSize = screenSize.shortestSide * 0.28;
+    final tileWidth = baseSize;
+    final tileHeight = baseSize * 1.2;
+    final imageHeight = baseSize * 0.7;
+    final borderRadius = tileWidth * 0.15;
+    final fontSize = tileWidth * 0.13;
+
     return SizedBox(
-      width: 100,
-      height: 120, // Increased height to fit title
+      width: tileWidth,
+      height: tileHeight,
       child: GestureDetector(
-        onTap: onTap, // Redirects to the page on tap
+        onTap: onTap,
         child: Column(
           children: [
             Card(
               color: const Color.fromARGB(255, 66, 66, 66),
-              elevation: 5, // Adding elevation for card-like effect
+              elevation: 5,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16), // Rounded corners
+                borderRadius: BorderRadius.circular(borderRadius),
               ),
               child: Container(
-                height: 80, // Height of the image section
-                width: 100, // Set width of the image
-                padding: const EdgeInsets.all(8),
+                height: imageHeight,
+                width: tileWidth,
+                padding: EdgeInsets.all(tileWidth * 0.08),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(assetImagePath), // Using Asset Image
+                    image: AssetImage(assetImagePath),
                     fit: BoxFit.contain,
                   ),
-                  borderRadius: BorderRadius.circular(
-                    12,
-                  ), // Rounded corners for image
+                  borderRadius: BorderRadius.circular(borderRadius),
                 ),
               ),
             ),
-            // Title outside the card, above the image
+            SizedBox(height: tileHeight * 0.05),
             Text(
               title,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Color.fromARGB(255, 216, 216, 216),
-                fontSize: 14,
-                // fontWeight: FontWeight.bold,
+              style: TextStyle(
+                color: const Color.fromARGB(255, 216, 216, 216),
+                fontSize: fontSize,
               ),
             ),
           ],
