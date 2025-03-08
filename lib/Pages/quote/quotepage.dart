@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/determination_quotes.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/perseverance_quotes.dart';
 import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
@@ -110,7 +111,17 @@ class _BreathingPageState extends State<QuotePage> {
                 QuoteTile(
                   assetImagePath: "assets/images/sphere.png",
                   title: "Determination",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => QuoteViewer.fromItems(
+                              items: determinationQuotes,
+                            ),
+                      ),
+                    );
+                  },
                 ),
                 QuoteTile(
                   assetImagePath: "assets/images/sphere.png",
