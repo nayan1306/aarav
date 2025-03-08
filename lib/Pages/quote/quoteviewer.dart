@@ -1,6 +1,6 @@
 import 'package:aarav/Pages/quote/quote_final_landing.dart';
 import 'package:flutter/material.dart';
-import 'quotes_collection.dart';
+import 'quote_item_generator/quotes_randomizer.dart';
 
 class QuoteViewer extends StatefulWidget {
   final List<String> quotes;
