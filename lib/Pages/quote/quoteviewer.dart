@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:ui';
 import 'package:aarav/Pages/quote/quote_final_landing.dart';
 import 'package:flutter/material.dart';
 import 'quotes_collection.dart';

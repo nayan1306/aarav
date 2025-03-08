@@ -1,4 +1,5 @@
-import 'package:aarav/Pages/quote/quotes_collection.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/quotes_randomizer.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/perseverance_quotes.dart';
 import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
@@ -97,7 +98,7 @@ class _BreathingPageState extends State<QuotePage> {
                       MaterialPageRoute(
                         builder:
                             (context) => QuoteViewer.fromItems(
-                              items: getShuffledPerseveranceQuotes(),
+                              items: perseveranceQuotes,
                             ),
                       ),
                     );
