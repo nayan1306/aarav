@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import './quotes.dart';
+import 'quotes_collection.dart';
 
 class QuoteFinalLanding extends StatefulWidget {
   final String quote;
