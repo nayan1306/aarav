@@ -168,29 +168,31 @@ class BreathingTileAnimated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions
     final screenSize = MediaQuery.of(context).size;
-    // Define tile dimensions relative to screen size
-    final tileWidth = screenSize.width * 0.25;
-    final tileHeight = screenSize.height * 0.15;
-    // Define image size (square) based on tile width
-    final imageSize = tileWidth * 0.8;
 
-    return SizedBox(
+    // Use the shortest side to maintain a proportional tile shape
+    final baseSize = screenSize.shortestSide * 0.25;
+    final tileWidth = baseSize;
+    final tileHeight = baseSize * 1.1; // Maintain aspect ratio
+    final imageSize = tileWidth * 0.7;
+
+    return Container(
+      color: const Color.fromARGB(0, 255, 255, 255),
       width: tileWidth,
       height: tileHeight,
       child: GestureDetector(
         onTap: onTap,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Card(
-              color: const Color.fromARGB(255, 66, 66, 66),
+              color: Colors.transparent,
               elevation: 5,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Hero(
-                tag: title, // Unique tag for the Hero animation
+                tag: title,
                 child: Container(
                   height: imageSize,
                   width: imageSize,
@@ -206,13 +208,21 @@ class BreathingTileAnimated extends StatelessWidget {
               ),
             ),
             SizedBox(height: tileHeight * 0.05),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: const Color.fromARGB(255, 216, 216, 216),
-                fontSize: tileWidth * 0.14,
-                fontWeight: FontWeight.bold,
+            SizedBox(
+              width: tileWidth * 0.9,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 216, 216, 216),
+                    fontSize: tileWidth * 0.14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ],
