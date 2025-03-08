@@ -16,8 +16,14 @@ class BreathingContainerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    final screenSize = MediaQuery.of(context).size;
+
+    // Maintain proportional scaling using shortestSide
+    final baseSize = screenSize.shortestSide * 0.42;
+    final tileWidth = baseSize;
+    final tileHeight = baseSize * 1.2;
+    final borderRadius = tileWidth * 0.17;
+    final imageSize = tileWidth * 0.4;
 
     return GestureDetector(
       onTap: () {
@@ -27,31 +33,31 @@ class BreathingContainerCard extends StatelessWidget {
         );
       },
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(screenWidth * 0.07),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: Container(
-          height: screenHeight * 0.26,
-          width: screenWidth * 0.42,
+          height: tileHeight,
+          width: tileWidth,
           decoration: BoxDecoration(
             color: Colors.grey[900],
-            borderRadius: BorderRadius.circular(screenWidth * 0.07),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: Stack(
             fit: StackFit.expand,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(screenWidth * 0.07),
+                borderRadius: BorderRadius.circular(borderRadius),
                 child: Container(color: const Color.fromARGB(111, 69, 69, 69)),
               ),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(screenWidth * 0.07),
+                  borderRadius: BorderRadius.circular(borderRadius),
                   color: Colors.black.withOpacity(0.3),
                 ),
               ),
               Positioned.fill(
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(screenWidth * 0.07),
+                    borderRadius: BorderRadius.circular(borderRadius),
                     gradient: LinearGradient(
                       colors: [
                         Colors.black.withOpacity(0.7),
@@ -64,36 +70,36 @@ class BreathingContainerCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(screenWidth * 0.03),
+                padding: EdgeInsets.all(tileWidth * 0.07),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                      borderRadius: BorderRadius.circular(tileWidth * 0.12),
                       child: Image.asset(
                         assetImagePath,
-                        height: screenWidth * 0.18,
-                        width: screenWidth * 0.18,
+                        height: imageSize,
+                        width: imageSize,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(height: screenHeight * 0.012),
+                    SizedBox(height: tileHeight * 0.05),
                     Text(
                       title,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: tileWidth * 0.10,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: screenHeight * 0.006),
+                    SizedBox(height: tileHeight * 0.03),
                     Text(
                       subtitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
-                        fontSize: 16,
+                        fontSize: tileWidth * 0.08,
                       ),
                     ),
                   ],
