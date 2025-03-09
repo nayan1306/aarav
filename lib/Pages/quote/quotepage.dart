@@ -122,7 +122,7 @@ class _BreathingPageState extends State<QuotePage> {
                 // TODO: copy paste the same thing as below in rest of the Quote Tiles
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Leadership and Influence.png",
+                      "assets/images/quotes/Success and Productivity/Ru0TtpHp.jpg",
                   title: "Leadership and Influence",
                   // TODO: Add the same on tap navigation after creating the quotes page
                   onTap: () {
@@ -138,7 +138,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Workplace Ethics and Values.png",
+                      "assets/images/quotes/Success and Productivity/oCE5oAWa.png",
                   title: "Workplace Ethics and Values",
                   onTap: () {
                     Navigator.push(
@@ -153,7 +153,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Motivation for Hard Work.png",
+                      "assets/images/quotes/Success and Productivity/22XPfiL_.png",
                   title: "Motivation for Hard Work",
                   onTap: () {
                     Navigator.push(
@@ -185,7 +185,7 @@ class _BreathingPageState extends State<QuotePage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/quotes/Success and Productivity/Time Management Wisdom.png",
-                  title: "Time Management Wisdom",
+                  title: "Time Management",
                   onTap: () {
                     Navigator.push(
                       context,

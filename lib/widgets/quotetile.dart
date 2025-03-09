@@ -30,7 +30,7 @@ class QuoteTile extends StatelessWidget {
         child: Column(
           children: [
             Card(
-              color: const Color.fromARGB(255, 66, 66, 66),
+              color: const Color.fromARGB(0, 66, 66, 66),
               elevation: 5,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(borderRadius),
