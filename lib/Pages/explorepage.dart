@@ -1,3 +1,4 @@
+import 'package:aarav/Pages/affirmations/affirmation_page.dart';
 import 'package:aarav/Pages/breathing/breathingpage.dart';
 import 'package:aarav/Pages/journal/journalpage.dart';
 import 'package:aarav/Pages/quote/quotepage.dart';
@@ -49,7 +50,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       imagePath: "assets/images/test_bg.png",
                     ),
                     ExploreCard(
-                      page: QuotePage(),
+                      page: AffirmationPage(),
                       title: "Affirmations",
                       imagePath: "assets/images/test_bg.png",
                     ),
