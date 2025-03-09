@@ -105,19 +105,19 @@ class _BreathingPageState extends State<BreathingPage> {
                   assetImagePath:
                       "assets/images/breathing/night_time-removebg-preview.png",
                   title: "Night Time",
-                  subtitle: "Prepare for restful sleep.",
+                  subtitle: "Prepare for restful sleep",
                   nextPage: NightTimePage(),
                 ),
                 BreathingContainerCard(
                   assetImagePath: "assets/images/breathing/energy.png",
                   title: "Energy",
-                  subtitle: "Recharge with deep breaths.",
+                  subtitle: "Recharge with deep breaths",
                   nextPage: EnergyPage(),
                 ),
                 BreathingContainerCard(
                   assetImagePath: "assets/images/breathing/peformance.png",
                   title: "Performance",
-                  subtitle: "Sharpen your focus.",
+                  subtitle: "Sharpen your focus",
                   nextPage: PerformancePage(),
                 ),
                 BreathingContainerCard(

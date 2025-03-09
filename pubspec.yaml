@@ -130,6 +130,45 @@ flutter:
     - assets/images/breathing/peformance 300/Steady Mind Breath.png
     - assets/images/breathing/peformance 300/precision breath.png
 
+    - assets/images/quotes/bg/1.jpg
+    - assets/images/quotes/bg/2.jpg
+    - assets/images/quotes/bg/3.jpg
+    - assets/images/quotes/bg/4.jpg
+    - assets/images/quotes/bg/5.jpg
+    - assets/images/quotes/bg/6.jpg
+    - assets/images/quotes/bg/7.jpg
+    - assets/images/quotes/bg/8.jpg
+    - assets/images/quotes/bg/9.jpg
+    - assets/images/quotes/bg/10.jpg
+
+    - assets/images/quotes/Life and Resilience/Bouncing Back from Failure.png
+    - assets/images/quotes/Life and Resilience/Courage and Strength.png
+    - assets/images/quotes/Life and Resilience/Embracing Change.png
+    - assets/images/quotes/Life and Resilience/Finding Purpose in Life.png
+    - assets/images/quotes/Life and Resilience/Overcoming Challenges.png
+    - assets/images/quotes/Life and Resilience/The Power of Perseverance.png
+    - assets/images/quotes/Relationships and Inner Peace/Family Bonds.png
+    - assets/images/quotes/Relationships and Inner Peace/Forgiveness and Understanding.png
+    - assets/images/quotes/Relationships and Inner Peace/Friendship and Trust.png
+    - assets/images/quotes/Relationships and Inner Peace/Kindness and Compassion.png
+    - assets/images/quotes/Relationships and Inner Peace/Self-Love and Confidence.png
+    - assets/images/quotes/Relationships and Inner Peace/Spirituality and Mindfulness.png
+    - assets/images/quotes/Success and Productivity/Leadership and Influence.png
+    - assets/images/quotes/Success and Productivity/Motivation for Hard Work.png
+    - assets/images/quotes/Success and Productivity/Overcoming Procrastination.png
+    - assets/images/quotes/Success and Productivity/Success and Failure.png
+    - assets/images/quotes/Success and Productivity/Time Management Wisdom.png
+    - assets/images/quotes/Success and Productivity/Workplace Ethics and Values.png
+    - assets/images/quotes/Wisdom and Growth/Curiosity and Exploration.png
+    - assets/images/quotes/Wisdom and Growth/Knowledge and Education.png
+    - assets/images/quotes/Wisdom and Growth/Learning from Failure.png
+    - assets/images/quotes/Wisdom and Growth/Living in the Present.png
+    - assets/images/quotes/Wisdom and Growth/Personal Growth and Development.png
+    - assets/images/quotes/Wisdom and Growth/The Art of Teaching.png
+    
+
+
+
 
 
 
