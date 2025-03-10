@@ -105,7 +105,7 @@ class _AffirmationPageState extends State<AffirmationPage> {
           ),
           SizedBox(height: 20),
           Text(
-            "Success and Productivity",
+            "Self-Belief & Confidence",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -122,8 +122,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 // TODO: copy paste the same thing as below in rest of the Quote Tiles
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Ru0TtpHp.jpg",
-                  title: "Leadership and Influence",
+                      "assets/images/affermations icons/Embracing Your Strengths.png",
+                  title: "Embracing Your Strengths",
                   // TODO: Add the same on tap navigation after creating the quotes page
                   onTap: () {
                     Navigator.push(
@@ -138,8 +138,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/oCE5oAWa.png",
-                  title: "Workplace Ethics and Values",
+                      "assets/images/affermations icons/Trusting Your Decisions.png",
+                  title: "Trusting Your Decisions",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -153,8 +153,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/22XPfiL_.png",
-                  title: "Motivation for Hard Work",
+                      "assets/images/affermations icons/Speaking with Confidence.png",
+                  title: "Speaking with Confidence",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -168,8 +168,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Overcoming Procrastination.png",
-                  title: "Overcoming Procrastination",
+                      "assets/images/affermations icons/Overcoming Self-Doubt.png",
+                  title: "Overcoming Self-Doubt",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -184,8 +184,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Time Management Wisdom.png",
-                  title: "Time Management",
+                      "assets/images/affermations icons/Believing in Your Potential.png",
+                  title: "Believing in Your Potential",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -199,8 +199,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Success and Failure.png",
-                  title: "Success and Failure",
+                      "assets/images/affermations icons/Radiating Self-Assurance.png",
+                  title: "Radiating Self-Assurance",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -217,7 +217,7 @@ class _AffirmationPageState extends State<AffirmationPage> {
           ),
           // TDOD: Add bouncing scroll physics and change the sections accordingly
           Text(
-            "Life and Resilience ",
+            "Gratitude & Positivity",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -232,8 +232,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Finding Purpose in Life.png",
-                  title: "Finding Purpose in Life",
+                      "assets/images/affermations icons/Appreciating the Present Moment.png",
+                  title: "Appreciating the Present Moment",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -247,8 +247,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Embracing Change.png",
-                  title: "Embracing Change",
+                      "assets/images/affermations icons/Finding Joy in Small Things.png",
+                  title: "Finding Joy in Small Things",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -262,8 +262,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Overcoming Challenges.png",
-                  title: "Overcoming Challenges",
+                      "assets/images/affermations icons/Expressing Thankfulness Daily.png",
+                  title: "Expressing Thankfulness Daily",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -277,8 +277,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Courage and Strength.png",
-                  title: "Courage and Strength",
+                      "assets/images/affermations icons/Cultivating a Positive Mindset.png",
+                  title: "Cultivating a Positive Mindset",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -292,8 +292,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Bouncing Back from Failure.png",
-                  title: "Bouncing Back from Failure",
+                      "assets/images/affermations icons/Spreading Happiness & Kindness.png",
+                  title: "Spreading Happiness & Kindness",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -307,8 +307,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/The Power of Perseverance.png",
-                  title: "The Power of Perseverance",
+                      "assets/images/affermations icons/Living with Gratitude & Faith.png",
+                  title: "Living with Gratitude & Faith",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -326,7 +326,7 @@ class _AffirmationPageState extends State<AffirmationPage> {
           ),
           // TDOD: Add bouncing scroll physics and change the sections accordingly
           Text(
-            "Relationships and Inner Peace",
+            "Success & Growth Mindset",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -341,8 +341,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Friendship and Trust.png",
-                  title: "Friendship and Trust",
+                      "assets/images/affermations icons/Setting & Achieving Goals.png",
+                  title: "Setting & Achieving Goals",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -356,8 +356,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Family Bonds.png",
-                  title: "Family Bonds",
+                      "assets/images/affermations icons/Learning from Failures.png",
+                  title: "Learning from Failures",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -371,8 +371,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Self-Love and Confidence.png",
-                  title: "Self-Love and Confidence",
+                      "assets/images/affermations icons/Staying Committed to Growth.png",
+                  title: "Staying Committed to Growth",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -386,8 +386,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Kindness and Compassion.png",
-                  title: "Kindness and Compassion",
+                      "assets/images/affermations icons/Adapting to Challenges.png",
+                  title: "Adapting to Challenges",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -401,8 +401,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Forgiveness and Understanding.png",
-                  title: "Forgiveness and Understanding",
+                      "assets/images/affermations icons/Dreaming Big & Taking Action.png",
+                  title: "Dreaming Big & Taking Action",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -416,8 +416,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Spirituality and Mindfulness.png",
-                  title: "Spirituality and Mindfulness",
+                      "assets/images/affermations icons/Attracting Opportunities & Prosperity.png",
+                  title: "Attracting Opportunities & Prosperity",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -435,7 +435,7 @@ class _AffirmationPageState extends State<AffirmationPage> {
           ),
           // TDOD: Add bouncing scroll physics and change the sections accordingly
           Text(
-            "Wisdom and Growth",
+            "Inner Peace & Well-Being",
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -450,8 +450,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Knowledge and Education.png",
-                  title: "Knowledge and Education",
+                      "assets/images/affermations icons/Living in Harmony with Yourself.png",
+                  title: "Living in Harmony with Yourself",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -465,8 +465,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Learning from Failure.png",
-                  title: "Learning from Failure",
+                      "assets/images/affermations icons/Overcoming Stress & Anxiety.png",
+                  title: "Overcoming Stress & Anxiety",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -480,8 +480,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Curiosity and Exploration.png",
-                  title: "Curiosity and Exploration",
+                      "assets/images/affermations icons/Prioritizing Rest & Self-Care.png",
+                  title: "Prioritizing Rest & Self-Care",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -495,8 +495,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/The Art of Teaching.png",
-                  title: "The Art of Teaching",
+                      "assets/images/affermations icons/Nurturing Emotional Balance.png",
+                  title: "Nurturing Emotional Balance",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -510,8 +510,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Personal Growth and Development.png",
-                  title: "Personal Growth and Development",
+                      "assets/images/affermations icons/Practicing Mindfulness Daily.png",
+                  title: "Practicing Mindfulness Daily",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -525,8 +525,8 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Living in the Present.png",
-                  title: "Living in the Present",
+                      "assets/images/affermations icons/Letting Go of Negativity.png",
+                  title: "Letting Go of Negativity",
                   onTap: () {
                     Navigator.push(
                       context,

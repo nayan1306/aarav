@@ -133,6 +133,9 @@ flutter:
     - assets/images/quotes/Quotes icons/
     - assets/images/quotes/bg/
     - assets/images/sound icons/
+    - assets/images/affermations icons/
+
+
     - assets/sounds/sound audio/Awake calm music.mp3
     - assets/sounds/sound audio/bird-singing.mp3
     - assets/sounds/sound audio/Gentle River Flow.mp3
