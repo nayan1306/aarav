@@ -1,3 +1,5 @@
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/work_and_productivity/embracing_strength.dart';
+import 'package:aarav/Pages/affirmations/affirmation_viewer.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/bounceback_quotes.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/change_quotes.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/courage_quotes.dart';
@@ -130,8 +132,9 @@ class _AffirmationPageState extends State<AffirmationPage> {
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: leadershipQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: embracingStrengthsAffirmation,
+                            ),
                       ),
                     );
                   },
