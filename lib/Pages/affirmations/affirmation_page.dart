@@ -23,7 +23,6 @@ import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/teachin
 import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/time_qoutes.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/workplace_quotes.dart';
 import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/motivation_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/leadership_quotes.dart';
 import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
