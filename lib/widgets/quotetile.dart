@@ -17,7 +17,7 @@ class QuoteTile extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final baseSize = screenSize.shortestSide * 0.28;
     final tileWidth = baseSize;
-    final tileHeight = baseSize * 1.2;
+    final tileHeight = baseSize * 1.4;
     final imageHeight = baseSize * 0.7;
     final borderRadius = tileWidth * 0.15;
     final fontSize = tileWidth * 0.13;
@@ -28,6 +28,7 @@ class QuoteTile extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Column(
+          mainAxisSize: MainAxisSize.min, // Prevent overflow
           children: [
             Card(
               color: const Color.fromARGB(0, 66, 66, 66),
@@ -49,12 +50,17 @@ class QuoteTile extends StatelessWidget {
               ),
             ),
             SizedBox(height: tileHeight * 0.05),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: const Color.fromARGB(255, 216, 216, 216),
-                fontSize: fontSize,
+            Expanded(
+              // Prevent text overflow
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis, // Avoid overflow
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 216, 216, 216),
+                  fontSize: fontSize,
+                ),
               ),
             ),
           ],
