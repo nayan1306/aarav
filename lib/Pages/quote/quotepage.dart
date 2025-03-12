@@ -1,27 +1,27 @@
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/bounceback_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/change_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/courage_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/curiosity_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/family_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/forgiveness_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/friendship_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/growth_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/kindness_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/knowledge_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/learning_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/overcoming_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/perseverance_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/present_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/procrastination_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/purpose_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/selflove_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/spirituality_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/success_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/teaching_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/time_qoutes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/workplace_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/motivation_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/work_and_productivity/leadership_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/bounceback_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/change_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/courage_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/curiosity_quote.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/family_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/forgiveness_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/friendship_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/growth_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/kindness_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/knowledge_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/learning_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/overcoming_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/perseverance_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/present_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/procrastination_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/purpose_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/selflove_quote.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/spirituality_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/success_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/teaching_quote.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/time_qoutes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/workplace_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/motivation_quotes.dart';
+import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/leadership_quotes.dart';
 import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
@@ -73,31 +73,31 @@ class _BreathingPageState extends State<QuotePage> {
               children: [
                 QuotesRecommendedCard(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Time Management Wisdom.png",
+                      "assets/images/quotes/Quotes icons/Success_and_Failure-removebg-preview.png",
                   title: "Top Quotes",
                   subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
                 QuotesRecommendedCard(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Knowledge and Education.png",
+                      "assets/images/quotes/Quotes icons/Personal Growth and Development.png",
                   title: "Top Quotes",
                   subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
                 QuotesRecommendedCard(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Living in the Present.png",
+                      "assets/images/quotes/Quotes icons/Overcoming Challenges.png",
                   title: "Top Quotes",
                   subtitle: "Gloabal top Quotes among users",
                 ),
                 SizedBox(width: 10),
                 QuotesRecommendedCard(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Embracing Change.png",
+                      "assets/images/quotes/Quotes icons/Learning from Failure.png",
                   title: "Top Quotes",
                   subtitle:
-                      "assets/images/quotes/Life and Resilience/Overcoming Challenges.png",
+                      "assets/images/quotes/Quotes icons/time_management_wisdom-removebg-preview.png",
                 ),
                 SizedBox(width: 10),
               ],
@@ -122,7 +122,7 @@ class _BreathingPageState extends State<QuotePage> {
                 // TODO: copy paste the same thing as below in rest of the Quote Tiles
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Ru0TtpHp.jpg",
+                      "assets/images/quotes/Quotes icons/leadership and influence.png",
                   title: "Leadership and Influence",
                   // TODO: Add the same on tap navigation after creating the quotes page
                   onTap: () {
@@ -138,7 +138,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/oCE5oAWa.png",
+                      "assets/images/quotes/Quotes icons/workpalce ethics and values.png",
                   title: "Workplace Ethics and Values",
                   onTap: () {
                     Navigator.push(
@@ -153,7 +153,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/22XPfiL_.png",
+                      "assets/images/quotes/Quotes icons/motivation for hardwork.png",
                   title: "Motivation for Hard Work",
                   onTap: () {
                     Navigator.push(
@@ -168,7 +168,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Overcoming Procrastination.png",
+                      "assets/images/quotes/Quotes icons/overcoming_procrastination-removebg-preview.png",
                   title: "Overcoming Procrastination",
                   onTap: () {
                     Navigator.push(
@@ -184,7 +184,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Time Management Wisdom.png",
+                      "assets/images/quotes/Quotes icons/time_management_wisdom-removebg-preview.png",
                   title: "Time Management",
                   onTap: () {
                     Navigator.push(
@@ -199,7 +199,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Success and Productivity/Success and Failure.png",
+                      "assets/images/quotes/Quotes icons/Success_and_Failure-removebg-preview.png",
                   title: "Success and Failure",
                   onTap: () {
                     Navigator.push(
@@ -232,7 +232,7 @@ class _BreathingPageState extends State<QuotePage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Finding Purpose in Life.png",
+                      "assets/images/quotes/Quotes icons/Finding Purpose in Life.png",
                   title: "Finding Purpose in Life",
                   onTap: () {
                     Navigator.push(
@@ -247,7 +247,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Embracing Change.png",
+                      "assets/images/quotes/Quotes icons/Embracing Change.png",
                   title: "Embracing Change",
                   onTap: () {
                     Navigator.push(
@@ -262,7 +262,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Overcoming Challenges.png",
+                      "assets/images/quotes/Quotes icons/Overcoming Challenges.png",
                   title: "Overcoming Challenges",
                   onTap: () {
                     Navigator.push(
@@ -277,7 +277,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Courage and Strength.png",
+                      "assets/images/quotes/Quotes icons/Courage and Strength.png",
                   title: "Courage and Strength",
                   onTap: () {
                     Navigator.push(
@@ -292,7 +292,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/Bouncing Back from Failure.png",
+                      "assets/images/quotes/Quotes icons/Bouncing Back from Failure.png",
                   title: "Bouncing Back from Failure",
                   onTap: () {
                     Navigator.push(
@@ -307,7 +307,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Life and Resilience/The Power of Perseverance.png",
+                      "assets/images/quotes/Quotes icons/The Power of Perseverance.png",
                   title: "The Power of Perseverance",
                   onTap: () {
                     Navigator.push(
@@ -341,7 +341,7 @@ class _BreathingPageState extends State<QuotePage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Friendship and Trust.png",
+                      "assets/images/quotes/Quotes icons/Friendship and Trust.png",
                   title: "Friendship and Trust",
                   onTap: () {
                     Navigator.push(
@@ -356,7 +356,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Family Bonds.png",
+                      "assets/images/quotes/Quotes icons/Family Bonds.png",
                   title: "Family Bonds",
                   onTap: () {
                     Navigator.push(
@@ -371,7 +371,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Self-Love and Confidence.png",
+                      "assets/images/quotes/Quotes icons/Self-Love and Confidence.png",
                   title: "Self-Love and Confidence",
                   onTap: () {
                     Navigator.push(
@@ -386,7 +386,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Kindness and Compassion.png",
+                      "assets/images/quotes/Quotes icons/Kindness and Compassion.png",
                   title: "Kindness and Compassion",
                   onTap: () {
                     Navigator.push(
@@ -401,7 +401,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Forgiveness and Understanding.png",
+                      "assets/images/quotes/Quotes icons/Forgiveness and Understanding.png",
                   title: "Forgiveness and Understanding",
                   onTap: () {
                     Navigator.push(
@@ -416,7 +416,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Relationships and Inner Peace/Spirituality and Mindfulness.png",
+                      "assets/images/quotes/Quotes icons/Spirituality and Mindfulness.png",
                   title: "Spirituality and Mindfulness",
                   onTap: () {
                     Navigator.push(
@@ -450,7 +450,7 @@ class _BreathingPageState extends State<QuotePage> {
               children: [
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Knowledge and Education.png",
+                      "assets/images/quotes/Quotes icons/Knowledge and Education.png",
                   title: "Knowledge and Education",
                   onTap: () {
                     Navigator.push(
@@ -465,7 +465,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Learning from Failure.png",
+                      "assets/images/quotes/Quotes icons/Learning from Failure.png",
                   title: "Learning from Failure",
                   onTap: () {
                     Navigator.push(
@@ -480,7 +480,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Curiosity and Exploration.png",
+                      "assets/images/quotes/Quotes icons/Curiosity and Exploration.png",
                   title: "Curiosity and Exploration",
                   onTap: () {
                     Navigator.push(
@@ -495,7 +495,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/The Art of Teaching.png",
+                      "assets/images/quotes/Quotes icons/The Art of Teaching.png",
                   title: "The Art of Teaching",
                   onTap: () {
                     Navigator.push(
@@ -510,7 +510,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Personal Growth and Development.png",
+                      "assets/images/quotes/Quotes icons/Personal Growth and Development.png",
                   title: "Personal Growth and Development",
                   onTap: () {
                     Navigator.push(
@@ -525,7 +525,7 @@ class _BreathingPageState extends State<QuotePage> {
                 ),
                 QuoteTile(
                   assetImagePath:
-                      "assets/images/quotes/Wisdom and Growth/Living in the Present.png",
+                      "assets/images/quotes/Quotes icons/Living in the Present.png",
                   title: "Living in the Present",
                   onTap: () {
                     Navigator.push(

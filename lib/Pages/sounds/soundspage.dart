@@ -70,44 +70,45 @@ class _SoundspageState extends State<Soundspage> {
 
   final List<Map<String, String>> soundList = [
     {
-      'title': 'Relaxing Sound 1',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'River',
+      'soundPath': 'assets/sounds/sound audio/Gentle River Flow.mp3',
+      'albumArtPath': 'assets/images/sound icons/river.jpeg',
     },
     {
-      'title': 'Relaxing Sound 2',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Ocean',
+      'soundPath': 'assets/sounds/sound audio/Soothing Ocean Waves.mp3',
+      'albumArtPath': 'assets/images/sound icons/ocean.jpeg',
     },
     {
-      'title': 'Calm Vibes',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Birds',
+      'soundPath': 'assets/sounds/sound audio/bird-singing.mp3',
+      'albumArtPath': 'assets/images/sound icons/birds.jpeg',
     },
     {
-      'title': 'Nature Sounds',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Rainfall',
+      'soundPath': 'assets/sounds/sound audio/Rainfall.mp3',
+      'albumArtPath': 'assets/images/sound icons/rainfall.jpeg',
     },
     {
-      'title': 'Ocean Waves',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Waterfall',
+      'soundPath': 'assets/sounds/sound audio/WATERFALL.mp3',
+      'albumArtPath': 'assets/images/sound icons/waterfall.jpeg',
     },
     {
-      'title': 'Forest Ambience',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Thunderstrom',
+      'soundPath': 'assets/sounds/sound audio/nature_thunder.mp3',
+      'albumArtPath': 'assets/images/sound icons/thunderstrom.jpeg',
     },
     {
-      'title': 'Lo-Fi Chill',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Instrumental 1',
+      'soundPath':
+          'assets/sounds/sound audio/thoughtful piano instrumenta (attribution ).mp3',
+      'albumArtPath': 'assets/images/sound icons/instrumental.jpeg',
     },
     {
-      'title': 'Piano Bliss',
-      'soundPath': 'sounds/rhythm-of-life-301382.mp3',
-      'albumArtPath': 'assets/images/sound.gif',
+      'title': 'Instrumental 2',
+      'soundPath': 'assets/sounds/sound audio/Awake calm music.mp3',
+      'albumArtPath': 'assets/images/sound icons/instumental 2.jpeg',
     },
   ];
   @override
