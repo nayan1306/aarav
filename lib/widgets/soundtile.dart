@@ -33,7 +33,7 @@ class SoundTile extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(albumArtPath),
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),

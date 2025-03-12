@@ -71,43 +71,43 @@ class _SoundspageState extends State<Soundspage> {
   final List<Map<String, String>> soundList = [
     {
       'title': 'River',
-      'soundPath': 'assets/sounds/sound audio/Gentle River Flow.mp3',
+      'soundPath': 'sounds/sound audio/Gentle River Flow.mp3',
       'albumArtPath': 'assets/images/sound icons/river.jpeg',
     },
     {
       'title': 'Ocean',
-      'soundPath': 'assets/sounds/sound audio/Soothing Ocean Waves.mp3',
+      'soundPath': 'sounds/sound audio/Soothing Ocean Waves.mp3',
       'albumArtPath': 'assets/images/sound icons/ocean.jpeg',
     },
     {
       'title': 'Birds',
-      'soundPath': 'assets/sounds/sound audio/bird-singing.mp3',
+      'soundPath': 'sounds/sound audio/bird-singing.mp3',
       'albumArtPath': 'assets/images/sound icons/birds.jpeg',
     },
     {
       'title': 'Rainfall',
-      'soundPath': 'assets/sounds/sound audio/Rainfall.mp3',
+      'soundPath': 'sounds/sound audio/Rainfall.mp3',
       'albumArtPath': 'assets/images/sound icons/rainfall.jpeg',
     },
     {
       'title': 'Waterfall',
-      'soundPath': 'assets/sounds/sound audio/WATERFALL.mp3',
+      'soundPath': 'sounds/sound audio/WATERFALL.mp3',
       'albumArtPath': 'assets/images/sound icons/waterfall.jpeg',
     },
     {
       'title': 'Thunderstrom',
-      'soundPath': 'assets/sounds/sound audio/nature_thunder.mp3',
+      'soundPath': 'sounds/sound audio/nature_thunder.mp3',
       'albumArtPath': 'assets/images/sound icons/thunderstrom.jpeg',
     },
     {
       'title': 'Instrumental 1',
       'soundPath':
-          'assets/sounds/sound audio/thoughtful piano instrumenta (attribution ).mp3',
+          'sounds/sound audio/thoughtful piano instrumenta (attribution ).mp3',
       'albumArtPath': 'assets/images/sound icons/instrumental.jpeg',
     },
     {
       'title': 'Instrumental 2',
-      'soundPath': 'assets/sounds/sound audio/Awake calm music.mp3',
+      'soundPath': 'sounds/sound audio/Awake calm music.mp3',
       'albumArtPath': 'assets/images/sound icons/instumental 2.jpeg',
     },
   ];
