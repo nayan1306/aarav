@@ -1,29 +1,28 @@
-import 'package:aarav/Pages/affirmations/affirmation_item_generator/work_and_productivity/embracing_strength.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/cultivate_positivity.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/daily_gratitude.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/embrace_present.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/faith_gratitude.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/finding_joy.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Gratitude%20&%20Positivity/spread_happiness.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/balanced_living.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/live_in_harmony.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/overcome_stress.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/practice_mindfulness.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/release_negativity.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Inner%20Peace%20&%20Well-Being/self_care.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/believe_in_potential.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/embracing_strength.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/overcome_doubt.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/radiate_assurance.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/speak_confidently.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Self-Belief%20&%20Confidence/trust_decisions.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/achieve_goals.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/adaptability.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/dream_and_act.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/growth_commitment.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/learn_from_failure.dart';
+import 'package:aarav/Pages/affirmations/affirmation_item_generator/Success%20&%20Growth%20Mindset/opportunity_magnet.dart';
 import 'package:aarav/Pages/affirmations/affirmation_viewer.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/bounceback_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/change_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/courage_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/curiosity_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/family_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/forgiveness_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/friendship_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/growth_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/kindness_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/knowledge_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/learning_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/overcoming_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/perseverance_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/present_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/procrastination_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/life_and_resilieance/purpose_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/selflove_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/relationships_and_inner_peace/spirituality_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/success_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/wisdom_and_growth/teaching_quote.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/time_qoutes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/workplace_quotes.dart';
-import 'package:aarav/Pages/quote/quote_item_generator/sub_headings_quotes/motivation_quotes.dart';
-import 'package:aarav/Pages/quote/quoteviewer.dart';
 import 'package:aarav/widgets/quotesrecommendedcard.dart';
 import 'package:aarav/widgets/quotetile.dart';
 import 'package:flutter/material.dart';
@@ -120,12 +119,11 @@ class _AffirmationPageState extends State<AffirmationPage> {
               scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
               children: [
-                // TODO: copy paste the same thing as below in rest of the Quote Tiles
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Embracing Your Strengths.png",
-                  title: "Embracing Your Strengths",
-                  // TODO: Add the same on tap navigation after creating the quotes page
+                  title: "Embrace Strengths",
+
                   onTap: () {
                     Navigator.push(
                       context,
@@ -141,14 +139,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Trusting Your Decisions.png",
-                  title: "Trusting Your Decisions",
+                  title: "Trust Decisions",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: workplaceQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: trustdecisionsAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -156,14 +155,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Speaking with Confidence.png",
-                  title: "Speaking with Confidence",
+                  title: "Speak Confidently",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: motivationQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: speakconfidentlyAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -171,14 +171,14 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Overcoming Self-Doubt.png",
-                  title: "Overcoming Self-Doubt",
+                  title: "Overcome Doubt",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => QuoteViewer.fromItems(
-                              items: procrastinationQuotes,
+                            (context) => AffirmationViewer.fromItems(
+                              items: overcomedoubtAffirmation,
                             ),
                       ),
                     );
@@ -187,14 +187,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Believing in Your Potential.png",
-                  title: "Believing in Your Potential",
+                  title: "Believe in Potential",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: timeQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: believeinpotentialAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -202,14 +203,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Radiating Self-Assurance.png",
-                  title: "Radiating Self-Assurance",
+                  title: "Radiate Assurance",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: successQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: radiateassuranceAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -235,14 +237,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Appreciating the Present Moment.png",
-                  title: "Appreciating the Present Moment",
+                  title: "Embrace Present",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: purposeQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: embracepresentAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -250,14 +253,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Finding Joy in Small Things.png",
-                  title: "Finding Joy in Small Things",
+                  title: "Finding Joy",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: changeQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: findingjoyAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -265,14 +269,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Expressing Thankfulness Daily.png",
-                  title: "Expressing Thankfulness Daily",
+                  title: "Daily Gratitude",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: overcomingQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: dailygratitudeAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -280,14 +285,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Cultivating a Positive Mindset.png",
-                  title: "Cultivating a Positive Mindset",
+                  title: "Cultivate Positivity",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: courageQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: cultivatepositivityAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -295,14 +301,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Spreading Happiness & Kindness.png",
-                  title: "Spreading Happiness & Kindness",
+                  title: "Spread Happiness",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: bouncebackQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: spreadhappinessAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -310,14 +317,14 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Living with Gratitude & Faith.png",
-                  title: "Living with Gratitude & Faith",
+                  title: "Faith & Gratitude",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => QuoteViewer.fromItems(
-                              items: perseveranceQuotes,
+                            (context) => AffirmationViewer.fromItems(
+                              items: faithgratitudeAffirmation,
                             ),
                       ),
                     );
@@ -344,14 +351,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Setting & Achieving Goals.png",
-                  title: "Setting & Achieving Goals",
+                  title: "Achieve Goals",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: friendshipQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: achievegoalsAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -359,14 +367,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Learning from Failures.png",
-                  title: "Learning from Failures",
+                  title: "Learn from Failure",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: familyQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: learnfromfailureAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -374,14 +383,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Staying Committed to Growth.png",
-                  title: "Staying Committed to Growth",
+                  title: "Growth Commitment",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: selfloveQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: growthcommitmentAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -389,14 +399,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Adapting to Challenges.png",
-                  title: "Adapting to Challenges",
+                  title: "Adaptability",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: kindnessQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: adaptabilityAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -404,14 +415,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Dreaming Big & Taking Action.png",
-                  title: "Dreaming Big & Taking Action",
+                  title: "Dream & Act",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: forgivenessQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: dreamactAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -419,14 +431,14 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Attracting Opportunities & Prosperity.png",
-                  title: "Attracting Opportunities & Prosperity",
+                  title: "Opportunity Magnet",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => QuoteViewer.fromItems(
-                              items: spiritualityQuotes,
+                            (context) => AffirmationViewer.fromItems(
+                              items: opportunitymagnetAffirmation,
                             ),
                       ),
                     );
@@ -453,14 +465,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Living in Harmony with Yourself.png",
-                  title: "Living in Harmony with Yourself",
+                  title: "Live in Harmony",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: knowledgeQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: liveharmonyAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -468,14 +481,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Overcoming Stress & Anxiety.png",
-                  title: "Overcoming Stress & Anxiety",
+                  title: "Overcome Stress",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: learningQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: overcomestressAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -483,14 +497,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Prioritizing Rest & Self-Care.png",
-                  title: "Prioritizing Rest & Self-Care",
+                  title: "Self-Care",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: curiosityQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: selfcareAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -498,14 +513,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Nurturing Emotional Balance.png",
-                  title: "Nurturing Emotional Balance",
+                  title: "Balanced Living",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: teachingQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: balancedlivingAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -513,14 +529,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Practicing Mindfulness Daily.png",
-                  title: "Practicing Mindfulness Daily",
+                  title: "Practice Mindfulness",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: growthQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: practicemindfulnessAffirmation,
+                            ),
                       ),
                     );
                   },
@@ -528,14 +545,15 @@ class _AffirmationPageState extends State<AffirmationPage> {
                 QuoteTile(
                   assetImagePath:
                       "assets/images/affermations icons/Letting Go of Negativity.png",
-                  title: "Letting Go of Negativity",
+                  title: "Release Negativity",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) =>
-                                QuoteViewer.fromItems(items: presentQuotes),
+                            (context) => AffirmationViewer.fromItems(
+                              items: releasenegativityAffirmation,
+                            ),
                       ),
                     );
                   },
