@@ -1,4 +1,10 @@
+import 'package:aarav/Pages/moodtracker.dart/moodpages/1/moodpage1.dart';
 import 'package:aarav/Pages/moodtracker.dart/moodpages/10/moodpage10.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/2/moodpage2.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/3/moodpage3.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/5/moodpage5.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/7/moodpage7.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/8/moodpage8.dart';
 import 'package:flutter/material.dart';
 
 // Dummy pages for different mood scores
@@ -90,10 +96,18 @@ class _MoodTrackerPageState extends State<MoodTrackerPage>
     Widget page;
     if (widget.moodScore == 10) {
       page = MoodPage10(moodScore: widget.moodScore);
-    } else if (widget.moodScore >= 7) {
-      page = HappyDetailsPage(moodScore: widget.moodScore);
-    } else if (widget.moodScore <= 3) {
-      page = SadDetailsPage(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 8) {
+      page = MoodPage8(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 7) {
+      page = MoodPage7(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 5) {
+      page = MoodPage5(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 3) {
+      page = MoodPage3(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 2) {
+      page = MoodPage2(moodScore: widget.moodScore);
+    } else if (widget.moodScore == 1) {
+      page = MoodPage1(moodScore: widget.moodScore);
     } else {
       page = NeutralDetailsPage(moodScore: widget.moodScore);
     }

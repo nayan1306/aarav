@@ -1,30 +1,30 @@
 import 'package:aarav/Pages/moodtracker.dart/moodsummarypage.dart';
 import 'package:flutter/material.dart';
 
-class ExactFeelingPage10 extends StatefulWidget {
+class ExactFeelingPage1 extends StatefulWidget {
   final int moodScore;
   final List<Map<String, String>> selectedReasons;
 
-  const ExactFeelingPage10({
+  const ExactFeelingPage1({
     super.key,
     required this.moodScore,
     required this.selectedReasons,
   });
 
   @override
-  State<ExactFeelingPage10> createState() => _ExactFeelingPageState();
+  State<ExactFeelingPage1> createState() => _ExactFeelingPageState();
 }
 
-class _ExactFeelingPageState extends State<ExactFeelingPage10> {
+class _ExactFeelingPageState extends State<ExactFeelingPage1> {
   final List<Map<String, String>> _feelings = [
-    {"emoji": "❤️", "text": "Loved"},
-    {"emoji": "😍", "text": "Adored"},
-    {"emoji": "💖", "text": "Cherished"},
-    {"emoji": "🥰", "text": "Affectionate"},
-    {"emoji": "💑", "text": "Connected"},
-    {"emoji": "💕", "text": "Romantic"},
-    {"emoji": "🌹", "text": "Passionate"},
-    {"emoji": "💞", "text": "Appreciative"},
+    {"emoji": "😡", "text": "Furious"},
+    {"emoji": "😠", "text": "Annoyed"},
+    {"emoji": "🤬", "text": "Enraged"},
+    {"emoji": "😤", "text": "Frustrated"},
+    {"emoji": "😾", "text": "Irritated"},
+    {"emoji": "🔥", "text": "Heated"},
+    {"emoji": "😑", "text": "Resentful"},
+    {"emoji": "💢", "text": "Agitated"},
   ];
 
   final Set<int> _selectedIndexes = {};

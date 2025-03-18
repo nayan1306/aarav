@@ -1,30 +1,25 @@
-import 'package:aarav/Pages/moodtracker.dart/moodsummarypage.dart';
+import 'package:aarav/Pages/moodtracker.dart/moodpages/7/excatfeelingpage7.dart';
 import 'package:flutter/material.dart';
 
-class ExactFeelingPage10 extends StatefulWidget {
+class MoodPage7 extends StatefulWidget {
   final int moodScore;
-  final List<Map<String, String>> selectedReasons;
-
-  const ExactFeelingPage10({
-    super.key,
-    required this.moodScore,
-    required this.selectedReasons,
-  });
+  const MoodPage7({super.key, required this.moodScore});
 
   @override
-  State<ExactFeelingPage10> createState() => _ExactFeelingPageState();
+  State<MoodPage7> createState() => _MoodPage10State();
 }
 
-class _ExactFeelingPageState extends State<ExactFeelingPage10> {
-  final List<Map<String, String>> _feelings = [
-    {"emoji": "❤️", "text": "Loved"},
-    {"emoji": "😍", "text": "Adored"},
-    {"emoji": "💖", "text": "Cherished"},
-    {"emoji": "🥰", "text": "Affectionate"},
-    {"emoji": "💑", "text": "Connected"},
-    {"emoji": "💕", "text": "Romantic"},
-    {"emoji": "🌹", "text": "Passionate"},
-    {"emoji": "💞", "text": "Appreciative"},
+class _MoodPage10State extends State<MoodPage7> {
+  final List<Map<String, String>> _reasons = [
+    {"emoji": "😃", "text": "Feeling great today"},
+    {"emoji": "😊", "text": "Had a good day"},
+    {"emoji": "👍", "text": "Everything is going well"},
+    {"emoji": "🌞", "text": "Feeling positive and refreshed"},
+    {"emoji": "😇", "text": "Grateful for today"},
+    {"emoji": "🌟", "text": "Something nice happened"},
+    {"emoji": "🍀", "text": "Feeling lucky"},
+    {"emoji": "💫", "text": "In a good headspace"},
+    {"emoji": "🤫", "text": "Anonymous"},
   ];
 
   final Set<int> _selectedIndexes = {};
@@ -41,11 +36,11 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
 
   void _continue() {
     if (_selectedIndexes.isNotEmpty) {
-      List<Map<String, String>> selectedFeelings =
+      List<Map<String, String>> selectedReasons =
           _selectedIndexes.map((index) {
             return {
-              "emoji": _feelings[index]["emoji"]!,
-              "text": _feelings[index]["text"]!,
+              "emoji": _reasons[index]["emoji"]!,
+              "text": _reasons[index]["text"]!,
             };
           }).toList();
 
@@ -53,10 +48,9 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
         context,
         MaterialPageRoute(
           builder:
-              (context) => MoodSummaryPage(
+              (context) => ExactFeelingPage7(
                 moodScore: widget.moodScore,
-                selectedReasons: widget.selectedReasons,
-                selectedFeelings: selectedFeelings,
+                selectedReasons: selectedReasons,
               ),
         ),
       );
@@ -68,7 +62,7 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("What are your exact feelings?"),
+        title: const Text("What makes you feel this way?"),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
@@ -79,7 +73,7 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
           children: [
             const SizedBox(height: 10),
             const Text(
-              "Select the feelings that describe your mood:",
+              "Select one or more reasons:",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -88,10 +82,10 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
             ),
             const SizedBox(height: 10),
 
-            // Selectable Feelings List
+            // List of selectable mood reasons
             Expanded(
               child: ListView.builder(
-                itemCount: _feelings.length,
+                itemCount: _reasons.length,
                 itemBuilder: (context, index) {
                   bool isSelected = _selectedIndexes.contains(index);
 
@@ -117,13 +111,13 @@ class _ExactFeelingPageState extends State<ExactFeelingPage10> {
                       child: Row(
                         children: [
                           Text(
-                            _feelings[index]["emoji"]!,
+                            _reasons[index]["emoji"]!,
                             style: const TextStyle(fontSize: 22),
                           ),
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
-                              _feelings[index]["text"]!,
+                              _reasons[index]["text"]!,
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,

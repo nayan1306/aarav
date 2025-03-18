@@ -35,7 +35,7 @@ class _MoodSummaryPageState extends State<MoodSummaryPage> {
 
   String getEncouragingQuote() {
     if (widget.moodScore >= 8) {
-      return "✨ 'Happiness depends upon ourselves.' - Aristotle";
+      return "✨ Happiness depends upon ourselves.";
     } else if (widget.moodScore >= 5) {
       return "🌱 'Every day may not be good, but there's something good in every day.'";
     } else {
