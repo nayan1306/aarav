@@ -290,20 +290,20 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   backgroundColor: const Color.fromARGB(104, 0, 0, 0),
-      //   elevation: 0,
-      //   title: const Text(
-      //     "Your Wellness Journey",
-      //     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       icon: const Icon(Icons.settings),
-      //       onPressed: _showNeedsSelectionModal,
-      //     ),
-      //   ],
-      // ),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        elevation: 0,
+        // title: const Text(
+        //   "Your Wellness Journey",
+        //   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        // ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings, color: Colors.white),
+            onPressed: _showNeedsSelectionModal,
+          ),
+        ],
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -810,6 +810,7 @@ class SmartScheduleTimeline extends StatelessWidget {
             ),
           );
         }),
+        SizedBox(height: 50),
       ],
     );
   }
