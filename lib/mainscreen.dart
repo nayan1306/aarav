@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
     HomePage(),
     const ExplorePage(),
     TimelinePage(),
-    ProfilePage(),
+    // ProfilePage(),
   ];
 
   @override
@@ -85,14 +85,14 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 selectedColor: Colors.amberAccent,
               ),
-              SalomonBottomBarItem(
-                icon: const Icon(Icons.person, color: Colors.white, size: 22),
-                title: const Text(
-                  "Profile",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-                selectedColor: Colors.tealAccent,
-              ),
+              // SalomonBottomBarItem(
+              //   icon: const Icon(Icons.person, color: Colors.white, size: 22),
+              //   title: const Text(
+              //     "Profile",
+              //     style: TextStyle(color: Colors.white, fontSize: 12),
+              //   ),
+              //   selectedColor: Colors.tealAccent,
+              // ),
             ],
           ),
         ),
