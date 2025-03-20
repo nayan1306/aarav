@@ -40,15 +40,6 @@ class _MoodTrackerQuickAccessButtonState
     super.dispose();
   }
 
-  void _showMoodSelected(String mood) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("$mood Mood Selected"),
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
-  }
-
   void _toggleMenu() {
     final menuState = _menuKey.currentState;
     if (menuState != null) {

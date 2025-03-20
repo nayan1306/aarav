@@ -1,3 +1,5 @@
+import 'package:aarav/Pages/explorepage.dart';
+import 'package:aarav/Pages/moodtracker.dart/tracker_placeholder_page.dart';
 import 'package:flutter/material.dart';
 import 'package:aarav/Pages/affirmations/affirmation_page.dart';
 import 'package:aarav/Pages/breathing/breathingpage.dart';
@@ -5,6 +7,7 @@ import 'package:aarav/Pages/journal/journalpage.dart';
 import 'package:aarav/Pages/quote/quotepage.dart';
 import 'package:aarav/Pages/sounds/soundspage.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -109,7 +112,7 @@ class _HomePageState extends State<HomePage> {
       name: "Guided Meditation",
       description: "Find peace with guided meditation",
       duration: 15,
-      page: const Soundspage(), // Replace with actual meditation page
+      page: const ExplorePage(), // Replace with actual meditation page
       imagePath: "assets/images/test_bg.png",
       tags: [
         "Mindfulness",
@@ -123,7 +126,7 @@ class _HomePageState extends State<HomePage> {
       name: "Mood Check-in",
       description: "Track your mood and identify patterns",
       duration: 1,
-      page: const Soundspage(), // Replace with actual mood tracker page
+      page: TrackerPlaceholderPage(), // Replace with actual mood tracker page
       imagePath: "assets/images/test_bg.png",
       tags: ["Mood Improvement", "Emotional Balance", "Mindfulness"],
       bestTimeOfDay: TimeOfDay.any,
@@ -132,7 +135,7 @@ class _HomePageState extends State<HomePage> {
       name: "Sleep Sounds",
       description: "Fall asleep faster with relaxing sounds",
       duration: 30,
-      page: const Soundspage(),
+      page: const ExplorePage(),
       imagePath: "assets/images/test_bg.png",
       tags: ["Better Sleep", "Anxiety Relief"],
       bestTimeOfDay: TimeOfDay.night,
@@ -145,15 +148,42 @@ class _HomePageState extends State<HomePage> {
   // User's personalized schedule
   List<ScheduledActivity> scheduledActivities = [];
 
+  // Flag to track if preferences are loaded
+  bool _preferencesLoaded = false;
+
   @override
   void initState() {
     super.initState();
-    // Show the mental health needs selection modal when the app first loads
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (selectedNeeds.isEmpty) {
+    // Load preferences from cache
+    _loadPreferences();
+  }
+
+  // Load preferences from SharedPreferences
+  Future<void> _loadPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    final cachedNeeds = prefs.getStringList('selectedNeeds');
+
+    if (cachedNeeds != null && cachedNeeds.isNotEmpty) {
+      setState(() {
+        selectedNeeds = cachedNeeds;
+        _preferencesLoaded = true;
+        _generateSmartSchedule();
+      });
+    } else {
+      setState(() {
+        _preferencesLoaded = true;
+      });
+      // Show selection modal only if no preferences were found
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         _showNeedsSelectionModal();
-      }
-    });
+      });
+    }
+  }
+
+  // Save preferences to SharedPreferences
+  Future<void> _savePreferences(List<String> needs) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('selectedNeeds', needs);
   }
 
   void _showNeedsSelectionModal() {
@@ -169,6 +199,8 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 selectedNeeds = selected;
                 _generateSmartSchedule();
+                // Save the selected needs to preferences
+                _savePreferences(selected);
               });
             },
           ),
@@ -238,22 +270,40 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // Show loading indicator while preferences are being loaded
+    if (!_preferencesLoaded) {
+      return Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFF2C3E50), Color(0xFF1A1A2E)],
+            ),
+          ),
+          child: const Center(
+            child: CircularProgressIndicator(color: Colors.white),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(104, 0, 0, 0),
-        elevation: 0,
-        title: const Text(
-          "Your Wellness Journey",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: _showNeedsSelectionModal,
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: const Color.fromARGB(104, 0, 0, 0),
+      //   elevation: 0,
+      //   title: const Text(
+      //     "Your Wellness Journey",
+      //     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       icon: const Icon(Icons.settings),
+      //       onPressed: _showNeedsSelectionModal,
+      //     ),
+      //   ],
+      // ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -269,14 +319,14 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Select parameters personalized wellness schedule",
+                        "Select parameters for personalized wellness schedule",
                         style: TextStyle(color: Colors.white70, fontSize: 16),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: _showNeedsSelectionModal,
-                        child: Text("Select Needs"),
+                        child: const Text("Select Needs"),
                       ),
                     ],
                   ),
@@ -520,7 +570,11 @@ class SmartScheduleTimeline extends StatelessWidget {
             children: [
               Text(
                 dateFormatter.format(now),
-                style: const TextStyle(color: Colors.white70, fontSize: 14),
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 5),
               const Text(
