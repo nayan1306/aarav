@@ -17,14 +17,14 @@ class ExactFeelingPage10 extends StatefulWidget {
 
 class _ExactFeelingPageState extends State<ExactFeelingPage10> {
   final List<Map<String, String>> _feelings = [
-    {"emoji": "😀", "text": "Joyful"},
-    {"emoji": "😌", "text": "Calm"},
-    {"emoji": "🤩", "text": "Excited"},
-    {"emoji": "😎", "text": "Confident"},
-    {"emoji": "🥰", "text": "Loved"},
-    {"emoji": "🤗", "text": "Grateful"},
-    {"emoji": "😊", "text": "Content"},
-    {"emoji": "💪", "text": "Motivated"},
+    {"emoji": "❤️", "text": "Loved"},
+    {"emoji": "😍", "text": "Adored"},
+    {"emoji": "💖", "text": "Cherished"},
+    {"emoji": "🥰", "text": "Affectionate"},
+    {"emoji": "💑", "text": "Connected"},
+    {"emoji": "💕", "text": "Romantic"},
+    {"emoji": "🌹", "text": "Passionate"},
+    {"emoji": "💞", "text": "Appreciative"},
   ];
 
   final Set<int> _selectedIndexes = {};

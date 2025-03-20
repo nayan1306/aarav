@@ -53,14 +53,7 @@ flutter:
     - assets/sounds/rhythm-of-life-301382.mp3
     - assets/images/sound.gif
     - assets/images/wp.jpg
-    - assets/images/mood_tracker/tired.png
-    - assets/images/mood_tracker/sad.png
-    - assets/images/mood_tracker/loving.png
-    - assets/images/mood_tracker/happy.png
-    - assets/images/mood_tracker/good.png
-    - assets/images/mood_tracker/average.png
-    - assets/images/mood_tracker/annoyed.png
-    - assets/images/mood_tracker/angry.png
+    - assets/images/mood_tracker/
     # SAVE THIS FILE (press ctrl+s) everytime you add a new image to breathing to refelect changes
     - assets/images/breathing/
     - assets/images/breathing/box_breathing-removebg-preview.png
@@ -145,6 +138,7 @@ flutter:
     - assets/sounds/sound audio/Soothing Ocean Waves.mp3
     - assets/sounds/sound audio/thoughtful piano instrumenta (attribution ).mp3
     - assets/sounds/sound audio/WATERFALL.mp3
+    - assets/images/affermations icons/bg/
 
 
 

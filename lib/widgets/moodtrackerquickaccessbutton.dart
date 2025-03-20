@@ -84,6 +84,7 @@ class _MoodTrackerQuickAccessButtonState
           toggleButtonSize: 0,
 
           items: [
+            //angry mood
             CircularMenuItem(
               padding: 0,
               iconSize: 40,
@@ -98,12 +99,88 @@ class _MoodTrackerQuickAccessButtonState
                     PageRouteBuilder(
                       transitionDuration: const Duration(milliseconds: 500),
                       pageBuilder:
+                          (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                          ) => MoodTrackerPage(
+                            moodImage: "assets/images/mood_tracker/angry.png",
+                            message:
+                                "Oh no! You are angry! Take a deep breath and let it go",
+                            moodScore: 1,
+                          ),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                    ),
+                  );
+                });
+              },
+            ),
+            //sad mood
+            CircularMenuItem(
+              padding: 0,
+              iconSize: 40,
+              imagePath: "assets/images/mood_tracker/sad.png",
+              color: Colors.transparent,
+              onTap: () {
+                _toggleMenu(); // Close the menu first
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  // Small delay for smooth closing
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder:
+                          (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                          ) => MoodTrackerPage(
+                            moodImage: "assets/images/mood_tracker/sad.png",
+                            message:
+                                "Oh no! You’re feeling sad! It’s okay to take it slow, you’ve got this!",
+                            moodScore: 2,
+                          ),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                    ),
+                  );
+                });
+              },
+            ),
+            //tired mood
+            CircularMenuItem(
+              padding: 0,
+              iconSize: 40,
+              imagePath: "assets/images/mood_tracker/tried.png",
+              color: Colors.transparent,
+              onTap: () {
+                _toggleMenu(); // Close the menu first
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  // Small delay for smooth closing
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder:
                           (context, animation, secondaryAnimation) =>
                               MoodTrackerPage(
                                 moodImage:
-                                    "assets/images/mood_tracker/angry.png",
-                                message: "Oh no! You are angry!",
-                                moodScore: 1,
+                                    "assets/images/mood_tracker/tried.png",
+                                message: "Oh no! You’re tired! Take a break",
+                                moodScore: 3,
                               ),
                       transitionsBuilder: (
                         context,
@@ -118,48 +195,119 @@ class _MoodTrackerQuickAccessButtonState
                 });
               },
             ),
-
+            // average or neutral mood
             CircularMenuItem(
               padding: 0,
-              iconSize: 45,
-              imagePath: "assets/images/mood_tracker/sad.png",
+              iconSize: 40,
+              imagePath: "assets/images/mood_tracker/neutral.png",
               color: Colors.transparent,
-              onTap: () => _showMoodSelected("Sad"),
+              onTap: () {
+                _toggleMenu(); // Close the menu first
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  // Small delay for smooth closing
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder:
+                          (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                          ) => MoodTrackerPage(
+                            moodImage: "assets/images/mood_tracker/neutral.png",
+                            message:
+                                "Just a neutral day? Better moments are ahead!",
+                            moodScore: 5,
+                          ),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                    ),
+                  );
+                });
+              },
             ),
-
-            // ✅ Neutral Emotion
-            CircularMenuItem(
-              padding: 0,
-              iconSize: 50,
-              imagePath: "assets/images/mood_tracker/tired.png",
-              color: Colors.transparent,
-              onTap: () => _showMoodSelected("Tired"),
-            ),
-
+            //good mood
             // ✅ Positive Emotions
             CircularMenuItem(
               padding: 0,
-              iconSize: 50,
-              imagePath: "assets/images/mood_tracker/average.png",
-              color: Colors.transparent,
-              onTap: () => _showMoodSelected("Average"),
-            ),
-
-            CircularMenuItem(
-              padding: 0,
-              iconSize: 65,
+              iconSize: 40,
               imagePath: "assets/images/mood_tracker/good.png",
               color: Colors.transparent,
-              onTap: () => _showMoodSelected("Good"),
+              onTap: () {
+                _toggleMenu(); // Close the menu first
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  // Small delay for smooth closing
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder:
+                          (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                          ) => MoodTrackerPage(
+                            moodImage: "assets/images/mood_tracker/good.png",
+                            message:
+                                "Great! You’re feeling good! Stay positive!",
+                            moodScore: 7,
+                          ),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                    ),
+                  );
+                });
+              },
             ),
-
+            //happy mood
             CircularMenuItem(
               padding: 0,
-              iconSize: 68,
+              iconSize: 40,
               imagePath: "assets/images/mood_tracker/happy.png",
-              color: Colors.transparent, // Light yellow-orange
-              onTap: () => _showMoodSelected("Happy"),
+              color: Colors.transparent,
+              onTap: () {
+                _toggleMenu(); // Close the menu first
+                Future.delayed(const Duration(milliseconds: 300), () {
+                  // Small delay for smooth closing
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder:
+                          (context, animation, secondaryAnimation) =>
+                              MoodTrackerPage(
+                                moodImage:
+                                    "assets/images/mood_tracker/happy.png",
+                                message: "Yay! You're happy! Keep shining!",
+                                moodScore: 8,
+                              ),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                    ),
+                  );
+                });
+              },
             ),
+            //loving mood
             // TODO:implement the same for all the moods
             CircularMenuItem(
               padding: 0,
@@ -181,7 +329,7 @@ class _MoodTrackerQuickAccessButtonState
                           ) => MoodTrackerPage(
                             moodImage: "assets/images/mood_tracker/loving.png",
                             message:
-                                "Cool! You are super happy!", // 🔹 Pass message
+                                "Aww! You're feeling loving! ", // 🔹 Pass message
                             moodScore: 10, // 🔹 Pass integer value
                           ),
                       transitionsBuilder: (

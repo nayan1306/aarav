@@ -11,14 +11,14 @@ class MoodPage10 extends StatefulWidget {
 
 class _MoodPage10State extends State<MoodPage10> {
   final List<Map<String, String>> _reasons = [
-    {"emoji": "😊", "text": "Had a great day"},
-    {"emoji": "💪", "text": "Achieved a goal"},
-    {"emoji": "🎉", "text": "Something exciting happened"},
-    {"emoji": "💖", "text": "Feeling loved"},
-    {"emoji": "🏋️", "text": "Worked out"},
-    {"emoji": "🌿", "text": "Spent time in nature"},
-    {"emoji": "🎶", "text": "Enjoyed music"},
-    {"emoji": "🧘", "text": "Relaxed & stress-free"},
+    {"emoji": "❤️", "text": "Feeling full of love"},
+    {"emoji": "😍", "text": "Feeling special and adored"},
+    {"emoji": "💖", "text": "Surrounded by love and warmth"},
+    {"emoji": "🥰", "text": "Cherishing beautiful moments"},
+    {"emoji": "💑", "text": "Spent quality time with loved ones"},
+    {"emoji": "💕", "text": "Love is in the air"},
+    {"emoji": "🌹", "text": "Feeling romantic"},
+    {"emoji": "💞", "text": "Appreciating the little things"},
     {"emoji": "🤫", "text": "Anonymous"},
   ];
 
