@@ -1,4 +1,4 @@
-# 🌟 aarav
+#  AARAV
 
 Welcome to **aarav**, a cutting-edge Flutter application designed to revolutionize your experience. 🚀
 
@@ -15,11 +15,13 @@ Welcome to **aarav**, a cutting-edge Flutter application designed to revolutioni
 
 ## 📸 Screenshots
 
-> _Showcase your app's beauty! Add screenshots here._
+> _Application Screenshots._
+
+![Home](demo/temp2.png)
 
 | Home Screen | Feature Screen |
 |-------------|----------------|
-| ![Home](screenshots/home.png) | ![Feature](screenshots/feature.png) |
+| ![Home](demo/temp.png) | ![Feature](demo/temp.png) |
 
 ---
 
